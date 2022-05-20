@@ -447,11 +447,8 @@
 
             </LinearLayout>
 
-            <ImageView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:scaleType="fitXY"
-                android:src="@drawable/img_footer" />
+            <include layout="@layout/card_footer"/>
+
         </LinearLayout>
     </ScrollView>
 
