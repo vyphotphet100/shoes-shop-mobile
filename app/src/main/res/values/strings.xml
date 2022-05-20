@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">ShoesShop</string>
+    <string name="thanksAct_text1">You can view your order history by going to the <b>My Account</b> page and by clicking on <b>History</b></string>
+    <string name="thanksAct_text2">Or you can go to your email: <b>abc@gmail.com</b> to view your ordered items.</string>
 </resources>
