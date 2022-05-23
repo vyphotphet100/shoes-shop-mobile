@@ -10,6 +10,11 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.ShoesShop">
         <activity
+            android:name=".RegisterActivity"
+            android:exported="false"
+            android:label="@string/title_activity_register"
+            android:theme="@style/Theme.ShoesShop.NoActionBar" />
+        <activity
             android:name=".PrivacyPolicyActivity"
             android:exported="false" />
         <activity

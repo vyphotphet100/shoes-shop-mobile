@@ -2,4 +2,13 @@
     <string name="app_name">ShoesShop</string>
     <string name="thanksAct_text1">You can view your order history by going to the <b>My Account</b> page and by clicking on <b>History</b></string>
     <string name="thanksAct_text2">Or you can go to your email: <b>abc@gmail.com</b> to view your ordered items.</string>
+    <string name="title_activity_register">RegisterActivity</string>
+    <!-- Strings used for fragments for navigation -->
+    <string name="first_fragment_label">First Fragment</string>
+    <string name="second_fragment_label">Second Fragment</string>
+    <string name="next">Next</string>
+    <string name="previous">Previous</string>
+
+    <string name="hello_first_fragment">Hello first fragment</string>
+    <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
 </resources>
