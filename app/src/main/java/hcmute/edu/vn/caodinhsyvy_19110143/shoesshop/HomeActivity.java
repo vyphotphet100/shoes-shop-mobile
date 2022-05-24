@@ -2,6 +2,7 @@ package hcmute.edu.vn.caodinhsyvy_19110143.shoesshop;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.constraintlayout.widget.ConstraintLayout;
+import androidx.core.widget.NestedScrollView;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -10,6 +11,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;
 import android.widget.HorizontalScrollView;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ScrollView;
 
@@ -20,9 +22,9 @@ import hcmute.edu.vn.caodinhsyvy_19110143.shoesshop.adapter.RvContainerHomeAdapt
 
 public class HomeActivity extends AppCompatActivity {
 
-    public ScrollView srv;
+    public NestedScrollView srv;
     public ConstraintLayout container;
-    public RecyclerView rvContainer;
+//    public RecyclerView rvContainer;
     public LinearLayout itemContainer;
     public ConstraintLayout nikeBannerConsLayout;
     public ConstraintLayout adidasBannerConsLayout;
@@ -30,11 +32,12 @@ public class HomeActivity extends AppCompatActivity {
     public ConstraintLayout converseBannerConsLayout;
     public HorizontalScrollView banner;
     public View headerCard;
+    public ImageView imgDown;
 
     private void mapping() {
         srv = findViewById(R.id.homeAct_srv);
         container = findViewById(R.id.homeAct_container);
-        rvContainer = findViewById(R.id.homeAct_rvContainer);
+//        rvContainer = findViewById(R.id.homeAct_rvContainer);
         itemContainer = findViewById(R.id.homeAct_itemContainer);
         nikeBannerConsLayout = findViewById(R.id.homeAct_nikeBannerConsLayout);
         adidasBannerConsLayout = findViewById(R.id.homeAct_adidasBannerConsLayout);
@@ -42,6 +45,7 @@ public class HomeActivity extends AppCompatActivity {
         converseBannerConsLayout = findViewById(R.id.homeAct_converseBannerConsLayout);
         banner = findViewById(R.id.homeAct_hsvBannerContainer);
         headerCard = View.inflate(this, R.layout.card_header, null);
+        imgDown = findViewById(R.id.homeAct_imgDown);
     }
 
     @Override

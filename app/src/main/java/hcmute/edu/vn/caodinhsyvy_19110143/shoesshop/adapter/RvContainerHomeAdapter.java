@@ -17,18 +17,21 @@ public class RvContainerHomeAdapter extends RecyclerView.Adapter<RecyclerView.Vi
 
     private Context context;
     private List<View> lstViews;
+    private List<HomeViewHolder> lstHomeViewHolders;
+    private int i;
 
     @NonNull
     @Override
     public RecyclerView.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        return new HomeViewHolder(View.inflate(parent.getContext(), R.layout.home_frame_layout, null));
+        return this.lstHomeViewHolders.get(i++);
+        //return new HomeViewHolder(View.inflate(parent.getContext(), R.layout.home_frame_layout, null));
     }
 
     @Override
     public void onBindViewHolder(@NonNull RecyclerView.ViewHolder holder, int position) {
-        FrameLayout homeFrameLayout = holder.itemView.findViewById(R.id.homeFrameLayout);
-        View view = lstViews.get(position);
-        homeFrameLayout.addView(view);
+//        FrameLayout homeFrameLayout = holder.itemView.findViewById(R.id.homeFrameLayout);
+//        View view = lstViews.get(position);
+//        homeFrameLayout.addView(view);
     }
 
     @Override
@@ -39,9 +42,17 @@ public class RvContainerHomeAdapter extends RecyclerView.Adapter<RecyclerView.Vi
     public RvContainerHomeAdapter(Context context, List<View> lstViews) {
         this.context = context;
         this.lstViews = lstViews;
+        this.lstHomeViewHolders = new ArrayList<>();
+        this.i = 0;
+        for (View view : lstViews) {
+            HomeViewHolder homeViewHolder = new HomeViewHolder(View.inflate(this.context, R.layout.home_frame_layout, null));
+            lstHomeViewHolders.add(homeViewHolder);
+            FrameLayout homeFrameLayout = homeViewHolder.itemView.findViewById(R.id.homeFrameLayout);
+            homeFrameLayout.addView(view);
+        }
     }
 
-    public class HomeViewHolder extends RecyclerView.ViewHolder{
+    public class HomeViewHolder extends RecyclerView.ViewHolder {
 
         private View itemView;
 

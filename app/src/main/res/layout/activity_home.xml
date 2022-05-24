@@ -7,19 +7,31 @@
     android:id="@+id/homeAct_container"
     tools:context=".HomeActivity">
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/homeAct_rvContainer"
+<!--    <androidx.recyclerview.widget.RecyclerView-->
+<!--        android:id="@+id/homeAct_rvContainer"-->
+<!--        app:layout_constraintTop_toTopOf="parent"-->
+<!--        app:layout_constraintLeft_toLeftOf="parent"-->
+<!--        app:layout_constraintRight_toRightOf="parent"-->
+<!--        android:orientation="vertical"-->
+<!--        android:nestedScrollingEnabled="false"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content"/>-->
+
+    <include layout="@layout/card_header"
+        android:id="@+id/homeAct_headerLayout"
+        android:layout_width="match_parent"
+        android:layout_height="215dp"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        android:orientation="vertical"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
+        app:layout_constraintRight_toRightOf="parent"/>
 
-    <ScrollView
+    <androidx.core.widget.NestedScrollView
         android:id="@+id/homeAct_srv"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/homeAct_headerLayout"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent">
 
         <LinearLayout
             android:id="@+id/homeAct_itemContainer"
@@ -27,7 +39,7 @@
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
-            <include layout="@layout/card_header"/>
+<!--            <include layout="@layout/card_header"/>-->
 
             <HorizontalScrollView
                 android:id="@+id/homeAct_hsvBannerContainer"
@@ -48,17 +60,17 @@
                         android:scaleType="fitXY"
                         android:src="@drawable/img_slider1" />
 
-<!--                    <ImageView-->
-<!--                        android:layout_width="350dp"-->
-<!--                        android:layout_height="match_parent"-->
-<!--                        android:scaleType="fitXY"-->
-<!--                        android:src="@drawable/img_slider2" />-->
+                    <ImageView
+                        android:layout_width="350dp"
+                        android:layout_height="match_parent"
+                        android:scaleType="fitXY"
+                        android:src="@drawable/img_slider2" />
 
-<!--                    <ImageView-->
-<!--                        android:layout_width="350dp"-->
-<!--                        android:layout_height="match_parent"-->
-<!--                        android:scaleType="fitXY"-->
-<!--                        android:src="@drawable/img_slider3" />-->
+                    <ImageView
+                        android:layout_width="350dp"
+                        android:layout_height="match_parent"
+                        android:scaleType="fitXY"
+                        android:src="@drawable/img_slider3" />
                 </LinearLayout>
             </HorizontalScrollView>
 
@@ -200,59 +212,59 @@
                                 android:textStyle="bold" />
                         </LinearLayout>
 
-<!--                        <LinearLayout-->
-<!--                            android:layout_width="360dp"-->
-<!--                            android:layout_height="wrap_content"-->
-<!--                            android:orientation="vertical">-->
+                        <LinearLayout
+                            android:layout_width="360dp"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical">
 
-<!--                            <ImageView-->
-<!--                                android:layout_width="wrap_content"-->
-<!--                                android:layout_height="180dp"-->
-<!--                                android:src="@drawable/img_product1" />-->
+                            <ImageView
+                                android:layout_width="wrap_content"
+                                android:layout_height="180dp"
+                                android:src="@drawable/img_product1" />
 
-<!--                            <TextView-->
-<!--                                android:layout_width="match_parent"-->
-<!--                                android:layout_height="wrap_content"-->
-<!--                                android:layout_marginTop="20dp"-->
-<!--                                android:text="Test Product"-->
-<!--                                android:textAlignment="center" />-->
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="20dp"
+                                android:text="Test Product"
+                                android:textAlignment="center" />
 
-<!--                            <TextView-->
-<!--                                android:layout_width="match_parent"-->
-<!--                                android:layout_height="wrap_content"-->
-<!--                                android:layout_marginTop="20dp"-->
-<!--                                android:text="$50"-->
-<!--                                android:textAlignment="center"-->
-<!--                                android:textColor="@color/black"-->
-<!--                                android:textStyle="bold" />-->
-<!--                        </LinearLayout>-->
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="20dp"
+                                android:text="$50"
+                                android:textAlignment="center"
+                                android:textColor="@color/black"
+                                android:textStyle="bold" />
+                        </LinearLayout>
 
-<!--                        <LinearLayout-->
-<!--                            android:layout_width="360dp"-->
-<!--                            android:layout_height="wrap_content"-->
-<!--                            android:orientation="vertical">-->
+                        <LinearLayout
+                            android:layout_width="360dp"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical">
 
-<!--                            <ImageView-->
-<!--                                android:layout_width="wrap_content"-->
-<!--                                android:layout_height="180dp"-->
-<!--                                android:src="@drawable/img_product1" />-->
+                            <ImageView
+                                android:layout_width="wrap_content"
+                                android:layout_height="180dp"
+                                android:src="@drawable/img_product1" />
 
-<!--                            <TextView-->
-<!--                                android:layout_width="match_parent"-->
-<!--                                android:layout_height="wrap_content"-->
-<!--                                android:layout_marginTop="20dp"-->
-<!--                                android:text="Test Product"-->
-<!--                                android:textAlignment="center" />-->
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="20dp"
+                                android:text="Test Product"
+                                android:textAlignment="center" />
 
-<!--                            <TextView-->
-<!--                                android:layout_width="match_parent"-->
-<!--                                android:layout_height="wrap_content"-->
-<!--                                android:layout_marginTop="20dp"-->
-<!--                                android:text="$50"-->
-<!--                                android:textAlignment="center"-->
-<!--                                android:textColor="@color/black"-->
-<!--                                android:textStyle="bold" />-->
-<!--                        </LinearLayout>-->
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="20dp"
+                                android:text="$50"
+                                android:textAlignment="center"
+                                android:textColor="@color/black"
+                                android:textStyle="bold" />
+                        </LinearLayout>
 
                     </LinearLayout>
 
@@ -398,59 +410,59 @@
                                 android:textStyle="bold" />
                         </LinearLayout>
 
-<!--                        <LinearLayout-->
-<!--                            android:layout_width="360dp"-->
-<!--                            android:layout_height="wrap_content"-->
-<!--                            android:orientation="vertical">-->
+                        <LinearLayout
+                            android:layout_width="360dp"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical">
 
-<!--                            <ImageView-->
-<!--                                android:layout_width="wrap_content"-->
-<!--                                android:layout_height="180dp"-->
-<!--                                android:src="@drawable/img_product1" />-->
+                            <ImageView
+                                android:layout_width="wrap_content"
+                                android:layout_height="180dp"
+                                android:src="@drawable/img_product1" />
 
-<!--                            <TextView-->
-<!--                                android:layout_width="match_parent"-->
-<!--                                android:layout_height="wrap_content"-->
-<!--                                android:layout_marginTop="20dp"-->
-<!--                                android:text="Test Product"-->
-<!--                                android:textAlignment="center" />-->
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="20dp"
+                                android:text="Test Product"
+                                android:textAlignment="center" />
 
-<!--                            <TextView-->
-<!--                                android:layout_width="match_parent"-->
-<!--                                android:layout_height="wrap_content"-->
-<!--                                android:layout_marginTop="20dp"-->
-<!--                                android:text="$50"-->
-<!--                                android:textAlignment="center"-->
-<!--                                android:textColor="@color/black"-->
-<!--                                android:textStyle="bold" />-->
-<!--                        </LinearLayout>-->
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="20dp"
+                                android:text="$50"
+                                android:textAlignment="center"
+                                android:textColor="@color/black"
+                                android:textStyle="bold" />
+                        </LinearLayout>
 
-<!--                        <LinearLayout-->
-<!--                            android:layout_width="360dp"-->
-<!--                            android:layout_height="wrap_content"-->
-<!--                            android:orientation="vertical">-->
+                        <LinearLayout
+                            android:layout_width="360dp"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical">
 
-<!--                            <ImageView-->
-<!--                                android:layout_width="wrap_content"-->
-<!--                                android:layout_height="180dp"-->
-<!--                                android:src="@drawable/img_product1" />-->
+                            <ImageView
+                                android:layout_width="wrap_content"
+                                android:layout_height="180dp"
+                                android:src="@drawable/img_product1" />
 
-<!--                            <TextView-->
-<!--                                android:layout_width="match_parent"-->
-<!--                                android:layout_height="wrap_content"-->
-<!--                                android:layout_marginTop="20dp"-->
-<!--                                android:text="Test Product"-->
-<!--                                android:textAlignment="center" />-->
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="20dp"
+                                android:text="Test Product"
+                                android:textAlignment="center" />
 
-<!--                            <TextView-->
-<!--                                android:layout_width="match_parent"-->
-<!--                                android:layout_height="wrap_content"-->
-<!--                                android:layout_marginTop="20dp"-->
-<!--                                android:text="$50"-->
-<!--                                android:textAlignment="center"-->
-<!--                                android:textColor="@color/black"-->
-<!--                                android:textStyle="bold" />-->
-<!--                        </LinearLayout>-->
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="20dp"
+                                android:text="$50"
+                                android:textAlignment="center"
+                                android:textColor="@color/black"
+                                android:textStyle="bold" />
+                        </LinearLayout>
 
                     </LinearLayout>
 
@@ -576,7 +588,30 @@
 
             <include layout="@layout/card_footer"/>
 
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="215dp"/>
+
         </LinearLayout>
-    </ScrollView>
+    </androidx.core.widget.NestedScrollView>
+
+    <androidx.cardview.widget.CardView
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginBottom="10dp"
+        android:layout_marginRight="10dp"
+        app:cardCornerRadius="10dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:id="@+id/homeAct_imgDown"
+            android:padding="10dp"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:background="@color/black"
+            android:src="@android:drawable/arrow_down_float"/>
+
+    </androidx.cardview.widget.CardView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
