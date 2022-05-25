@@ -1,30 +1,29 @@
 package hcmute.edu.vn.caodinhsyvy_19110143.shoesshop;
 
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.constraintlayout.widget.ConstraintLayout;
-import androidx.core.widget.NestedScrollView;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
-
 import android.os.Bundle;
 import android.view.View;
-import android.view.ViewGroup;
-import android.widget.FrameLayout;
 import android.widget.HorizontalScrollView;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
-import android.widget.ScrollView;
 
-import java.util.ArrayList;
-import java.util.List;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.constraintlayout.widget.ConstraintLayout;
+import androidx.core.widget.NestedScrollView;
 
-import hcmute.edu.vn.caodinhsyvy_19110143.shoesshop.adapter.RvContainerHomeAdapter;
+import com.sun.jersey.api.client.Client;
+import com.sun.jersey.api.client.ClientResponse;
+import com.sun.jersey.api.client.WebResource;
+import com.sun.jersey.api.client.config.ClientConfig;
+import com.sun.jersey.api.client.config.DefaultClientConfig;
+
+import javax.ws.rs.core.MediaType;
+
+import hcmute.edu.vn.caodinhsyvy_19110143.shoesshop.entity.BrandEntity;
 
 public class HomeActivity extends AppCompatActivity {
 
     public NestedScrollView srv;
     public ConstraintLayout container;
-//    public RecyclerView rvContainer;
     public LinearLayout itemContainer;
     public ConstraintLayout nikeBannerConsLayout;
     public ConstraintLayout adidasBannerConsLayout;
@@ -37,7 +36,6 @@ public class HomeActivity extends AppCompatActivity {
     private void mapping() {
         srv = findViewById(R.id.homeAct_srv);
         container = findViewById(R.id.homeAct_container);
-//        rvContainer = findViewById(R.id.homeAct_rvContainer);
         itemContainer = findViewById(R.id.homeAct_itemContainer);
         nikeBannerConsLayout = findViewById(R.id.homeAct_nikeBannerConsLayout);
         adidasBannerConsLayout = findViewById(R.id.homeAct_adidasBannerConsLayout);
@@ -61,22 +59,35 @@ public class HomeActivity extends AppCompatActivity {
     @Override
     protected void onResume() {
         super.onResume();
+    }
 
-//        List<View> lstViews = new ArrayList<>();
-//        lstViews.add(headerCard);
-//        lstViews.add(banner);
-//        lstViews.add(nikeBannerConsLayout);
-//        lstViews.add(adidasBannerConsLayout);
-//        lstViews.add(pumaBannerConsLayout);
-//        lstViews.add(converseBannerConsLayout);
-//
-//        itemContainer.removeAllViews();
-//        srv.removeAllViews();
-//        container.removeAllViews();
-//
-//        RvContainerHomeAdapter rvContainerHomeAdapter = new RvContainerHomeAdapter(this, lstViews);
-//        rvContainer.setAdapter(rvContainerHomeAdapter);
-//        rvContainer.setLayoutManager(new LinearLayoutManager(this));
-//        container.addView(rvContainer);
+    private void test() {
+        ClientConfig clientConfig = new DefaultClientConfig();
+
+
+        // Tạo đối tượng Client dựa trên cấu hình.
+        Client client = Client.create(clientConfig);
+
+        WebResource webResource = client.resource("http://localhost:8080/RESTfulCRUD/rest/employees/E01");
+
+        WebResource.Builder builder = webResource.accept(MediaType.APPLICATION_JSON) //
+                .header("content-type", MediaType.APPLICATION_JSON);
+
+        ClientResponse response = builder.get(ClientResponse.class);
+
+
+        // Trạng thái 200 là thành công
+        if (response.getStatus() != 200) {
+            System.out.println("Failed with HTTP Error code: " + response.getStatus());
+            String error = response.getEntity(String.class);
+            System.out.println("Error: " + error);
+            return;
+        }
+
+        System.out.println("Output from Server .... \n");
+
+        BrandEntity brand = (BrandEntity) response.getEntity(BrandEntity.class);
+
+
     }
 }

@@ -7,16 +7,6 @@
     android:id="@+id/homeAct_container"
     tools:context=".HomeActivity">
 
-<!--    <androidx.recyclerview.widget.RecyclerView-->
-<!--        android:id="@+id/homeAct_rvContainer"-->
-<!--        app:layout_constraintTop_toTopOf="parent"-->
-<!--        app:layout_constraintLeft_toLeftOf="parent"-->
-<!--        app:layout_constraintRight_toRightOf="parent"-->
-<!--        android:orientation="vertical"-->
-<!--        android:nestedScrollingEnabled="false"-->
-<!--        android:layout_width="match_parent"-->
-<!--        android:layout_height="wrap_content"/>-->
-
     <include layout="@layout/card_header"
         android:id="@+id/homeAct_headerLayout"
         android:layout_width="match_parent"
