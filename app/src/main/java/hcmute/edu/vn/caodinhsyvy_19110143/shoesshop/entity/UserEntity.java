@@ -4,10 +4,6 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-import lombok.Getter;
-import lombok.Setter;
-
-@Getter @Setter
 public class UserEntity extends BaseEntity<UserEntity> {
     private Integer id;
     private String firstName;
@@ -28,5 +24,167 @@ public class UserEntity extends BaseEntity<UserEntity> {
     private List<TransferPaymentEntity> sellerTransferPayments = new ArrayList<>();
     private String chatPluginScript;
     private String confirmPassword;
+    private Object authorities;
 
+    @Override
+    public Integer getId() {
+        return id;
+    }
+
+    @Override
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
+    public String getFirstName() {
+        return firstName;
+    }
+
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
+    }
+
+    public String getLastName() {
+        return lastName;
+    }
+
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
+    }
+
+    public String getGender() {
+        return gender;
+    }
+
+    public void setGender(String gender) {
+        this.gender = gender;
+    }
+
+    public Date getBirthday() {
+        return birthday;
+    }
+
+    public void setBirthday(Date birthday) {
+        this.birthday = birthday;
+    }
+
+    public String getAddress() {
+        return address;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
+    }
+
+    public String getPhone() {
+        return phone;
+    }
+
+    public void setPhone(String phone) {
+        this.phone = phone;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public String getUsername() {
+        return username;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    public Boolean getIsActive() {
+        return isActive;
+    }
+
+    public void setIsActive(Boolean active) {
+        isActive = active;
+    }
+
+    public RoleEntity getRole() {
+        return role;
+    }
+
+    public void setRole(RoleEntity role) {
+        this.role = role;
+    }
+
+    public PaymentMethodEntity getPaymentMethod() {
+        return paymentMethod;
+    }
+
+    public void setPaymentMethod(PaymentMethodEntity paymentMethod) {
+        this.paymentMethod = paymentMethod;
+    }
+
+    public List<ProductEntity> getProducts() {
+        return products;
+    }
+
+    public void setProducts(List<ProductEntity> products) {
+        this.products = products;
+    }
+
+    public List<OrderItemEntity> getOrderItems() {
+        return orderItems;
+    }
+
+    public void setOrderItems(List<OrderItemEntity> orderItems) {
+        this.orderItems = orderItems;
+    }
+
+    public List<TransferPaymentEntity> getAdminTransferPayments() {
+        return adminTransferPayments;
+    }
+
+    public void setAdminTransferPayments(List<TransferPaymentEntity> adminTransferPayments) {
+        this.adminTransferPayments = adminTransferPayments;
+    }
+
+    public List<TransferPaymentEntity> getSellerTransferPayments() {
+        return sellerTransferPayments;
+    }
+
+    public void setSellerTransferPayments(List<TransferPaymentEntity> sellerTransferPayments) {
+        this.sellerTransferPayments = sellerTransferPayments;
+    }
+
+    public String getChatPluginScript() {
+        return chatPluginScript;
+    }
+
+    public void setChatPluginScript(String chatPluginScript) {
+        this.chatPluginScript = chatPluginScript;
+    }
+
+    public String getConfirmPassword() {
+        return confirmPassword;
+    }
+
+    public void setConfirmPassword(String confirmPassword) {
+        this.confirmPassword = confirmPassword;
+    }
+
+    public Object getAuthorities() {
+        return authorities;
+    }
+
+    public void setAuthorities(Object authorities) {
+        this.authorities = authorities;
+    }
 }

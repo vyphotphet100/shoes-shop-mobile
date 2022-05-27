@@ -1,24 +1,21 @@
 package hcmute.edu.vn.caodinhsyvy_19110143.shoesshop.entity;
 
-import static javax.persistence.TemporalType.TIMESTAMP;
 
 import net.minidev.json.JSONObject;
+
+import org.springframework.http.HttpStatus;
+
 import java.util.Date;
 import java.util.HashMap;
-import javax.persistence.Temporal;
-import lombok.Getter;
-import lombok.Setter;
 
-@Getter @Setter
+
 public abstract class BaseEntity<D> implements Cloneable{
     private String createdBy;
 
-    @Temporal(TIMESTAMP)
     private Date createdDate;
 
     private String modifiedBy;
 
-    @Temporal(TIMESTAMP)
     private Date modifiedDate;
 
     private String addedData;
@@ -68,7 +65,7 @@ public abstract class BaseEntity<D> implements Cloneable{
 
     private String message;
 
-    private String httpStatus = "OK";
+    private HttpStatus httpStatus = HttpStatus.OK;
 
     private HashMap<String, Object> listRequest = new HashMap<>();
 
@@ -82,4 +79,84 @@ public abstract class BaseEntity<D> implements Cloneable{
         return (BaseEntity)super.clone();
     }
 
+
+    public String getCreatedBy() {
+        return createdBy;
+    }
+
+    public void setCreatedBy(String createdBy) {
+        this.createdBy = createdBy;
+    }
+
+    public Date getCreatedDate() {
+        return createdDate;
+    }
+
+    public void setCreatedDate(Date createdDate) {
+        this.createdDate = createdDate;
+    }
+
+    public String getModifiedBy() {
+        return modifiedBy;
+    }
+
+    public void setModifiedBy(String modifiedBy) {
+        this.modifiedBy = modifiedBy;
+    }
+
+    public Date getModifiedDate() {
+        return modifiedDate;
+    }
+
+    public void setModifiedDate(Date modifiedDate) {
+        this.modifiedDate = modifiedDate;
+    }
+
+    public String getMessage() {
+        return message;
+    }
+
+    public void setMessage(String message) {
+        this.message = message;
+    }
+
+    public HttpStatus getHttpStatus() {
+        return httpStatus;
+    }
+
+    public void setHttpStatus(HttpStatus httpStatus) {
+        this.httpStatus = httpStatus;
+    }
+
+    public HashMap<String, Object> getListRequest() {
+        return listRequest;
+    }
+
+    public void setListRequest(HashMap<String, Object> listRequest) {
+        this.listRequest = listRequest;
+    }
+
+    public HashMap<String, Object> getListResult() {
+        return listResult;
+    }
+
+    public void setListResult(HashMap<String, Object> listResult) {
+        this.listResult = listResult;
+    }
+
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
+    public String getCode() {
+        return code;
+    }
+
+    public void setCode(String code) {
+        this.code = code;
+    }
 }
