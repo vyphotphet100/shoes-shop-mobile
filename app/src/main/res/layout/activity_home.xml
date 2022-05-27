@@ -80,6 +80,7 @@
                     app:layout_constraintTop_toTopOf="parent" />
 
                 <TextView
+                    android:id="@+id/homeAct_txtBrand1ShopNow"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="10dp"
@@ -95,11 +96,12 @@
                     app:layout_constraintLeft_toLeftOf="parent" />
 
                 <TextView
+                    android:id="@+id/homeAct_txtBrand1"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="20dp"
                     android:layout_marginBottom="60dp"
-                    android:text="Nike"
+                    android:text="brand1"
                     android:textColor="@color/white"
                     android:textStyle="bold"
                     app:layout_constraintBottom_toBottomOf="parent"
@@ -138,11 +140,12 @@
                     app:layout_constraintLeft_toLeftOf="parent" />
 
                 <TextView
+                    android:id="@+id/homeAct_txtBrand2"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="20dp"
                     android:layout_marginBottom="60dp"
-                    android:text="Adidas"
+                    android:text="brand2"
                     android:textColor="@color/white"
                     android:textStyle="bold"
                     app:layout_constraintBottom_toBottomOf="parent"
@@ -158,10 +161,11 @@
                 android:orientation="vertical">
 
                 <TextView
+                    android:id="@+id/homeAct_txtCategory1"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:padding="10dp"
-                    android:text="Women's Shoes"
+                    android:text="category1"
                     android:textAlignment="center"
                     android:textSize="19dp"
                     android:textStyle="bold" />
@@ -171,90 +175,15 @@
                     android:layout_height="wrap_content">
 
                     <LinearLayout
+                        android:id="@+id/homeAct_cate1Container"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:orientation="horizontal">
 
-                        <LinearLayout
-                            android:layout_width="360dp"
-                            android:layout_height="wrap_content"
-                            android:orientation="vertical">
+                        <include layout="@layout/card_product"/>
+                        <include layout="@layout/card_product"/>
+                        <include layout="@layout/card_product"/>
 
-                            <ImageView
-                                android:layout_width="wrap_content"
-                                android:layout_height="180dp"
-                                android:src="@drawable/img_product1" />
-
-                            <TextView
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:layout_marginTop="20dp"
-                                android:text="Test Product"
-                                android:textAlignment="center" />
-
-                            <TextView
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:layout_marginTop="20dp"
-                                android:text="$50"
-                                android:textAlignment="center"
-                                android:textColor="@color/black"
-                                android:textStyle="bold" />
-                        </LinearLayout>
-
-                        <LinearLayout
-                            android:layout_width="360dp"
-                            android:layout_height="wrap_content"
-                            android:orientation="vertical">
-
-                            <ImageView
-                                android:layout_width="wrap_content"
-                                android:layout_height="180dp"
-                                android:src="@drawable/img_product1" />
-
-                            <TextView
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:layout_marginTop="20dp"
-                                android:text="Test Product"
-                                android:textAlignment="center" />
-
-                            <TextView
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:layout_marginTop="20dp"
-                                android:text="$50"
-                                android:textAlignment="center"
-                                android:textColor="@color/black"
-                                android:textStyle="bold" />
-                        </LinearLayout>
-
-                        <LinearLayout
-                            android:layout_width="360dp"
-                            android:layout_height="wrap_content"
-                            android:orientation="vertical">
-
-                            <ImageView
-                                android:layout_width="wrap_content"
-                                android:layout_height="180dp"
-                                android:src="@drawable/img_product1" />
-
-                            <TextView
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:layout_marginTop="20dp"
-                                android:text="Test Product"
-                                android:textAlignment="center" />
-
-                            <TextView
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:layout_marginTop="20dp"
-                                android:text="$50"
-                                android:textAlignment="center"
-                                android:textColor="@color/black"
-                                android:textStyle="bold" />
-                        </LinearLayout>
 
                     </LinearLayout>
 
@@ -293,11 +222,12 @@
                     app:layout_constraintLeft_toLeftOf="parent" />
 
                 <TextView
+                    android:id="@+id/homeAct_txtBrand3"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="20dp"
                     android:layout_marginBottom="60dp"
-                    android:text="Puma"
+                    android:text="brand3"
                     android:textColor="@color/white"
                     android:textStyle="bold"
                     app:layout_constraintBottom_toBottomOf="parent"
@@ -336,11 +266,12 @@
                     app:layout_constraintLeft_toLeftOf="parent" />
 
                 <TextView
+                    android:id="@+id/homeAct_txtBrand4"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="20dp"
                     android:layout_marginBottom="60dp"
-                    android:text="Converse"
+                    android:text="brand4"
                     android:textColor="@color/white"
                     android:textStyle="bold"
                     app:layout_constraintBottom_toBottomOf="parent"
@@ -356,10 +287,11 @@
                 android:orientation="vertical">
 
                 <TextView
+                    android:id="@+id/homeAct_txtCategory2"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:padding="10dp"
-                    android:text="Men's Shoes"
+                    android:text="category2"
                     android:textAlignment="center"
                     android:textSize="19dp"
                     android:textStyle="bold" />
@@ -369,90 +301,14 @@
                     android:layout_height="wrap_content">
 
                     <LinearLayout
+                        android:id="@+id/homeAct_cate2Container"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:orientation="horizontal">
 
-                        <LinearLayout
-                            android:layout_width="360dp"
-                            android:layout_height="wrap_content"
-                            android:orientation="vertical">
-
-                            <ImageView
-                                android:layout_width="wrap_content"
-                                android:layout_height="180dp"
-                                android:src="@drawable/img_product1" />
-
-                            <TextView
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:layout_marginTop="20dp"
-                                android:text="Test Product"
-                                android:textAlignment="center" />
-
-                            <TextView
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:layout_marginTop="20dp"
-                                android:text="$50"
-                                android:textAlignment="center"
-                                android:textColor="@color/black"
-                                android:textStyle="bold" />
-                        </LinearLayout>
-
-                        <LinearLayout
-                            android:layout_width="360dp"
-                            android:layout_height="wrap_content"
-                            android:orientation="vertical">
-
-                            <ImageView
-                                android:layout_width="wrap_content"
-                                android:layout_height="180dp"
-                                android:src="@drawable/img_product1" />
-
-                            <TextView
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:layout_marginTop="20dp"
-                                android:text="Test Product"
-                                android:textAlignment="center" />
-
-                            <TextView
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:layout_marginTop="20dp"
-                                android:text="$50"
-                                android:textAlignment="center"
-                                android:textColor="@color/black"
-                                android:textStyle="bold" />
-                        </LinearLayout>
-
-                        <LinearLayout
-                            android:layout_width="360dp"
-                            android:layout_height="wrap_content"
-                            android:orientation="vertical">
-
-                            <ImageView
-                                android:layout_width="wrap_content"
-                                android:layout_height="180dp"
-                                android:src="@drawable/img_product1" />
-
-                            <TextView
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:layout_marginTop="20dp"
-                                android:text="Test Product"
-                                android:textAlignment="center" />
-
-                            <TextView
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:layout_marginTop="20dp"
-                                android:text="$50"
-                                android:textAlignment="center"
-                                android:textColor="@color/black"
-                                android:textStyle="bold" />
-                        </LinearLayout>
+                        <include layout="@layout/card_product"/>
+                        <include layout="@layout/card_product"/>
+                        <include layout="@layout/card_product"/>
 
                     </LinearLayout>
 
@@ -491,6 +347,7 @@
                         app:layout_constraintTop_toTopOf="parent" />
 
                     <TextView
+                        android:id="@+id/homeAct_txtBrand5"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:background="@color/black"
@@ -498,7 +355,7 @@
                         android:paddingTop="10dp"
                         android:paddingRight="20dp"
                         android:paddingBottom="10dp"
-                        android:text="GYM"
+                        android:text="brand5"
                         android:textColor="@color/white"
                         android:textStyle="bold"
                         app:layout_constraintBottom_toBottomOf="parent"
@@ -524,6 +381,7 @@
                         app:layout_constraintTop_toTopOf="parent" />
 
                     <TextView
+                        android:id="@+id/homeAct_txtBrand6"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:background="@color/black"
@@ -531,7 +389,7 @@
                         android:paddingTop="10dp"
                         android:paddingRight="20dp"
                         android:paddingBottom="10dp"
-                        android:text="YOGA"
+                        android:text="brand6"
                         android:textColor="@color/white"
                         android:textStyle="bold"
                         app:layout_constraintBottom_toBottomOf="parent"
@@ -557,6 +415,7 @@
                         app:layout_constraintTop_toTopOf="parent" />
 
                     <TextView
+                        android:id="@+id/homeAct_txtBrand7"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:background="@color/black"
@@ -564,7 +423,7 @@
                         android:paddingTop="10dp"
                         android:paddingRight="20dp"
                         android:paddingBottom="10dp"
-                        android:text="SWIMMING"
+                        android:text="brand7"
                         android:textColor="@color/white"
                         android:textStyle="bold"
                         app:layout_constraintBottom_toBottomOf="parent"

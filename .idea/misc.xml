@@ -13,7 +13,8 @@
         <entry key="..\:/School/MobileProgramming/shoes-shop-mobile/app/src/main/res/layout/home_frame_layout.xml" value="0.25416666666666665" />
         <entry key="app/src/main/res/layout/activity_about_us.xml" value="0.33" />
         <entry key="app/src/main/res/layout/activity_check_out.xml" value="0.27712854757929883" />
-        <entry key="app/src/main/res/layout/activity_home.xml" value="0.33" />
+        <entry key="app/src/main/res/layout/activity_home.xml" value="0.2215508559919436" />
+        <entry key="app/src/main/res/layout/activity_loading.xml" value="0.259375" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.21899736147757257" />
         <entry key="app/src/main/res/layout/activity_privacy_policy.xml" value="0.2914837576821773" />
         <entry key="app/src/main/res/layout/activity_register.xml" value="0.259375" />
@@ -21,9 +22,12 @@
         <entry key="app/src/main/res/layout/activity_thanks.xml" value="0.33" />
         <entry key="app/src/main/res/layout/card_account.xml" value="0.259375" />
         <entry key="app/src/main/res/layout/card_confirm_order.xml" value="0.259375" />
+        <entry key="app/src/main/res/layout/card_confirm_order_item.xml" value="0.1" />
         <entry key="app/src/main/res/layout/card_footer.xml" value="0.259375" />
         <entry key="app/src/main/res/layout/card_header.xml" value="0.259375" />
         <entry key="app/src/main/res/layout/card_information.xml" value="0.259375" />
+        <entry key="app/src/main/res/layout/card_product.xml" value="0.259375" />
+        <entry key="app/src/main/res/layout/card_register.xml" value="0.25" />
         <entry key="app/src/main/res/layout/home_frame_layout.xml" value="0.259375" />
         <entry key="app/src/main/res/layout/item_common_banner.xml" value="0.259375" />
       </map>
