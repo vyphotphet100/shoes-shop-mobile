@@ -2,7 +2,9 @@ package hcmute.edu.vn.caodinhsyvy_19110143.shoesshop;
 
 import android.app.ProgressDialog;
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.TableLayout;
 import android.widget.TextView;
 
@@ -19,7 +21,7 @@ public class ReviewPaymentActivity extends AppCompatActivity {
     private Context context;
     public TableLayout tbLayOrderItemContainer;
     public TextView txtShippingAddress, txtDescription, txtSubTotal, txtTotal,
-            txtFirstName, txtLastName, txtEmail;
+            txtFirstName, txtLastName, txtEmail, txtPayNow;
 
     public String phone, address;
 
@@ -32,6 +34,7 @@ public class ReviewPaymentActivity extends AppCompatActivity {
         txtFirstName = findViewById(R.id.reviewPaymentAct_txtFirstName);
         txtLastName = findViewById(R.id.reviewPaymentAct_txtLastName);
         txtEmail = findViewById(R.id.reviewPaymentAct_txtEmail);
+        txtPayNow = findViewById(R.id.reviewPaymentAct_txtPayNow);
         Bundle extras = getIntent().getExtras();
         this.phone = extras.getString("phone");
         this.address = extras.getString("address");
@@ -45,6 +48,16 @@ public class ReviewPaymentActivity extends AppCompatActivity {
         mapping();
 
         loadInitData();
+
+        txtPayNow.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(context, ThanksActivity.class);
+                startActivity(intent);
+                finish();
+            }
+        });
+
     }
 
     private void loadInitData() {
