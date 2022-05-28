@@ -1,11 +1,10 @@
 package hcmute.edu.vn.caodinhsyvy_19110143.shoesshop.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 import java.util.Date;
 
-import lombok.Getter;
-import lombok.Setter;
-
-@Getter @Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class TransferPaymentEntity extends BaseEntity<TransferPaymentEntity>{
     private Integer id;
     private Date transferDate;
@@ -14,4 +13,53 @@ public class TransferPaymentEntity extends BaseEntity<TransferPaymentEntity>{
     private UserEntity seller;
     private PaymentEntity payment;
 
+    @Override
+    public Integer getId() {
+        return id;
+    }
+
+    @Override
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
+    public Date getTransferDate() {
+        return transferDate;
+    }
+
+    public void setTransferDate(Date transferDate) {
+        this.transferDate = transferDate;
+    }
+
+    public Float getAmount() {
+        return amount;
+    }
+
+    public void setAmount(Float amount) {
+        this.amount = amount;
+    }
+
+    public UserEntity getAdmin() {
+        return admin;
+    }
+
+    public void setAdmin(UserEntity admin) {
+        this.admin = admin;
+    }
+
+    public UserEntity getSeller() {
+        return seller;
+    }
+
+    public void setSeller(UserEntity seller) {
+        this.seller = seller;
+    }
+
+    public PaymentEntity getPayment() {
+        return payment;
+    }
+
+    public void setPayment(PaymentEntity payment) {
+        this.payment = payment;
+    }
 }

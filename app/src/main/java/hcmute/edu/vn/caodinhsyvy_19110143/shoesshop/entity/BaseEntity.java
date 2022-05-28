@@ -1,6 +1,8 @@
 package hcmute.edu.vn.caodinhsyvy_19110143.shoesshop.entity;
 
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 import net.minidev.json.JSONObject;
 
 import org.springframework.http.HttpStatus;
@@ -8,7 +10,7 @@ import org.springframework.http.HttpStatus;
 import java.util.Date;
 import java.util.HashMap;
 
-
+@JsonIgnoreProperties(ignoreUnknown = true)
 public abstract class BaseEntity<D> implements Cloneable{
     private String createdBy;
 

@@ -6,6 +6,7 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.FrameLayout;
 import android.widget.HorizontalScrollView;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -17,20 +18,25 @@ import androidx.core.widget.NestedScrollView;
 
 import com.squareup.picasso.Picasso;
 
+import org.springframework.http.HttpStatus;
+
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
 
+import hcmute.edu.vn.caodinhsyvy_19110143.shoesshop.card.HeaderCard;
 import hcmute.edu.vn.caodinhsyvy_19110143.shoesshop.card.ProductCard;
 import hcmute.edu.vn.caodinhsyvy_19110143.shoesshop.constant.AppConstant;
 import hcmute.edu.vn.caodinhsyvy_19110143.shoesshop.crane.BrandCrane;
 import hcmute.edu.vn.caodinhsyvy_19110143.shoesshop.crane.CategoryCrane;
 import hcmute.edu.vn.caodinhsyvy_19110143.shoesshop.crane.ProductCrane;
 import hcmute.edu.vn.caodinhsyvy_19110143.shoesshop.crane.page.HomePageCrane;
+import hcmute.edu.vn.caodinhsyvy_19110143.shoesshop.crane.page.LoginPageCrane;
 import hcmute.edu.vn.caodinhsyvy_19110143.shoesshop.entity.BrandEntity;
 import hcmute.edu.vn.caodinhsyvy_19110143.shoesshop.entity.CategoryEntity;
 import hcmute.edu.vn.caodinhsyvy_19110143.shoesshop.entity.ProductEntity;
+import hcmute.edu.vn.caodinhsyvy_19110143.shoesshop.entity.UserEntity;
 import hcmute.edu.vn.caodinhsyvy_19110143.shoesshop.page_entity.HomePageEntity;
 
 public class HomeActivity extends AppCompatActivity {
@@ -44,8 +50,9 @@ public class HomeActivity extends AppCompatActivity {
     public ConstraintLayout pumaBannerConsLayout;
     public ConstraintLayout converseBannerConsLayout;
     public HorizontalScrollView banner;
-    public View headerCard;
+    public HeaderCard headerCard;
     public ImageView imgDown;
+    public FrameLayout frameHeaderContainer;
     public TextView txtBrand1, txtBrand2,
             txtBrand3, txtBrand4,
             txtBrand5, txtBrand6,
@@ -64,7 +71,8 @@ public class HomeActivity extends AppCompatActivity {
         pumaBannerConsLayout = findViewById(R.id.homeAct_pumaBannerConsLayout);
         converseBannerConsLayout = findViewById(R.id.homeAct_converseBannerConsLayout);
         banner = findViewById(R.id.homeAct_hsvBannerContainer);
-        headerCard = View.inflate(this, R.layout.card_header, null);
+        headerCard = new HeaderCard(this);
+        frameHeaderContainer = findViewById(R.id.homeAct_headerContainer);
         imgDown = findViewById(R.id.homeAct_imgDown);
         txtBrand1 = findViewById(R.id.homeAct_txtBrand1);
         txtBrand2 = findViewById(R.id.homeAct_txtBrand2);
@@ -84,18 +92,38 @@ public class HomeActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
         mapping();
-        AppConstant.progressDialog = ProgressDialog.show(HomeActivity.this, "Noriva",
-                "Loading...", true);
-        AppConstant.progressDialog.dismiss();
+
+        setHeaderCard();
+        setEvent();
         loadInitData();
+
+        txtBrand1ShopNow.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (AppConstant.loggedInUserEntity != null){
+                    Intent intent = new Intent(HomeActivity.this, CheckOutActivity.class);
+                    startActivity(intent);
+//                    finish();
+                }
+
+            }
+        });
+    }
+
+    private void setHeaderCard() {
+        frameHeaderContainer.removeAllViews();
+        frameHeaderContainer.addView(headerCard.getView());
+    }
+
+    private void setEvent() {
+//        headerCard
     }
 
 
     private void loadInitData() {
-        BrandCrane brandCrane = new BrandCrane();
-        CategoryCrane categoryCrane = new CategoryCrane();
 
-        AppConstant.progressDialog.show();
+        ProgressDialog progressDialog = ProgressDialog.show(this, "Noriva",
+                "Loading...", true);
 
         new Thread() {
 
@@ -104,12 +132,10 @@ public class HomeActivity extends AppCompatActivity {
                 HomePageCrane homePageCrane = new HomePageCrane();
                 HomePageEntity homePageEntity = homePageCrane.getDataHomePage();
 
-
-                // get
-//                List<BrandEntity> brandEntities = brandCrane.findAll(false);
-//                List<CategoryEntity> categoryEntities = categoryCrane.findAll(true);
-//                List<ProductEntity> cate1Products = new ArrayList<>();
-
+                LoginPageCrane loginPageCrane = new LoginPageCrane();
+                UserEntity userEntity = loginPageCrane.login("user5", "123456");
+                if (userEntity.getHttpStatus() == HttpStatus.OK)
+                    AppConstant.loggedInUserEntity = userEntity;
 
                 // set to UI
                 runOnUiThread(new Runnable() {
@@ -149,7 +175,7 @@ public class HomeActivity extends AppCompatActivity {
                             cate2Container.addView(productCard.getView());
                         }
 
-                        AppConstant.progressDialog.dismiss();
+                        progressDialog.dismiss();
                     }
                 });
             }
