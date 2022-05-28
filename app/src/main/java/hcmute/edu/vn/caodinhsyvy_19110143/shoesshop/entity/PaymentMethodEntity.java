@@ -1,15 +1,39 @@
 package hcmute.edu.vn.caodinhsyvy_19110143.shoesshop.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 import java.util.ArrayList;
 import java.util.List;
 
-import lombok.Getter;
-import lombok.Setter;
-
-@Getter @Setter
-public class PaymentMethodEntity extends BaseEntity<PaymentMethodEntity>{
+@JsonIgnoreProperties(ignoreUnknown = true)
+public class PaymentMethodEntity extends BaseEntity<PaymentMethodEntity> {
     private Integer id;
     private String name;
     private List<UserEntity> users = new ArrayList<>();
 
+    @Override
+    public Integer getId() {
+        return id;
+    }
+
+    @Override
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public List<UserEntity> getUsers() {
+        return users;
+    }
+
+    public void setUsers(List<UserEntity> users) {
+        this.users = users;
+    }
 }

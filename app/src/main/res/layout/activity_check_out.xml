@@ -6,16 +6,31 @@
     android:layout_height="match_parent"
     tools:context=".CheckOutActivity">
 
-    <ScrollView
+    <FrameLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:id="@+id/checkOutAct_headerContainer"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent">
+
+        <include layout="@layout/card_header" />
+
+    </FrameLayout>
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/checkOutAct_headerContainer"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
-            <include layout="@layout/card_header"/>
+<!--            <include layout="@layout/card_header"/>-->
 
             <LinearLayout
                 android:orientation="vertical"
@@ -87,6 +102,7 @@
                                 android:background="@color/black">
 
                                 <EditText
+                                    android:id="@+id/checkOutAct_edtTxtFirstName"
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
                                     android:background="#D3D3D3"
@@ -94,7 +110,7 @@
                                     android:paddingTop="3dp"
                                     android:paddingBottom="3dp"
                                     android:paddingRight="10dp"
-                                    android:text="Nguyen"
+                                    android:text="..."
                                     android:textSize="14dp"
                                     android:editable="false"/>
                             </androidx.cardview.widget.CardView>
@@ -114,6 +130,7 @@
                                 android:background="@color/black">
 
                                 <EditText
+                                    android:id="@+id/checkOutAct_edtTxtLastName"
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
                                     android:background="#D3D3D3"
@@ -121,7 +138,7 @@
                                     android:paddingTop="3dp"
                                     android:paddingBottom="3dp"
                                     android:paddingRight="10dp"
-                                    android:text="Anh 5"
+                                    android:text="..."
                                     android:textSize="14dp"
                                     android:editable="false"/>
                             </androidx.cardview.widget.CardView>
@@ -141,6 +158,7 @@
                                 android:background="@color/black">
 
                                 <EditText
+                                    android:id="@+id/checkOutAct_edtTxtPhone"
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
                                     android:background="#F6F6F6"
@@ -148,7 +166,6 @@
                                     android:paddingTop="3dp"
                                     android:paddingBottom="3dp"
                                     android:paddingRight="10dp"
-                                    android:text="0123456789"
                                     android:textSize="14dp"
                                     android:hint="Enter your Phone here"/>
                             </androidx.cardview.widget.CardView>
@@ -181,6 +198,7 @@
                                 android:background="@color/black">
 
                                 <EditText
+                                    android:id="@+id/checkOutAct_edtTxtAddress"
                                     android:layout_width="match_parent"
                                     android:layout_height="60dp"
                                     android:background="#F6F6F6"
@@ -188,7 +206,6 @@
                                     android:paddingTop="3dp"
                                     android:paddingBottom="3dp"
                                     android:paddingRight="10dp"
-                                    android:text="0123456789"
                                     android:textSize="14dp"
                                     android:hint="Enter your Address here!"/>
                             </androidx.cardview.widget.CardView>
@@ -283,7 +300,9 @@
                                     android:layout_height="wrap_content"
                                     android:orientation="horizontal">
 
-                                    <TableLayout android:layout_height="match_parent"
+                                    <TableLayout
+                                        android:id="@+id/checkOutAct_tbLayOrderItemContainer"
+                                        android:layout_height="match_parent"
                                         android:layout_width="match_parent">
                                         <TableRow>
                                             <TableRow
@@ -392,6 +411,7 @@
                                                 android:layout_height="wrap_content"
                                                 android:layout_width="match_parent">
                                                 <TextView
+                                                    android:id="@+id/checkOutAct_txtTotal"
                                                     android:layout_height="match_parent"
                                                     android:layout_width="match_parent"
                                                     android:text="209.0"
@@ -427,6 +447,7 @@
                                     android:textColor="@color/white"/>
 
                                 <TextView
+                                    android:id="@+id/checkOutAct_txtPay"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:layout_marginTop="10dp"
@@ -450,6 +471,6 @@
             <include layout="@layout/card_footer"/>
 
         </LinearLayout>
-    </ScrollView>
+    </androidx.core.widget.NestedScrollView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

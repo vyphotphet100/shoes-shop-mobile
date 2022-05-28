@@ -1,9 +1,12 @@
 package hcmute.edu.vn.caodinhsyvy_19110143.shoesshop.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class UserEntity extends BaseEntity<UserEntity> {
     private Integer id;
     private String firstName;
@@ -24,7 +27,7 @@ public class UserEntity extends BaseEntity<UserEntity> {
     private List<TransferPaymentEntity> sellerTransferPayments = new ArrayList<>();
     private String chatPluginScript;
     private String confirmPassword;
-    private Object authorities;
+    private List<Object> authorities;
 
     @Override
     public Integer getId() {
@@ -180,11 +183,11 @@ public class UserEntity extends BaseEntity<UserEntity> {
         this.confirmPassword = confirmPassword;
     }
 
-    public Object getAuthorities() {
+    public List<Object> getAuthorities() {
         return authorities;
     }
 
-    public void setAuthorities(Object authorities) {
+    public void setAuthorities(List<Object> authorities) {
         this.authorities = authorities;
     }
 }

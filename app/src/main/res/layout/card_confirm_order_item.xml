@@ -5,6 +5,7 @@
         android:padding="1dp"
         android:background="#E8E8E8">
         <TextView
+            android:id="@+id/cardConfirmOrderItem_txtProductName"
             android:text="Nike Air Force 1 '07"
             android:gravity="center"
             android:textColor="@color/black"
@@ -16,6 +17,7 @@
         android:padding="1dp"
         android:background="#E8E8E8">
         <TextView
+            android:id="@+id/cardConfirmOrderItem_txtCategory"
             android:text="Men's Shoes"
             android:gravity="center"
             android:textColor="@color/black"
@@ -29,6 +31,7 @@
         android:layout_height="match_parent"
         android:layout_width="match_parent">
         <TextView
+            android:id="@+id/cardConfirmOrderItem_txtBrand"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:text="Nike"
@@ -44,6 +47,7 @@
         android:layout_height="match_parent"
         android:layout_width="match_parent">
         <TextView
+            android:id="@+id/cardConfirmOrderItem_txtQuantity"
             android:layout_height="match_parent"
             android:layout_width="match_parent"
             android:text="1"
@@ -59,6 +63,7 @@
         android:layout_height="match_parent"
         android:layout_width="match_parent">
         <TextView
+            android:id="@+id/cardConfirmOrderItem_txtUnitPrice"
             android:layout_height="match_parent"
             android:layout_width="match_parent"
             android:text="209.0"
@@ -73,6 +78,7 @@
         android:layout_height="match_parent"
         android:layout_width="match_parent">
         <TextView
+            android:id="@+id/cardConfirmOrderItem_txtTotalCost"
             android:layout_height="match_parent"
             android:layout_width="match_parent"
             android:text="209.0"
