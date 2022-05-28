@@ -21,6 +21,8 @@ public class ReviewPaymentActivity extends AppCompatActivity {
     public TextView txtShippingAddress, txtDescription, txtSubTotal, txtTotal,
             txtFirstName, txtLastName, txtEmail;
 
+    public String phone, address;
+
     private void mapping() {
         tbLayOrderItemContainer = findViewById(R.id.reviewPaymentAct_tbLayOrderItemContainer);
         txtShippingAddress = findViewById(R.id.reviewPaymentAct_txtShippingAddress);
@@ -30,6 +32,9 @@ public class ReviewPaymentActivity extends AppCompatActivity {
         txtFirstName = findViewById(R.id.reviewPaymentAct_txtFirstName);
         txtLastName = findViewById(R.id.reviewPaymentAct_txtLastName);
         txtEmail = findViewById(R.id.reviewPaymentAct_txtEmail);
+        Bundle extras = getIntent().getExtras();
+        this.phone = extras.getString("phone");
+        this.address = extras.getString("address");
     }
 
     @Override
@@ -51,7 +56,7 @@ public class ReviewPaymentActivity extends AppCompatActivity {
             @Override
             public void run() {
                 ReviewPaymentPageCrane reviewPaymentPageCrane = new ReviewPaymentPageCrane();
-                ReviewPaymentPageEntity reviewPaymentPageEntity = reviewPaymentPageCrane.getDataReviewPaymentPage(AppConstant.loggedInUserEntity.getPhone(), AppConstant.loggedInUserEntity.getAddress());
+                ReviewPaymentPageEntity reviewPaymentPageEntity = reviewPaymentPageCrane.getDataReviewPaymentPage(phone, address);
 
                 // set to UI
                 runOnUiThread(new Runnable() {

@@ -46,6 +46,8 @@ public class CheckOutActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(context, ReviewPaymentActivity.class);
+                intent.putExtra("phone", edtTxtPhone.getText().toString());
+                intent.putExtra("address", edtTxtAddress.getText().toString());
                 startActivity(intent);
                 finish();
             }
