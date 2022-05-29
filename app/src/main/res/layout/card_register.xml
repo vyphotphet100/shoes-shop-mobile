@@ -31,6 +31,7 @@
     </LinearLayout>
 
     <EditText
+        android:id="@+id/cardRegister_edtTxtFirstName"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
@@ -54,35 +55,13 @@
     </LinearLayout>
 
     <EditText
+        android:id="@+id/cardRegister_edtTxtLastName"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
         android:hint="Enter your Last Name Here!"/>
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:layout_marginTop="10dp">
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="*"
-            android:textColor="@color/red"/>
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Birthday"/>
-    </LinearLayout>
-
-    <EditText
-        android:id="@+id/EditText_birthday"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:inputType="date"
-        android:hint="Date"/>
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -102,7 +81,7 @@
     </LinearLayout>
 
     <EditText
-        android:id="@+id/editTextNumber"
+        android:id="@+id/cardRegister_edtTxtPhone"
         android:layout_width="match_parent"
         android:layout_marginTop="10dp"
         android:layout_height="wrap_content"
@@ -128,6 +107,7 @@
     </LinearLayout>
 
     <EditText
+        android:id="@+id/cardRegister_edtTxtEmail"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
@@ -153,6 +133,7 @@
     </LinearLayout>
 
     <EditText
+        android:id="@+id/cardRegister_edtTxtUsername"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
@@ -176,6 +157,7 @@
     </LinearLayout>
 
     <EditText
+        android:id="@+id/cardRegister_edtTxtPassword"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:ems="10"
@@ -200,6 +182,7 @@
     </LinearLayout>
 
     <EditText
+        android:id="@+id/cardRegister_edtTxtConfirmPassword"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:ems="10"

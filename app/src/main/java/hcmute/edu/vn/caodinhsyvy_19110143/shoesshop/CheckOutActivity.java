@@ -6,12 +6,14 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.FrameLayout;
 import android.widget.TableLayout;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import hcmute.edu.vn.caodinhsyvy_19110143.shoesshop.card.ConfirmOrderItemCard;
+import hcmute.edu.vn.caodinhsyvy_19110143.shoesshop.card.HeaderCard;
 import hcmute.edu.vn.caodinhsyvy_19110143.shoesshop.crane.page.CheckOutPageCrane;
 import hcmute.edu.vn.caodinhsyvy_19110143.shoesshop.entity.OrderItemEntity;
 import hcmute.edu.vn.caodinhsyvy_19110143.shoesshop.page_entity.CheckOutPageEntity;
@@ -22,6 +24,8 @@ public class CheckOutActivity extends AppCompatActivity {
     public EditText edtTxtFirstName, edtTxtLastName, edtTxtPhone, edtTxtAddress;
     public TextView txtTotal, txtPay;
     public TableLayout tbLayOrderItemContainer;
+    public FrameLayout frameHeaderContainer;
+    public HeaderCard headerCard;
 
     private void mapping() {
         edtTxtFirstName = findViewById(R.id.checkOutAct_edtTxtFirstName);
@@ -31,6 +35,9 @@ public class CheckOutActivity extends AppCompatActivity {
         txtTotal = findViewById(R.id.checkOutAct_txtTotal);
         txtPay = findViewById(R.id.checkOutAct_txtPay);
         tbLayOrderItemContainer = findViewById(R.id.checkOutAct_tbLayOrderItemContainer);
+        frameHeaderContainer = findViewById(R.id.checkOutAct_headerContainer);
+        headerCard = new HeaderCard(this);
+
     }
 
     @Override
@@ -39,6 +46,7 @@ public class CheckOutActivity extends AppCompatActivity {
         setContentView(R.layout.activity_check_out);
         this.context = this;
         mapping();
+        setHeader();
 
         loadInitData();
 
@@ -89,6 +97,11 @@ public class CheckOutActivity extends AppCompatActivity {
                 });
             }
         }.start();
+    }
+
+    private void setHeader() {
+        frameHeaderContainer.removeAllViews();
+        frameHeaderContainer.addView(headerCard.getView());
     }
 
 }

@@ -93,7 +93,7 @@ public class HomeActivity extends AppCompatActivity {
         setContentView(R.layout.activity_home);
         mapping();
 
-        setHeaderCard();
+        setHeader();
         setEvent();
         loadInitData();
 
@@ -110,7 +110,7 @@ public class HomeActivity extends AppCompatActivity {
         });
     }
 
-    private void setHeaderCard() {
+    private void setHeader() {
         frameHeaderContainer.removeAllViews();
         frameHeaderContainer.addView(headerCard.getView());
     }
