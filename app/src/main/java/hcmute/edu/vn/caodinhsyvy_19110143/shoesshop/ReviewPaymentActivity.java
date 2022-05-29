@@ -5,12 +5,14 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.FrameLayout;
 import android.widget.TableLayout;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import hcmute.edu.vn.caodinhsyvy_19110143.shoesshop.card.ConfirmOrderItemCard;
+import hcmute.edu.vn.caodinhsyvy_19110143.shoesshop.card.HeaderCard;
 import hcmute.edu.vn.caodinhsyvy_19110143.shoesshop.constant.AppConstant;
 import hcmute.edu.vn.caodinhsyvy_19110143.shoesshop.crane.page.ReviewPaymentPageCrane;
 import hcmute.edu.vn.caodinhsyvy_19110143.shoesshop.entity.OrderItemEntity;
@@ -24,6 +26,8 @@ public class ReviewPaymentActivity extends AppCompatActivity {
             txtFirstName, txtLastName, txtEmail, txtPayNow;
 
     public String phone, address;
+    public FrameLayout frameLayHeaderContainer;
+    public HeaderCard headerCard;
 
     private void mapping() {
         tbLayOrderItemContainer = findViewById(R.id.reviewPaymentAct_tbLayOrderItemContainer);
@@ -38,6 +42,8 @@ public class ReviewPaymentActivity extends AppCompatActivity {
         Bundle extras = getIntent().getExtras();
         this.phone = extras.getString("phone");
         this.address = extras.getString("address");
+        frameLayHeaderContainer = findViewById(R.id.reviewPaymentAct_headerContainer);
+        headerCard = new HeaderCard(this);
     }
 
     @Override
@@ -46,6 +52,7 @@ public class ReviewPaymentActivity extends AppCompatActivity {
         setContentView(R.layout.activity_review_payment);
         this.context = this;
         mapping();
+        setHeader();
 
         loadInitData();
 
@@ -99,6 +106,11 @@ public class ReviewPaymentActivity extends AppCompatActivity {
                 });
             }
         }.start();
+    }
+
+    private void setHeader() {
+        frameLayHeaderContainer.removeAllViews();
+        frameLayHeaderContainer.addView(headerCard.getView());
     }
 
 }

@@ -37,7 +37,7 @@ public class HeaderCard extends BaseCard{
             public void onClick(View v) {
                 Intent intent = new Intent(context, RegisterActivity.class);
                 context.startActivity(intent);
-                ((AppCompatActivity)context).finish();
+//                ((AppCompatActivity)context).finish();
             }
         });
 

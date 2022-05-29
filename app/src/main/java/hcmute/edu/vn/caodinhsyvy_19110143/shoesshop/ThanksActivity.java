@@ -1,23 +1,31 @@
 package hcmute.edu.vn.caodinhsyvy_19110143.shoesshop;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.app.ProgressDialog;
 import android.os.Bundle;
+import android.widget.FrameLayout;
 
-import hcmute.edu.vn.caodinhsyvy_19110143.shoesshop.card.ConfirmOrderItemCard;
-import hcmute.edu.vn.caodinhsyvy_19110143.shoesshop.crane.page.ReviewPaymentPageCrane;
+import androidx.appcompat.app.AppCompatActivity;
+
+import hcmute.edu.vn.caodinhsyvy_19110143.shoesshop.card.HeaderCard;
 import hcmute.edu.vn.caodinhsyvy_19110143.shoesshop.crane.page.ThanksPageCrane;
-import hcmute.edu.vn.caodinhsyvy_19110143.shoesshop.entity.OrderItemEntity;
-import hcmute.edu.vn.caodinhsyvy_19110143.shoesshop.page_entity.ReviewPaymentPageEntity;
 import hcmute.edu.vn.caodinhsyvy_19110143.shoesshop.page_entity.ThanksPageEntity;
 
 public class ThanksActivity extends AppCompatActivity {
+
+    public FrameLayout frameLayHeaderContainer;
+    public HeaderCard headerCard;
+
+    private void mapping() {
+        frameLayHeaderContainer = findViewById(R.id.thanksAct_headerContainer);
+        headerCard = new HeaderCard(this);
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_thanks);
+        mapping();
+        setHeader();
 
         loadInitData();
     }
@@ -42,6 +50,11 @@ public class ThanksActivity extends AppCompatActivity {
                 });
             }
         }.start();
+    }
+
+    private void setHeader() {
+        frameLayHeaderContainer.removeAllViews();
+        frameLayHeaderContainer.addView(headerCard.getView());
     }
 
 }

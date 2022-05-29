@@ -470,6 +470,10 @@
 
             <include layout="@layout/card_footer"/>
 
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="215dp"/>
+
         </LinearLayout>
     </androidx.core.widget.NestedScrollView>
 
