@@ -1,9 +1,6 @@
 package hcmute.edu.vn.caodinhsyvy_19110143.shoesshop;
 
 import android.app.ProgressDialog;
-import android.content.Intent;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.FrameLayout;
@@ -20,24 +17,18 @@ import com.squareup.picasso.Picasso;
 
 import org.springframework.http.HttpStatus;
 
-import java.net.MalformedURLException;
-import java.net.URL;
-import java.util.ArrayList;
 import java.util.List;
 
 import hcmute.edu.vn.caodinhsyvy_19110143.shoesshop.card.HeaderCard;
 import hcmute.edu.vn.caodinhsyvy_19110143.shoesshop.card.ProductCard;
 import hcmute.edu.vn.caodinhsyvy_19110143.shoesshop.constant.AppConstant;
-import hcmute.edu.vn.caodinhsyvy_19110143.shoesshop.crane.BrandCrane;
-import hcmute.edu.vn.caodinhsyvy_19110143.shoesshop.crane.CategoryCrane;
-import hcmute.edu.vn.caodinhsyvy_19110143.shoesshop.crane.ProductCrane;
 import hcmute.edu.vn.caodinhsyvy_19110143.shoesshop.crane.page.HomePageCrane;
 import hcmute.edu.vn.caodinhsyvy_19110143.shoesshop.crane.page.LoginPageCrane;
-import hcmute.edu.vn.caodinhsyvy_19110143.shoesshop.entity.BrandEntity;
-import hcmute.edu.vn.caodinhsyvy_19110143.shoesshop.entity.CategoryEntity;
+import hcmute.edu.vn.caodinhsyvy_19110143.shoesshop.crane.page.ProductPageCrane;
 import hcmute.edu.vn.caodinhsyvy_19110143.shoesshop.entity.ProductEntity;
 import hcmute.edu.vn.caodinhsyvy_19110143.shoesshop.entity.UserEntity;
 import hcmute.edu.vn.caodinhsyvy_19110143.shoesshop.page_entity.HomePageEntity;
+import hcmute.edu.vn.caodinhsyvy_19110143.shoesshop.page_entity.ProductPageEntity;
 
 public class HomeActivity extends AppCompatActivity {
 
@@ -101,9 +92,21 @@ public class HomeActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 if (AppConstant.loggedInUserEntity != null){
-                    Intent intent = new Intent(HomeActivity.this, CheckOutActivity.class);
-                    startActivity(intent);
+//                    Intent intent = new Intent(HomeActivity.this, CheckOutActivity.class);
+//                    startActivity(intent);
 //                    finish();
+
+                    new Thread() {
+                        @Override
+                        public void run() {
+                            ProductPageCrane productPageCrane = new ProductPageCrane();
+                            productPageCrane.categoryCode = "CATEGORY1";
+                            productPageCrane.offset = 2;
+                            List<ProductEntity> productEntities = productPageCrane.getDataProductPage();
+                            String a = "";
+                        }
+                    }.start();
+
                 }
 
             }

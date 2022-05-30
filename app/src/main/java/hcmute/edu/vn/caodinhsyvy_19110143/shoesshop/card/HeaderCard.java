@@ -1,16 +1,19 @@
 package hcmute.edu.vn.caodinhsyvy_19110143.shoesshop.card;
 
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.TextView;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import hcmute.edu.vn.caodinhsyvy_19110143.shoesshop.R;
 import hcmute.edu.vn.caodinhsyvy_19110143.shoesshop.RegisterActivity;
 
-public class HeaderCard extends BaseCard{
+public class HeaderCard extends BaseCard {
     private int layout = R.layout.card_header;
     private View view;
     private Context context;
@@ -38,6 +41,24 @@ public class HeaderCard extends BaseCard{
                 Intent intent = new Intent(context, RegisterActivity.class);
                 context.startActivity(intent);
 //                ((AppCompatActivity)context).finish();
+            }
+        });
+
+        imgSearch.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                AlertDialog.Builder b = new AlertDialog.Builder(context);
+                View cardSearch = View.inflate(context, R.layout.card_search, null);
+                TextView txtSearch = cardSearch.findViewById(R.id.cardSearch_txtSearch);
+                b.setView(cardSearch);
+                AlertDialog al = b.create();
+                al.show();
+                txtSearch.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        al.dismiss();
+                    }
+                });
             }
         });
 
