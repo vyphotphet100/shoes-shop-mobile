@@ -42,8 +42,7 @@ public class HomeActivity extends AppCompatActivity {
     public ConstraintLayout converseBannerConsLayout;
     public HorizontalScrollView banner;
     public HeaderCard headerCard;
-    public ImageView imgDown;
-    public FrameLayout frameHeaderContainer;
+    public FrameLayout frameHeaderContainer, frm;
     public TextView txtBrand1, txtBrand2,
             txtBrand3, txtBrand4,
             txtBrand5, txtBrand6,
@@ -64,7 +63,7 @@ public class HomeActivity extends AppCompatActivity {
         banner = findViewById(R.id.homeAct_hsvBannerContainer);
         headerCard = new HeaderCard(this);
         frameHeaderContainer = findViewById(R.id.homeAct_headerContainer);
-        imgDown = findViewById(R.id.homeAct_imgDown);
+        frm = findViewById(R.id.homeAct_frm);
         txtBrand1 = findViewById(R.id.homeAct_txtBrand1);
         txtBrand2 = findViewById(R.id.homeAct_txtBrand2);
         txtBrand3 = findViewById(R.id.homeAct_txtBrand3);
@@ -85,6 +84,7 @@ public class HomeActivity extends AppCompatActivity {
         mapping();
 
         setHeader();
+//        setInitLayout();
         setEvent();
         loadInitData();
 
@@ -183,6 +183,14 @@ public class HomeActivity extends AppCompatActivity {
                 });
             }
         }.start();
+    }
+
+    private void setInitLayout() {
+        itemContainer.removeAllViews();
+        itemContainer.addView(banner);
+        itemContainer.addView(nikeBannerConsLayout);
+        itemContainer.addView(adidasBannerConsLayout);
+        itemContainer.addView(frm);
     }
 
 
