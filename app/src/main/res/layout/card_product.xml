@@ -8,7 +8,7 @@
         android:id="@+id/cardProduct_img"
         android:layout_width="360dp"
         android:layout_height="180dp"
-        android:src="@drawable/img_product1" />
+        android:src="@mipmap/img_product1" />
 
     <TextView
         android:id="@+id/cardProduct_txtName"
