@@ -2,6 +2,39 @@
 <TableRow xmlns:android="http://schemas.android.com/apk/res/android">
     <TableRow
         android:padding="1dp"
+        android:background="#E8E8E8"
+        android:layout_height="match_parent"
+        android:layout_width="match_parent">
+        <TextView
+            android:id="@+id/cardOrderHistoryItem_txtOrderID"
+            android:layout_height="match_parent"
+            android:layout_width="match_parent"
+            android:text="#50"
+            android:gravity="center"
+            android:textColor="@color/black"
+            android:padding="5dp"
+            android:textStyle="bold"
+            android:background="@color/white"
+            android:maxWidth="30dp"/>
+    </TableRow>
+    <TableRow
+        android:padding="1dp"
+        android:background="#E8E8E8"
+        android:layout_height="match_parent"
+        android:layout_width="match_parent">
+        <TextView
+            android:id="@+id/cardOrderHistoryItem_txtCustomer"
+            android:layout_height="match_parent"
+            android:layout_width="match_parent"
+            android:text="Anh 5"
+            android:gravity="center"
+            android:textColor="@color/black"
+            android:padding="5dp"
+            android:background="@color/white"
+            android:maxWidth="30dp"/>
+    </TableRow>
+    <TableRow
+        android:padding="1dp"
         android:background="#E8E8E8">
         <TextView
             android:id="@+id/cardOrderHistoryItem_txtProductName"
@@ -28,7 +61,22 @@
             android:background="@color/white"
             android:maxWidth="30dp"/>
     </TableRow>
-
+    <TableRow
+        android:padding="1dp"
+        android:background="#E8E8E8"
+        android:layout_height="match_parent"
+        android:layout_width="match_parent">
+        <TextView
+            android:id="@+id/cardOrderHistoryItem_txtShipment"
+            android:text="Shipping"
+            android:layout_height="match_parent"
+            android:layout_width="match_parent"
+            android:gravity="center"
+            android:textColor="@color/black"
+            android:padding="5dp"
+            android:background="@color/white"
+            android:maxWidth="30dp"/>
+    </TableRow>
     <TableRow
         android:padding="1dp"
         android:background="#E8E8E8"
@@ -45,7 +93,22 @@
             android:background="@color/white"
             android:maxWidth="30dp"/>
     </TableRow>
-
+    <TableRow
+        android:padding="1dp"
+        android:background="#E8E8E8"
+        android:layout_height="match_parent"
+        android:layout_width="match_parent">
+        <TextView
+            android:id="@+id/cardOrderHistoryItem_txtDateAdded"
+            android:text="2022-5-20"
+            android:layout_height="match_parent"
+            android:layout_width="match_parent"
+            android:gravity="center"
+            android:textColor="@color/black"
+            android:padding="5dp"
+            android:background="@color/white"
+            android:maxWidth="30dp"/>
+    </TableRow>
     <TableRow
         android:padding="1dp"
         android:background="#E8E8E8"
