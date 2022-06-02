@@ -1,8 +1,10 @@
 package hcmute.edu.vn.caodinhsyvy_19110143.shoesshop;
 
 import android.app.ProgressDialog;
+import android.content.res.Resources;
 import android.os.Bundle;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.FrameLayout;
 import android.widget.HorizontalScrollView;
 import android.widget.ImageView;
@@ -165,6 +167,8 @@ public class HomeActivity extends AppCompatActivity {
                             Picasso.with(context)
                                     .load(AppConstant.BASE_URL + productEntity.getPictureUrl())
                                     .into(productCard.img);
+
+                            productCard.getView().setLayoutParams(new ViewGroup.LayoutParams((int) (1100 / Resources.getSystem().getDisplayMetrics().density), ViewGroup.LayoutParams.WRAP_CONTENT));
                             cate1Container.addView(productCard.getView());
                         }
 
@@ -175,6 +179,8 @@ public class HomeActivity extends AppCompatActivity {
                             Picasso.with(context)
                                     .load(AppConstant.BASE_URL + productEntity.getPictureUrl())
                                     .into(productCard.img);
+
+                            productCard.getView().setLayoutParams(new ViewGroup.LayoutParams((int) (1100 / Resources.getSystem().getDisplayMetrics().density), ViewGroup.LayoutParams.WRAP_CONTENT));
                             cate2Container.addView(productCard.getView());
                         }
 

@@ -45,20 +45,20 @@
                     android:weightSum="3">
 
                     <ImageView
-                        android:layout_width="350dp"
+                        android:layout_width="370dp"
                         android:layout_height="match_parent"
                         android:layout_weight="1"
                         android:scaleType="fitXY"
                         android:src="@mipmap/img_slider1" />
 
                     <ImageView
-                        android:layout_width="350dp"
+                        android:layout_width="370dp"
                         android:layout_height="match_parent"
                         android:scaleType="fitXY"
                         android:src="@mipmap/img_slider2" />
 
                     <ImageView
-                        android:layout_width="350dp"
+                        android:layout_width="370dp"
                         android:layout_height="match_parent"
                         android:scaleType="fitXY"
                         android:src="@mipmap/img_slider3" />
