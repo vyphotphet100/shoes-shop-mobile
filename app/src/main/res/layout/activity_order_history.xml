@@ -154,7 +154,6 @@
                             <include layout="@layout/car_order_history_item"/>
                             <include layout="@layout/car_order_history_item"/>
                             <include layout="@layout/car_order_history_item"/>
-
                         </TableLayout>
                     </LinearLayout>
 
@@ -163,6 +162,9 @@
             </LinearLayout>
 
             <include layout="@layout/card_footer"/>
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="215dp"/>
 
         </LinearLayout>
 
