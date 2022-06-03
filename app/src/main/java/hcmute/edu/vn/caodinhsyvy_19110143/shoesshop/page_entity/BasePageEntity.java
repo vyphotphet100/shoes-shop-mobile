@@ -4,8 +4,10 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import org.springframework.http.HttpStatus;
 
+import java.io.Serializable;
+
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class BasePageEntity {
+public class BasePageEntity implements Serializable {
     private HttpStatus httpStatus = HttpStatus.OK;
 
     public HttpStatus getHttpStatus() {

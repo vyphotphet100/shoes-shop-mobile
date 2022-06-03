@@ -1,6 +1,7 @@
 package hcmute.edu.vn.caodinhsyvy_19110143.shoesshop;
 
 import android.app.ProgressDialog;
+import android.content.Intent;
 import android.content.res.Resources;
 import android.os.Bundle;
 import android.view.View;
@@ -24,13 +25,16 @@ import java.util.List;
 import hcmute.edu.vn.caodinhsyvy_19110143.shoesshop.card.HeaderCard;
 import hcmute.edu.vn.caodinhsyvy_19110143.shoesshop.card.ProductCard;
 import hcmute.edu.vn.caodinhsyvy_19110143.shoesshop.constant.AppConstant;
+import hcmute.edu.vn.caodinhsyvy_19110143.shoesshop.crane.page.CheckOutPageCrane;
 import hcmute.edu.vn.caodinhsyvy_19110143.shoesshop.crane.page.HomePageCrane;
 import hcmute.edu.vn.caodinhsyvy_19110143.shoesshop.crane.page.LoginPageCrane;
 import hcmute.edu.vn.caodinhsyvy_19110143.shoesshop.crane.page.ProductPageCrane;
+import hcmute.edu.vn.caodinhsyvy_19110143.shoesshop.crane.page.ReviewPaymentPageCrane;
 import hcmute.edu.vn.caodinhsyvy_19110143.shoesshop.entity.ProductEntity;
 import hcmute.edu.vn.caodinhsyvy_19110143.shoesshop.entity.UserEntity;
 import hcmute.edu.vn.caodinhsyvy_19110143.shoesshop.page_entity.HomePageEntity;
 import hcmute.edu.vn.caodinhsyvy_19110143.shoesshop.page_entity.ProductPageEntity;
+import hcmute.edu.vn.caodinhsyvy_19110143.shoesshop.page_entity.ReviewPaymentPageEntity;
 
 public class HomeActivity extends AppCompatActivity {
 
@@ -101,11 +105,8 @@ public class HomeActivity extends AppCompatActivity {
                     new Thread() {
                         @Override
                         public void run() {
-                            ProductPageCrane productPageCrane = new ProductPageCrane();
-                            productPageCrane.categoryCode = "CATEGORY1";
-                            productPageCrane.offset = 2;
-                            List<ProductEntity> productEntities = productPageCrane.getDataProductPage();
-                            String a = "";
+                            Intent intent = new Intent(HomeActivity.this, CheckOutActivity.class);
+                            startActivity(intent);
                         }
                     }.start();
 
