@@ -7,12 +7,11 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.FrameLayout;
+import android.widget.RadioButton;
 import android.widget.TableLayout;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
-
-import java.io.Serializable;
 
 import hcmute.edu.vn.caodinhsyvy_19110143.shoesshop.card.ConfirmOrderItemCard;
 import hcmute.edu.vn.caodinhsyvy_19110143.shoesshop.card.HeaderCard;
@@ -30,6 +29,7 @@ public class CheckOutActivity extends AppCompatActivity {
     public TableLayout tbLayOrderItemContainer;
     public FrameLayout frameHeaderContainer;
     public HeaderCard headerCard;
+    private RadioButton rBtnPaypal;
 
     private void mapping() {
         edtTxtFirstName = findViewById(R.id.checkOutAct_edtTxtFirstName);
@@ -41,7 +41,7 @@ public class CheckOutActivity extends AppCompatActivity {
         tbLayOrderItemContainer = findViewById(R.id.checkOutAct_tbLayOrderItemContainer);
         frameHeaderContainer = findViewById(R.id.checkOutAct_headerContainer);
         headerCard = new HeaderCard(this);
-
+        rBtnPaypal = findViewById(R.id.checkOutAct_rBtnPaypal);
     }
 
     @Override
@@ -63,9 +63,15 @@ public class CheckOutActivity extends AppCompatActivity {
 
                     @Override
                     public void run() {
+                        Integer paymentMethod = 3;
+                        if (rBtnPaypal.isChecked())
+                            paymentMethod = 1;
                         ReviewPaymentPageCrane reviewPaymentPageCrane = new ReviewPaymentPageCrane();
                         ReviewPaymentPageEntity reviewPaymentPageEntity =
-                                reviewPaymentPageCrane.getDataReviewPaymentPage(edtTxtPhone.getText().toString(), edtTxtAddress.getText().toString());
+                                reviewPaymentPageCrane.getDataReviewPaymentPage(
+                                        edtTxtPhone.getText().toString(),
+                                        edtTxtAddress.getText().toString(),
+                                        paymentMethod);
 
                         runOnUiThread(new Runnable() {
                             @Override

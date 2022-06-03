@@ -250,12 +250,25 @@
                                 android:textColor="@color/black"
                                 android:text="Please select the preferred payment method to use on this order."/>
 
-                            <RadioButton
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="COD"
-                                android:textIsSelectable="true"
-                                android:checked="true"/>
+                            <RadioGroup
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content">
+
+                                <RadioButton
+                                    android:id="@+id/checkOutAct_rBtnPaypal"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="Paypal" />
+
+                                <RadioButton
+                                    android:id="@+id/checkOutAct_rBtnCOD"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="COD"
+                                    android:checked="true"/>
+
+                            </RadioGroup>
+
                         </LinearLayout>
 
                     </LinearLayout>
