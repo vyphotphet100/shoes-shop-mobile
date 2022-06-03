@@ -7,11 +7,12 @@ import net.minidev.json.JSONObject;
 
 import org.springframework.http.HttpStatus;
 
+import java.io.Serializable;
 import java.util.Date;
 import java.util.HashMap;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
-public abstract class BaseEntity<D> implements Cloneable{
+public abstract class BaseEntity<D> implements Cloneable, Serializable {
     private String createdBy;
 
     private Date createdDate;

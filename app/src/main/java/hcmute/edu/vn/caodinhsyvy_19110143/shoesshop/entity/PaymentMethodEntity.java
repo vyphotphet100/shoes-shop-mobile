@@ -2,11 +2,12 @@ package hcmute.edu.vn.caodinhsyvy_19110143.shoesshop.entity;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class PaymentMethodEntity extends BaseEntity<PaymentMethodEntity> {
+public class PaymentMethodEntity extends BaseEntity<PaymentMethodEntity> implements Serializable {
     private Integer id;
     private String name;
     private List<UserEntity> users = new ArrayList<>();

@@ -25,7 +25,7 @@ public class ReviewPaymentActivity extends AppCompatActivity {
     public TextView txtShippingAddress, txtDescription, txtSubTotal, txtTotal,
             txtFirstName, txtLastName, txtEmail, txtPayNow;
 
-    public String phone, address;
+    public ReviewPaymentPageEntity reviewPaymentPageEntity;
     public FrameLayout frameLayHeaderContainer;
     public HeaderCard headerCard;
 
@@ -39,9 +39,7 @@ public class ReviewPaymentActivity extends AppCompatActivity {
         txtLastName = findViewById(R.id.reviewPaymentAct_txtLastName);
         txtEmail = findViewById(R.id.reviewPaymentAct_txtEmail);
         txtPayNow = findViewById(R.id.reviewPaymentAct_txtPayNow);
-        Bundle extras = getIntent().getExtras();
-        this.phone = extras.getString("phone");
-        this.address = extras.getString("address");
+        this.reviewPaymentPageEntity = (ReviewPaymentPageEntity) getIntent().getSerializableExtra("reviewPaymentPageEntity");
         frameLayHeaderContainer = findViewById(R.id.reviewPaymentAct_headerContainer);
         headerCard = new HeaderCard(this);
     }
@@ -60,6 +58,8 @@ public class ReviewPaymentActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(context, ThanksActivity.class);
+                intent.putExtra("paymentId", reviewPaymentPageEntity.getPaymentId());
+                intent.putExtra("PayerID", reviewPaymentPageEntity.getPayerID());
                 startActivity(intent);
                 finish();
             }
@@ -71,41 +71,69 @@ public class ReviewPaymentActivity extends AppCompatActivity {
         ProgressDialog progressDialog = ProgressDialog.show(this, "Noriva",
                 "Loading...", true);
 
-        new Thread() {
+        for (int i = 0; i < 3; i++)
+            tbLayOrderItemContainer.removeViewAt(1);
 
-            @Override
-            public void run() {
-                ReviewPaymentPageCrane reviewPaymentPageCrane = new ReviewPaymentPageCrane();
-                ReviewPaymentPageEntity reviewPaymentPageEntity = reviewPaymentPageCrane.getDataReviewPaymentPage(phone, address);
+        for (OrderItemEntity orderItemEntity : reviewPaymentPageEntity.getReadyOrderItems()) {
+            ConfirmOrderItemCard confirmOrderItemCard = new ConfirmOrderItemCard(context, orderItemEntity);
+            tbLayOrderItemContainer.addView(confirmOrderItemCard.getView(), tbLayOrderItemContainer.getChildCount());
+        }
 
-                // set to UI
-                runOnUiThread(new Runnable() {
-                    @Override
-                    public void run() {
+        txtShippingAddress.setText(reviewPaymentPageEntity.getUserEntity().getAddress());
+        txtDescription.setText(reviewPaymentPageEntity.getDescription());
+        txtSubTotal.setText(reviewPaymentPageEntity.getTotal().toString() + " USD");
+        Float total = reviewPaymentPageEntity.getTotal() * reviewPaymentPageEntity.getExchangeRate();
+//                        txtTotal.setText(reviewPaymentPageEntity.getTotal() + " USD -> " + total.toString() + " VND");
+        txtTotal.setText(reviewPaymentPageEntity.getTotal() + " USD");
 
-                        for (int i = 0; i < 3; i++)
-                            tbLayOrderItemContainer.removeViewAt(1);
+        txtFirstName.setText(reviewPaymentPageEntity.getUserEntity().getFirstName());
+        txtLastName.setText(reviewPaymentPageEntity.getUserEntity().getLastName());
+        txtEmail.setText(reviewPaymentPageEntity.getUserEntity().getEmail());
 
-                        for (OrderItemEntity orderItemEntity : reviewPaymentPageEntity.getReadyOrderItems()) {
-                            ConfirmOrderItemCard confirmOrderItemCard = new ConfirmOrderItemCard(context, orderItemEntity);
-                            tbLayOrderItemContainer.addView(confirmOrderItemCard.getView(), tbLayOrderItemContainer.getChildCount());
-                        }
+        progressDialog.dismiss();
 
-                        txtShippingAddress.setText(reviewPaymentPageEntity.getUserEntity().getAddress());
-                        txtDescription.setText(reviewPaymentPageEntity.getDescription());
-                        txtSubTotal.setText(reviewPaymentPageEntity.getTotal().toString() + " USD");
-                        Float total = reviewPaymentPageEntity.getTotal() * reviewPaymentPageEntity.getExchangeRate();
-                        txtTotal.setText(reviewPaymentPageEntity.getTotal() + " USD -> " + total.toString() + " VND");
-
-                        txtFirstName.setText(reviewPaymentPageEntity.getUserEntity().getFirstName());
-                        txtLastName.setText(reviewPaymentPageEntity.getUserEntity().getLastName());
-                        txtEmail.setText(reviewPaymentPageEntity.getUserEntity().getEmail());
-
-                        progressDialog.dismiss();
-                    }
-                });
-            }
-        }.start();
+//        new Thread() {
+//
+//            @Override
+//            public void run() {
+//                ReviewPaymentPageCrane reviewPaymentPageCrane = new ReviewPaymentPageCrane();
+//                ReviewPaymentPageEntity reviewPaymentPageEntity = reviewPaymentPageCrane.getDataReviewPaymentPage(phone, address);
+//
+//                // check if it is paypal payment
+//                if (reviewPaymentPageEntity.getRedirectLink() != null) {
+//                    Intent intent = new Intent(context, WebViewActivity.class);
+//                    startActivity(intent);
+//                }
+//
+//                // set to UI
+//                runOnUiThread(new Runnable() {
+//                    @Override
+//                    public void run() {
+//
+//                        for (int i = 0; i < 3; i++)
+//                            tbLayOrderItemContainer.removeViewAt(1);
+//
+//                        for (OrderItemEntity orderItemEntity : reviewPaymentPageEntity.getReadyOrderItems()) {
+//                            ConfirmOrderItemCard confirmOrderItemCard = new ConfirmOrderItemCard(context, orderItemEntity);
+//                            tbLayOrderItemContainer.addView(confirmOrderItemCard.getView(), tbLayOrderItemContainer.getChildCount());
+//                        }
+//
+//                        txtShippingAddress.setText(reviewPaymentPageEntity.getUserEntity().getAddress());
+//                        txtDescription.setText(reviewPaymentPageEntity.getDescription());
+//                        txtSubTotal.setText(reviewPaymentPageEntity.getTotal().toString() + " USD");
+//                        Float total = reviewPaymentPageEntity.getTotal() * reviewPaymentPageEntity.getExchangeRate();
+////                        txtTotal.setText(reviewPaymentPageEntity.getTotal() + " USD -> " + total.toString() + " VND");
+//                        txtTotal.setText(reviewPaymentPageEntity.getTotal() + " USD");
+//
+//                        txtFirstName.setText(reviewPaymentPageEntity.getUserEntity().getFirstName());
+//                        txtLastName.setText(reviewPaymentPageEntity.getUserEntity().getLastName());
+//                        txtEmail.setText(reviewPaymentPageEntity.getUserEntity().getEmail());
+//
+//                        progressDialog.dismiss();
+//                    }
+//                });
+//            }
+//        }.start();
     }
 
     private void setHeader() {

@@ -2,10 +2,11 @@ package hcmute.edu.vn.caodinhsyvy_19110143.shoesshop.entity;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
+import java.io.Serializable;
 import java.util.Date;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class PaymentEntity extends BaseEntity<PaymentEntity>{
+public class PaymentEntity extends BaseEntity<PaymentEntity> implements Serializable {
 
     private Integer id;
     private Date paymentDate;

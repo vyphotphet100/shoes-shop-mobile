@@ -2,6 +2,7 @@ package hcmute.edu.vn.caodinhsyvy_19110143.shoesshop.page_entity;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -9,12 +10,15 @@ import hcmute.edu.vn.caodinhsyvy_19110143.shoesshop.entity.OrderItemEntity;
 import hcmute.edu.vn.caodinhsyvy_19110143.shoesshop.entity.UserEntity;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class ReviewPaymentPageEntity extends BasePageEntity{
+public class ReviewPaymentPageEntity extends BasePageEntity implements Serializable {
     private UserEntity userEntity;
     private List<OrderItemEntity> readyOrderItems = new ArrayList<>();
     private String description;
     private Float total;
     private Float exchangeRate;
+    private String paymentId;
+    private String PayerID;
+    private String redirectLink;
 
     public UserEntity getUserEntity() {
         return userEntity;
@@ -54,5 +58,29 @@ public class ReviewPaymentPageEntity extends BasePageEntity{
 
     public void setExchangeRate(Float exchangeRate) {
         this.exchangeRate = exchangeRate;
+    }
+
+    public String getRedirectLink() {
+        return redirectLink;
+    }
+
+    public void setRedirectLink(String redirectLink) {
+        this.redirectLink = redirectLink;
+    }
+
+    public String getPaymentId() {
+        return paymentId;
+    }
+
+    public void setPaymentId(String paymentId) {
+        this.paymentId = paymentId;
+    }
+
+    public String getPayerID() {
+        return PayerID;
+    }
+
+    public void setPayerID(String payerID) {
+        PayerID = payerID;
     }
 }

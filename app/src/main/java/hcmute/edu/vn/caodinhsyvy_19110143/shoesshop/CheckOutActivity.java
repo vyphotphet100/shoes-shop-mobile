@@ -12,11 +12,15 @@ import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import java.io.Serializable;
+
 import hcmute.edu.vn.caodinhsyvy_19110143.shoesshop.card.ConfirmOrderItemCard;
 import hcmute.edu.vn.caodinhsyvy_19110143.shoesshop.card.HeaderCard;
 import hcmute.edu.vn.caodinhsyvy_19110143.shoesshop.crane.page.CheckOutPageCrane;
+import hcmute.edu.vn.caodinhsyvy_19110143.shoesshop.crane.page.ReviewPaymentPageCrane;
 import hcmute.edu.vn.caodinhsyvy_19110143.shoesshop.entity.OrderItemEntity;
 import hcmute.edu.vn.caodinhsyvy_19110143.shoesshop.page_entity.CheckOutPageEntity;
+import hcmute.edu.vn.caodinhsyvy_19110143.shoesshop.page_entity.ReviewPaymentPageEntity;
 
 public class CheckOutActivity extends AppCompatActivity {
 
@@ -53,11 +57,37 @@ public class CheckOutActivity extends AppCompatActivity {
         txtPay.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(context, ReviewPaymentActivity.class);
-                intent.putExtra("phone", edtTxtPhone.getText().toString());
-                intent.putExtra("address", edtTxtAddress.getText().toString());
-                startActivity(intent);
-                finish();
+                new Thread() {
+                    ProgressDialog progressDialog = ProgressDialog.show(context, "Noriva",
+                            "Loading...", true);
+
+                    @Override
+                    public void run() {
+                        ReviewPaymentPageCrane reviewPaymentPageCrane = new ReviewPaymentPageCrane();
+                        ReviewPaymentPageEntity reviewPaymentPageEntity =
+                                reviewPaymentPageCrane.getDataReviewPaymentPage(edtTxtPhone.getText().toString(), edtTxtAddress.getText().toString());
+
+                        runOnUiThread(new Runnable() {
+                            @Override
+                            public void run() {
+                                // check if it is paypal payment
+                                if (reviewPaymentPageEntity.getRedirectLink() != null) {
+                                    Intent intent = new Intent(context, WebViewActivity.class);
+                                    intent.putExtra("reviewPaymentPageEntity", reviewPaymentPageEntity);
+                                    startActivity(intent);
+                                    finish();
+                                } else {
+                                    Intent intent = new Intent(context, ReviewPaymentActivity.class);
+                                    intent.putExtra("reviewPaymentPageEntity", reviewPaymentPageEntity);
+                                    startActivity(intent);
+                                    finish();
+                                }
+
+                                progressDialog.dismiss();
+                            }
+                        });
+                    }
+                }.start();
             }
         });
     }
@@ -67,7 +97,6 @@ public class CheckOutActivity extends AppCompatActivity {
                 "Loading...", true);
 
         new Thread() {
-
             @Override
             public void run() {
                 CheckOutPageCrane checkOutPageCrane = new CheckOutPageCrane();
@@ -82,12 +111,12 @@ public class CheckOutActivity extends AppCompatActivity {
                         edtTxtPhone.setText(checkOutPageEntity.getUserEntity().getPhone());
                         edtTxtAddress.setText(checkOutPageEntity.getUserEntity().getAddress());
 
-                        for (int i=0; i<3; i++)
+                        for (int i = 0; i < 3; i++)
                             tbLayOrderItemContainer.removeViewAt(1);
 
-                        for (OrderItemEntity orderItemEntity: checkOutPageEntity.getReadyOrderItems()) {
+                        for (OrderItemEntity orderItemEntity : checkOutPageEntity.getReadyOrderItems()) {
                             ConfirmOrderItemCard confirmOrderItemCard = new ConfirmOrderItemCard(context, orderItemEntity);
-                            tbLayOrderItemContainer.addView(confirmOrderItemCard.getView(), tbLayOrderItemContainer.getChildCount()-1);
+                            tbLayOrderItemContainer.addView(confirmOrderItemCard.getView(), tbLayOrderItemContainer.getChildCount() - 1);
                         }
 
                         txtTotal.setText(checkOutPageEntity.getTotal().toString());

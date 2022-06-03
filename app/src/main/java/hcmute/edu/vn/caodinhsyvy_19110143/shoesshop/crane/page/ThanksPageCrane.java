@@ -16,7 +16,13 @@ import hcmute.edu.vn.caodinhsyvy_19110143.shoesshop.page_entity.ThanksPageEntity
 public class ThanksPageCrane {
     private final String subUrl = "page/thanks";
 
-    public ThanksPageEntity getDataThanksPage() {
+    public ThanksPageEntity getDataThanksPage(String paymentId, String PayerID) {
+
+        StringBuilder params = new StringBuilder("?");
+        if (paymentId != null && PayerID != null) {
+            params.append("paymentId=" + paymentId + "&");
+            params.append("PayerID=" + PayerID);
+        }
 
         RestTemplate restTemplate = new RestTemplate();
         restTemplate.getMessageConverters().add(new MappingJackson2HttpMessageConverter());
@@ -28,7 +34,7 @@ public class ThanksPageCrane {
                     Collections.singletonList("Token " + AppConstant.loggedInUserEntity.getValueInAddedData("token").toString()));
         HttpEntity<String> entity = new HttpEntity<>(headers);
         ResponseEntity<ThanksPageEntity> resp =
-                restTemplate.exchange(AppConstant.BASE_REST_URL + subUrl,
+                restTemplate.exchange(AppConstant.BASE_REST_URL + subUrl + params.toString(),
                         HttpMethod.POST, entity, ThanksPageEntity.class);
         return resp.getBody();
 

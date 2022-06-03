@@ -2,8 +2,10 @@ package hcmute.edu.vn.caodinhsyvy_19110143.shoesshop.entity;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
+import java.io.Serializable;
+
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class OrderItemEntity extends BaseEntity<OrderItemEntity>{
+public class OrderItemEntity extends BaseEntity<OrderItemEntity> implements Serializable {
 
     private Integer id;
     private Integer quantityBought;

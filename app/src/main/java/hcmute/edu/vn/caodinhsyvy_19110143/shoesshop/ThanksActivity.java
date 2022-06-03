@@ -14,10 +14,14 @@ public class ThanksActivity extends AppCompatActivity {
 
     public FrameLayout frameLayHeaderContainer;
     public HeaderCard headerCard;
+    public String paymentId;
+    public String PayerID;
 
     private void mapping() {
         frameLayHeaderContainer = findViewById(R.id.thanksAct_headerContainer);
         headerCard = new HeaderCard(this);
+        this.paymentId = getIntent().getExtras().getString("paymentId");
+        this.PayerID = getIntent().getExtras().getString("PayerID");
     }
 
     @Override
@@ -39,7 +43,7 @@ public class ThanksActivity extends AppCompatActivity {
             @Override
             public void run() {
                 ThanksPageCrane thanksPageCrane = new ThanksPageCrane();
-                ThanksPageEntity thanksPageEntity = thanksPageCrane.getDataThanksPage();
+                ThanksPageEntity thanksPageEntity = thanksPageCrane.getDataThanksPage(paymentId, PayerID);
 
                 // set to UI
                 runOnUiThread(new Runnable() {
