@@ -98,7 +98,7 @@ public class HomeActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 if (AppConstant.loggedInUserEntity != null){
-                    Intent intent = new Intent(HomeActivity.this, OrderHistoryActivity.class);
+                    Intent intent = new Intent(HomeActivity.this, OrderDetailsActivity.class);
                     startActivity(intent);
 
                 }
