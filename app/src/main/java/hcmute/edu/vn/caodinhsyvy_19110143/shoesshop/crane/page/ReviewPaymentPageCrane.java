@@ -11,16 +11,20 @@ import org.springframework.web.client.RestTemplate;
 import java.util.Collections;
 
 import hcmute.edu.vn.caodinhsyvy_19110143.shoesshop.constant.AppConstant;
+import hcmute.edu.vn.caodinhsyvy_19110143.shoesshop.entity.PaymentMethodEntity;
 import hcmute.edu.vn.caodinhsyvy_19110143.shoesshop.entity.UserEntity;
 import hcmute.edu.vn.caodinhsyvy_19110143.shoesshop.page_entity.ReviewPaymentPageEntity;
 
 public class ReviewPaymentPageCrane {
     private final String subUrl = "page/review-payment";
 
-    public ReviewPaymentPageEntity getDataReviewPaymentPage(String phone, String address) {
+    public ReviewPaymentPageEntity getDataReviewPaymentPage(String phone, String address, Integer paymentMethod) {
         UserEntity userEntity = new UserEntity();
         userEntity.setPhone(phone);
         userEntity.setAddress(address);
+        PaymentMethodEntity paymentMethodEntity = new PaymentMethodEntity();
+        paymentMethodEntity.setId(paymentMethod);
+        userEntity.setPaymentMethod(paymentMethodEntity);
 
         RestTemplate restTemplate = new RestTemplate();
         restTemplate.getMessageConverters().add(new MappingJackson2HttpMessageConverter());
