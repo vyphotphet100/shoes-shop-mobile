@@ -9,7 +9,7 @@
             android:id="@+id/cardOrderHistoryItem_txtOrderID"
             android:layout_height="match_parent"
             android:layout_width="match_parent"
-            android:text="#50"
+            android:text="..."
             android:gravity="center"
             android:textColor="@color/black"
             android:padding="5dp"
@@ -23,10 +23,10 @@
         android:layout_height="match_parent"
         android:layout_width="match_parent">
         <TextView
-            android:id="@+id/cardOrderHistoryItem_txtCustomer"
+            android:id="@+id/cardOrderHistoryItem_txtLastName"
             android:layout_height="match_parent"
             android:layout_width="match_parent"
-            android:text="Anh 5"
+            android:text="..."
             android:gravity="center"
             android:textColor="@color/black"
             android:padding="5dp"
@@ -38,7 +38,7 @@
         android:background="#E8E8E8">
         <TextView
             android:id="@+id/cardOrderHistoryItem_txtProductName"
-            android:text="Nike Air Force 1 '07"
+            android:text="..."
             android:gravity="center"
             android:textColor="@color/black"
             android:padding="5dp"
@@ -51,8 +51,8 @@
         android:layout_height="match_parent"
         android:layout_width="match_parent">
         <TextView
-            android:id="@+id/cardOrderHistoryItem_txtNoofProducts"
-            android:text="1"
+            android:id="@+id/cardOrderHistoryItem_txtNoOfProducts"
+            android:text="..."
             android:layout_height="match_parent"
             android:layout_width="match_parent"
             android:gravity="center"
@@ -68,7 +68,7 @@
         android:layout_width="match_parent">
         <TextView
             android:id="@+id/cardOrderHistoryItem_txtShipment"
-            android:text="Shipping"
+            android:text="..."
             android:layout_height="match_parent"
             android:layout_width="match_parent"
             android:gravity="center"
@@ -86,7 +86,7 @@
             android:id="@+id/cardOrderHistoryItem_txtTotal"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:text="75.0"
+            android:text="..."
             android:gravity="center"
             android:textColor="@color/black"
             android:padding="5dp"
@@ -100,7 +100,7 @@
         android:layout_width="match_parent">
         <TextView
             android:id="@+id/cardOrderHistoryItem_txtDateAdded"
-            android:text="2022-5-20"
+            android:text="..."
             android:layout_height="match_parent"
             android:layout_width="match_parent"
             android:gravity="center"
@@ -121,7 +121,7 @@
             android:orientation="vertical"
             android:background="@color/white">
             <ImageButton
-                android:id="@+id/cardOrderHistoryItem_buttonShow"
+                android:id="@+id/cardOrderHistoryItem_btnShow"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:src="@drawable/ic_show"

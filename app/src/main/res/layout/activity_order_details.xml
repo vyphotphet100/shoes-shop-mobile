@@ -179,9 +179,10 @@
                             <TextView
                                 android:layout_width="match_parent"
                                 android:layout_height="match_parent"
-                                android:text="0123456789"
+                                android:text="Quang Binh"
                                 android:textColor="@color/black"
                                 android:padding="5dp"
+                                android:maxWidth="50dp"
                                 android:background="@color/white"/>
                         </TableRow>
                         <TableRow
@@ -189,6 +190,7 @@
                             android:background="#E8E8E8"
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
+                            android:maxWidth="50dp"
                             android:layout_weight="1">
                             <TextView
                                 android:layout_width="match_parent"
@@ -267,7 +269,9 @@
                                 android:textStyle="bold"/>
                         </TableRow>
                     </TableRow>
+
                     <include layout="@layout/card_product_detail_in_order_details"/>
+
                     <TableRow
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
