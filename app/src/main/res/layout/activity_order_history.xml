@@ -8,7 +8,7 @@
 
     <FrameLayout
         android:layout_width="match_parent"
-        android:id="@+id/OrderHistory_headerContainer"
+        android:id="@+id/orderHistoryAct_headerContainer"
         android:layout_height="wrap_content"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
@@ -21,7 +21,7 @@
     <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@id/OrderHistory_headerContainer"
+        app:layout_constraintTop_toBottomOf="@id/orderHistoryAct_headerContainer"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent">
 
@@ -47,14 +47,15 @@
 
                 <HorizontalScrollView
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="20dp">
 
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:orientation="horizontal">
                         <TableLayout
-                            android:id="@+id/OrderHistoryAct_tbLayOrderItemContainer"
+                            android:id="@+id/orderHistoryAct_tbLayOrderItemContainer"
                             android:layout_width="match_parent"
                             android:layout_height="match_parent">
                             <TableRow>
@@ -150,10 +151,9 @@
                                 </TableRow>
                             </TableRow>
 
-                            <include layout="@layout/car_order_history_item"/>
-                            <include layout="@layout/car_order_history_item"/>
-                            <include layout="@layout/car_order_history_item"/>
-                            <include layout="@layout/car_order_history_item"/>
+                            <include layout="@layout/card_order_history_item"/>
+                            <include layout="@layout/card_order_history_item"/>
+                            <include layout="@layout/card_order_history_item"/>
                         </TableLayout>
                     </LinearLayout>
 

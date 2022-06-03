@@ -44,7 +44,7 @@
             android:id="@+id/cardOrderDetailsItem_txtShipment"
             android:layout_height="match_parent"
             android:layout_width="match_parent"
-            android:text="shipping"
+            android:text="Shipping"
             android:gravity="center"
             android:textColor="@color/black"
             android:padding="5dp"

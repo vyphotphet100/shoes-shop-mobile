@@ -98,17 +98,8 @@ public class HomeActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 if (AppConstant.loggedInUserEntity != null){
-//                    Intent intent = new Intent(HomeActivity.this, CheckOutActivity.class);
-//                    startActivity(intent);
-//                    finish();
-
-                    new Thread() {
-                        @Override
-                        public void run() {
-                            Intent intent = new Intent(HomeActivity.this, CheckOutActivity.class);
-                            startActivity(intent);
-                        }
-                    }.start();
+                    Intent intent = new Intent(HomeActivity.this, OrderHistoryActivity.class);
+                    startActivity(intent);
 
                 }
 
