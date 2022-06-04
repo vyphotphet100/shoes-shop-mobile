@@ -11,8 +11,10 @@ import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import hcmute.edu.vn.caodinhsyvy_19110143.shoesshop.LoginActivity;
+import hcmute.edu.vn.caodinhsyvy_19110143.shoesshop.MyAccountActivity;
 import hcmute.edu.vn.caodinhsyvy_19110143.shoesshop.R;
 import hcmute.edu.vn.caodinhsyvy_19110143.shoesshop.RegisterActivity;
+import hcmute.edu.vn.caodinhsyvy_19110143.shoesshop.constant.AppConstant;
 
 public class HeaderCard extends BaseCard {
     private int layout = R.layout.card_header;
@@ -39,8 +41,19 @@ public class HeaderCard extends BaseCard {
         imgAccount.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(context, LoginActivity.class);
-                context.startActivity(intent);
+                if (AppConstant.loggedInUserEntity == null) {
+                    if (!(context instanceof LoginActivity)) {
+                        Intent intent = new Intent(context, LoginActivity.class);
+                        context.startActivity(intent);
+                    }
+                }
+                else {
+                    if (!(context instanceof MyAccountActivity)) {
+                        Intent intent = new Intent(context, MyAccountActivity.class);
+                        context.startActivity(intent);
+                    }
+                }
+
             }
         });
 

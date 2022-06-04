@@ -36,8 +36,20 @@
                 android:orientation="vertical"
                 android:padding="10dp">
 
-                <include layout="@layout/card_account"/>
-                <include layout="@layout/card_information"/>
+                <FrameLayout
+                    android:id="@+id/registerAct_frmAccountLayContainer"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                    <include layout="@layout/card_account"/>
+                </FrameLayout>
+
+                <FrameLayout
+                    android:id="@+id/registerAct_frmInfoLayContainer"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                    <include layout="@layout/card_information"/>
+
+                </FrameLayout>
 
             </LinearLayout>
 
@@ -67,7 +79,13 @@
 
             </LinearLayout>
 
-            <include layout="@layout/card_register"/>
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="20dp">
+                <include layout="@layout/card_register"/>
+
+            </FrameLayout>
             <Button
                 android:id="@+id/registerAct_btnRegister"
                 android:layout_width="100dp"

@@ -31,6 +31,12 @@
             android:name=".LoginActivity"
             android:exported="false" />
         <activity
+            android:name=".TermsAndConditionsActivity"
+            android:exported="false" />
+        <activity
+            android:name=".MyAccountActivity"
+            android:exported="false" />
+        <activity
             android:name=".RegisterActivity"
             android:exported="false"
             android:label="@string/title_activity_register"

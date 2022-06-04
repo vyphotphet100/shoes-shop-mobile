@@ -4,6 +4,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:paddingLeft="20dp"
+    android:background="#E6F3FA"
     android:paddingRight="20dp">
 
     <TextView
@@ -11,13 +12,14 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
         android:text="Your Personal Details"
+        android:textColor="@color/black"
         android:textSize="18dp"/>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:layout_marginTop="10dp">
+        android:layout_marginTop="20dp">
 
         <TextView
             android:layout_width="wrap_content"
@@ -35,13 +37,16 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
+        android:background="@color/white"
+        android:textSize="15dp"
+        android:padding="5dp"
         android:hint="Enter your First Name Here!"/>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:layout_marginTop="10dp">
+        android:layout_marginTop="20dp">
 
         <TextView
             android:layout_width="wrap_content"
@@ -59,6 +64,9 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
+        android:background="@color/white"
+        android:textSize="15dp"
+        android:padding="5dp"
         android:hint="Enter your Last Name Here!"/>
 
 
@@ -67,7 +75,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:layout_marginTop="10dp">
+        android:layout_marginTop="20dp">
 
         <TextView
             android:layout_width="wrap_content"
@@ -86,6 +94,9 @@
         android:layout_marginTop="10dp"
         android:layout_height="wrap_content"
         android:ems="10"
+        android:background="@color/white"
+        android:textSize="15dp"
+        android:padding="5dp"
         android:hint="Enter your Telephone Here!"
         android:inputType="number" />
 
@@ -93,7 +104,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:layout_marginTop="10dp">
+        android:layout_marginTop="20dp">
 
         <TextView
             android:layout_width="wrap_content"
@@ -112,6 +123,9 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
         android:ems="10"
+        android:background="@color/white"
+        android:textSize="15dp"
+        android:padding="5dp"
         android:hint="Enter your Email Here!"
         android:inputType="textEmailAddress" />
 
@@ -119,17 +133,18 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:layout_marginTop="10dp">
+        android:layout_marginTop="20dp">
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="*"
             android:textColor="@color/red"/>
+
         <TextView
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Username"/>
+            android:layout_height="match_parent"
+            android:text="Username" />
     </LinearLayout>
 
     <EditText
@@ -137,13 +152,16 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
+        android:background="@color/white"
+        android:textSize="15dp"
+        android:padding="5dp"
         android:hint="Enter your Username Here!"/>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:layout_marginTop="10dp">
+        android:layout_marginTop="20dp">
 
         <TextView
             android:layout_width="wrap_content"
@@ -161,6 +179,10 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:ems="10"
+        android:background="@color/white"
+        android:textSize="15dp"
+        android:layout_marginTop="10dp"
+        android:padding="5dp"
         android:hint="Enter your Password Here!"
         android:inputType="textPassword" />
 
@@ -168,7 +190,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:layout_marginTop="10dp">
+        android:layout_marginTop="20dp">
 
         <TextView
             android:layout_width="wrap_content"
@@ -186,7 +208,15 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:ems="10"
+        android:layout_marginTop="10dp"
+        android:background="@color/white"
+        android:textSize="15dp"
+        android:padding="5dp"
         android:hint="Confirm your Password Here!"
         android:inputType="textPassword" />
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="20dp"/>
 
 </LinearLayout>
