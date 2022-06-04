@@ -1,9 +1,12 @@
 package hcmute.edu.vn.caodinhsyvy_19110143.shoesshop.card;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.View;
+import android.widget.ImageButton;
 import android.widget.TextView;
 
+import hcmute.edu.vn.caodinhsyvy_19110143.shoesshop.OrderDetailsActivity;
 import hcmute.edu.vn.caodinhsyvy_19110143.shoesshop.R;
 import hcmute.edu.vn.caodinhsyvy_19110143.shoesshop.entity.OrderItemEntity;
 
@@ -14,6 +17,7 @@ public class OrderHistoryItemCard extends BaseCard {
 
     public TextView txtOrderID, txtLastName, txtProductName,
             txtNoOfProducts, txtShipment, txtTotal, txtDateAdded;
+    ImageButton btnShow;
 
 
     @Override
@@ -25,7 +29,7 @@ public class OrderHistoryItemCard extends BaseCard {
         txtShipment = view.findViewById(R.id.cardOrderHistoryItem_txtShipment);
         txtTotal = view.findViewById(R.id.cardOrderHistoryItem_txtTotal);
         txtDateAdded = view.findViewById(R.id.cardOrderHistoryItem_txtDateAdded);
-
+        btnShow = view.findViewById(R.id.cardOrderHistoryItem_btnShow);
     }
 
     @Override
@@ -50,5 +54,14 @@ public class OrderHistoryItemCard extends BaseCard {
         txtShipment.setText("Shipping");
         txtTotal.setText(orderItemEntity.getTotalCost().toString());
         txtDateAdded.setText(orderItemEntity.getPayment().getPaymentDate().toString());
+
+        btnShow.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(context, OrderDetailsActivity.class);
+                intent.putExtra("id", orderItemEntity.getId());
+                context.startActivity(intent);
+            }
+        });
     }
 }
