@@ -8,7 +8,7 @@
 
     <FrameLayout
         android:layout_width="match_parent"
-        android:id="@+id/registerAct_headerContainer"
+        android:id="@+id/myAccountAct_headerContainer"
         android:layout_height="wrap_content"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
@@ -21,7 +21,7 @@
     <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@id/registerAct_headerContainer"
+        app:layout_constraintTop_toBottomOf="@id/myAccountAct_headerContainer"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent">
 
@@ -36,9 +36,20 @@
                 android:orientation="vertical"
                 android:padding="10dp">
 
-                <include layout="@layout/card_account_after_login"/>
+                <FrameLayout
+                    android:id="@+id/myAccountAct_frmAccountLayContainer"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                    <include layout="@layout/card_account"/>
+                </FrameLayout>
 
-                <include layout="@layout/card_information" />
+                <FrameLayout
+                    android:id="@+id/myAccountAct_frmInfoLayContainer"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                    <include layout="@layout/card_information"/>
+
+                </FrameLayout>
 
             </LinearLayout>
 
@@ -155,7 +166,7 @@
                         android:layout_height="wrap_content">
 
                         <TextView
-                            android:id="@+id/cardAccount_txtViewOrderHistory"
+                            android:id="@+id/myAccountAct_txtViewOrderHistory"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_marginBottom="8dp"

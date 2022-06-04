@@ -8,7 +8,7 @@
 
     <FrameLayout
         android:layout_width="match_parent"
-        android:id="@+id/ContactustAct_headerContainer"
+        android:id="@+id/contactUsAct_headerContainer"
         android:layout_height="wrap_content"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
@@ -21,7 +21,7 @@
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@+id/ContactustAct_headerContainer"
+        app:layout_constraintTop_toBottomOf="@+id/contactUsAct_headerContainer"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent">
         <LinearLayout
@@ -33,9 +33,22 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:padding="10dp">
-                <include layout="@layout/card_account"/>
 
-                <include layout="@layout/card_information"/>
+                <FrameLayout
+                    android:id="@+id/contactUsAct_frmAccountLayContainer"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                    <include layout="@layout/card_account"/>
+                </FrameLayout>
+
+                <FrameLayout
+                    android:id="@+id/contactUsAct_frmInfoLayContainer"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                    <include layout="@layout/card_information"/>
+
+                </FrameLayout>
+
             </LinearLayout>
             <LinearLayout
                 android:layout_width="match_parent"

@@ -1,6 +1,7 @@
 package hcmute.edu.vn.caodinhsyvy_19110143.shoesshop;
 
 import android.app.ProgressDialog;
+import android.content.Context;
 import android.content.Intent;
 import android.content.res.Resources;
 import android.os.Bundle;
@@ -22,7 +23,9 @@ import org.springframework.http.HttpStatus;
 
 import java.util.List;
 
+import hcmute.edu.vn.caodinhsyvy_19110143.shoesshop.card.AccountCard;
 import hcmute.edu.vn.caodinhsyvy_19110143.shoesshop.card.HeaderCard;
+import hcmute.edu.vn.caodinhsyvy_19110143.shoesshop.card.InformationCard;
 import hcmute.edu.vn.caodinhsyvy_19110143.shoesshop.card.ProductCard;
 import hcmute.edu.vn.caodinhsyvy_19110143.shoesshop.constant.AppConstant;
 import hcmute.edu.vn.caodinhsyvy_19110143.shoesshop.crane.page.CheckOutPageCrane;
@@ -38,17 +41,18 @@ import hcmute.edu.vn.caodinhsyvy_19110143.shoesshop.page_entity.ReviewPaymentPag
 
 public class HomeActivity extends AppCompatActivity {
 
-    private HomeActivity context;
+    private Context context;
     public NestedScrollView srv;
     public ConstraintLayout container;
     public LinearLayout itemContainer, cate1Container, cate2Container;
+    public FrameLayout frameHeaderContainer;
+    public HeaderCard headerCard;
     public ConstraintLayout nikeBannerConsLayout;
     public ConstraintLayout adidasBannerConsLayout;
     public ConstraintLayout pumaBannerConsLayout;
     public ConstraintLayout converseBannerConsLayout;
     public HorizontalScrollView banner;
-    public HeaderCard headerCard;
-    public FrameLayout frameHeaderContainer, frm;
+    public FrameLayout frm;
     public TextView txtBrand1, txtBrand2,
             txtBrand3, txtBrand4,
             txtBrand5, txtBrand6,
@@ -67,8 +71,6 @@ public class HomeActivity extends AppCompatActivity {
         pumaBannerConsLayout = findViewById(R.id.homeAct_pumaBannerConsLayout);
         converseBannerConsLayout = findViewById(R.id.homeAct_converseBannerConsLayout);
         banner = findViewById(R.id.homeAct_hsvBannerContainer);
-        headerCard = new HeaderCard(this);
-        frameHeaderContainer = findViewById(R.id.homeAct_headerContainer);
         frm = findViewById(R.id.homeAct_frm);
         txtBrand1 = findViewById(R.id.homeAct_txtBrand1);
         txtBrand2 = findViewById(R.id.homeAct_txtBrand2);
@@ -81,6 +83,9 @@ public class HomeActivity extends AppCompatActivity {
         txtCategory2 = findViewById(R.id.homeAct_txtCategory2);
         txtBrand1ShopNow = findViewById(R.id.homeAct_txtBrand1ShopNow);
 
+        frameHeaderContainer = findViewById(R.id.homeAct_headerContainer);
+        headerCard = new HeaderCard(context);
+
     }
 
     @Override
@@ -88,10 +93,7 @@ public class HomeActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
         mapping();
-
-        setHeader();
-//        setInitLayout();
-        setEvent();
+        initSetupLayout();
         loadInitData();
 
         txtBrand1ShopNow.setOnClickListener(new View.OnClickListener() {
@@ -100,22 +102,10 @@ public class HomeActivity extends AppCompatActivity {
                 if (AppConstant.loggedInUserEntity != null){
                     Intent intent = new Intent(HomeActivity.this, OrderHistoryActivity.class);
                     startActivity(intent);
-
                 }
-
             }
         });
     }
-
-    private void setHeader() {
-        frameHeaderContainer.removeAllViews();
-        frameHeaderContainer.addView(headerCard.getView());
-    }
-
-    private void setEvent() {
-//        headerCard
-    }
-
 
     private void loadInitData() {
 
@@ -178,12 +168,9 @@ public class HomeActivity extends AppCompatActivity {
         }.start();
     }
 
-    private void setInitLayout() {
-        itemContainer.removeAllViews();
-        itemContainer.addView(banner);
-        itemContainer.addView(nikeBannerConsLayout);
-        itemContainer.addView(adidasBannerConsLayout);
-        itemContainer.addView(frm);
+    private void initSetupLayout() {
+        frameHeaderContainer.removeAllViews();
+        frameHeaderContainer.addView(headerCard.getView());
     }
 
 

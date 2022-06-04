@@ -6,6 +6,7 @@ import android.widget.FrameLayout;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import hcmute.edu.vn.caodinhsyvy_19110143.shoesshop.card.AccountAfterLoginCard;
 import hcmute.edu.vn.caodinhsyvy_19110143.shoesshop.card.AccountCard;
 import hcmute.edu.vn.caodinhsyvy_19110143.shoesshop.card.HeaderCard;
 import hcmute.edu.vn.caodinhsyvy_19110143.shoesshop.card.InformationCard;
@@ -17,6 +18,7 @@ public class AboutUsActivity extends AppCompatActivity {
     public FrameLayout frmAccountLayContainer, frmInfoLayContainer, frameHeaderContainer;
     public HeaderCard headerCard;
     public AccountCard accountCard;
+    public AccountAfterLoginCard accountAfterLoginCard;
     public InformationCard informationCard;
 
     private void mapping() {
@@ -26,6 +28,7 @@ public class AboutUsActivity extends AppCompatActivity {
         frameHeaderContainer = findViewById(R.id.aboutUsAct_headerContainer);
         headerCard = new HeaderCard(context);
         accountCard = new AccountCard(context);
+        accountAfterLoginCard = new AccountAfterLoginCard(context);
         informationCard = new InformationCard(context);
     }
 
@@ -41,7 +44,10 @@ public class AboutUsActivity extends AppCompatActivity {
 
     private void initSetupLayout() {
         frmAccountLayContainer.removeAllViews();
-        frmAccountLayContainer.addView(accountCard.getView());
+        if (AppConstant.loggedInUserEntity == null)
+            frmAccountLayContainer.addView(accountCard.getView());
+        else
+            frmAccountLayContainer.addView(accountAfterLoginCard.getView());
 
         frmInfoLayContainer.removeAllViews();
         frmInfoLayContainer.addView(informationCard.getView());

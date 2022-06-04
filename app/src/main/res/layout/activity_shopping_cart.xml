@@ -1,0 +1,262 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ShoppingCartActivity">
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:id="@+id/shoppingCartAct_headerContainer"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent">
+
+        <include layout="@layout/card_header" />
+
+    </FrameLayout>
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/shoppingCartAct_headerContainer"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="SHOPPING CART"
+                    android:textColor="@color/black"
+                    android:textStyle="bold"
+                    android:textSize="17dp"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginTop="18dp"
+                    android:layout_marginBottom="-5dp"/>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:padding="20dp">
+
+                        <HorizontalScrollView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
+
+                            <LinearLayout
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:orientation="horizontal">
+
+                                <TableLayout
+                                    android:id="@+id/checkOutAct_tbLayOrderItemContainer"
+                                    android:layout_height="match_parent"
+                                    android:layout_width="match_parent">
+                                    <TableRow>
+                                        <TableRow
+                                            android:padding="1dp"
+                                            android:layout_width="150dp"
+                                            android:background="#E8E8E8">
+                                            <TextView
+                                                android:text="Image"
+                                                android:gravity="center"
+                                                android:textColor="@color/white"
+                                                android:padding="5dp"
+                                                android:background="@color/black"
+                                                android:textStyle="bold"/>
+                                        </TableRow>
+                                        <TableRow
+                                            android:padding="1dp"
+                                            android:background="#E8E8E8">
+                                            <TextView
+                                                android:text="Product Name"
+                                                android:gravity="center"
+                                                android:textColor="@color/white"
+                                                android:padding="5dp"
+                                                android:background="@color/black"
+                                                android:textStyle="bold"/>
+                                        </TableRow>
+                                        <TableRow
+                                            android:padding="1dp"
+                                            android:background="#E8E8E8">
+                                            <TextView
+                                                android:text="Category"
+                                                android:gravity="center"
+                                                android:textColor="@color/white"
+                                                android:padding="5dp"
+                                                android:background="@color/black"
+                                                android:textStyle="bold"/>
+                                        </TableRow>
+                                        <TableRow
+                                            android:padding="1dp"
+                                            android:background="#E8E8E8">
+                                            <TextView
+                                                android:text="Brand"
+                                                android:gravity="center"
+                                                android:textColor="@color/white"
+                                                android:padding="5dp"
+                                                android:background="@color/black"
+                                                android:textStyle="bold"/>
+                                        </TableRow>
+                                        <TableRow
+                                            android:padding="1dp"
+                                            android:background="#E8E8E8">
+                                            <TextView
+                                                android:text="Quantity"
+                                                android:paddingLeft="70dp"
+                                                android:paddingRight="70dp"
+                                                android:gravity="center"
+                                                android:textColor="@color/white"
+                                                android:paddingTop="5dp"
+                                                android:paddingBottom="5dp"
+                                                android:background="@color/black"
+                                                android:textStyle="bold"/>
+                                        </TableRow>
+                                        <TableRow
+                                            android:padding="1dp"
+                                            android:background="#E8E8E8">
+                                            <TextView
+                                                android:text="Unit price"
+                                                android:gravity="center"
+                                                android:textColor="@color/white"
+                                                android:padding="5dp"
+                                                android:background="@color/black"
+                                                android:textStyle="bold"/>
+                                        </TableRow>
+                                        <TableRow
+                                            android:padding="1dp"
+                                            android:background="#E8E8E8">
+                                            <TextView
+                                                android:text="Total cost"
+                                                android:gravity="center"
+                                                android:textColor="@color/white"
+                                                android:padding="5dp"
+                                                android:background="@color/black"
+                                                android:textStyle="bold"/>
+                                        </TableRow>
+                                        <TableRow
+                                            android:padding="1dp"
+                                            android:background="#E8E8E8">
+                                            <TextView
+                                                android:text="Pay"
+                                                android:paddingLeft="10dp"
+                                                android:paddingRight="10dp"
+                                                android:paddingTop="5dp"
+                                                android:paddingBottom="5dp"
+                                                android:gravity="center"
+                                                android:textColor="@color/white"
+                                                android:background="@color/black"
+                                                android:textStyle="bold"/>
+                                        </TableRow>
+                                    </TableRow>
+
+
+                                    <include layout="@layout/card_product_in_shopping_cart"/>
+                                    <include layout="@layout/card_product_in_shopping_cart"/>
+                                    <include layout="@layout/card_product_in_shopping_cart"/>
+
+                                </TableLayout>
+
+                            </LinearLayout>
+
+                        </HorizontalScrollView>
+
+                        <androidx.constraintlayout.widget.ConstraintLayout
+                            android:layout_marginTop="10dp"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Total:"
+                                android:textColor="@color/black"
+                                app:layout_constraintTop_toTopOf="parent"
+                                android:layout_marginRight="20dp"
+                                app:layout_constraintRight_toLeftOf="@id/shoppingCartAct_txtTotal"
+                                android:textSize="18dp"/>
+
+                            <TextView
+                                android:id="@+id/shoppingCartAct_txtTotal"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="$300"
+                                android:textColor="@color/red"
+                                android:textStyle="bold"
+                                app:layout_constraintTop_toTopOf="parent"
+                                app:layout_constraintRight_toRightOf="parent"
+                                android:textSize="18dp"/>
+
+
+                        </androidx.constraintlayout.widget.ConstraintLayout>
+
+                        <LinearLayout
+                            android:orientation="horizontal"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="10dp"
+                                android:background="@color/black"
+                                android:paddingLeft="20dp"
+                                android:textSize="12dp"
+                                android:paddingTop="10dp"
+                                android:paddingRight="20dp"
+                                android:paddingBottom="10dp"
+                                android:layout_marginRight="5dp"
+                                android:text="CONTINUE SHOPPING"
+                                android:textColor="@color/white"/>
+
+                            <TextView
+                                android:id="@+id/shoppingCartAct_txtPay"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="10dp"
+                                android:background="@color/black"
+                                android:paddingLeft="20dp"
+                                android:paddingTop="10dp"
+                                android:paddingRight="20dp"
+                                android:textSize="12dp"
+                                android:paddingBottom="10dp"
+                                android:text="CHECKOUT"
+                                android:textColor="@color/white"/>
+
+                        </LinearLayout>
+                    </LinearLayout>
+
+                </LinearLayout>
+
+
+            </LinearLayout>
+
+            <include layout="@layout/card_footer"/>
+
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="215dp"/>
+
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

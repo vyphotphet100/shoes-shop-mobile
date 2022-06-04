@@ -10,6 +10,7 @@ import android.widget.TextView;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
+import hcmute.edu.vn.caodinhsyvy_19110143.shoesshop.HomeActivity;
 import hcmute.edu.vn.caodinhsyvy_19110143.shoesshop.LoginActivity;
 import hcmute.edu.vn.caodinhsyvy_19110143.shoesshop.MyAccountActivity;
 import hcmute.edu.vn.caodinhsyvy_19110143.shoesshop.R;
@@ -21,7 +22,7 @@ public class HeaderCard extends BaseCard {
     private View view;
     private Context context;
 
-    public ImageView imgSearch, imgAccount, imgShoppingCart;
+    public ImageView imgSearch, imgAccount, imgShoppingCart, imgLogo;
 
 
     @Override
@@ -29,6 +30,7 @@ public class HeaderCard extends BaseCard {
         imgSearch = view.findViewById(R.id.headerCard_imgSearch);
         imgAccount = view.findViewById(R.id.headerCard_imgAccount);
         imgShoppingCart = view.findViewById(R.id.headerCard_imgShoppingCart);
+        imgLogo = view.findViewById(R.id.cardHeader_imgLogo);
     }
 
     @Override
@@ -45,12 +47,14 @@ public class HeaderCard extends BaseCard {
                     if (!(context instanceof LoginActivity)) {
                         Intent intent = new Intent(context, LoginActivity.class);
                         context.startActivity(intent);
+                        ((AppCompatActivity)context).finish();
                     }
                 }
                 else {
                     if (!(context instanceof MyAccountActivity)) {
                         Intent intent = new Intent(context, MyAccountActivity.class);
                         context.startActivity(intent);
+                        ((AppCompatActivity)context).finish();
                     }
                 }
 
@@ -58,6 +62,17 @@ public class HeaderCard extends BaseCard {
         });
 
         imgSearch.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (!(context instanceof HomeActivity)) {
+                    Intent intent = new Intent(context, HomeActivity.class);
+                    context.startActivity(intent);
+                    ((AppCompatActivity)context).finish();
+                }
+            }
+        });
+
+        imgLogo.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 AlertDialog.Builder b = new AlertDialog.Builder(context);
