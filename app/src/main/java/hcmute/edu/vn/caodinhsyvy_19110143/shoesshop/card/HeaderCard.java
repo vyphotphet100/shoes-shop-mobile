@@ -10,6 +10,7 @@ import android.widget.TextView;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
+import hcmute.edu.vn.caodinhsyvy_19110143.shoesshop.LoginActivity;
 import hcmute.edu.vn.caodinhsyvy_19110143.shoesshop.R;
 import hcmute.edu.vn.caodinhsyvy_19110143.shoesshop.RegisterActivity;
 
@@ -38,9 +39,8 @@ public class HeaderCard extends BaseCard {
         imgAccount.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(context, RegisterActivity.class);
+                Intent intent = new Intent(context, LoginActivity.class);
                 context.startActivity(intent);
-//                ((AppCompatActivity)context).finish();
             }
         });
 

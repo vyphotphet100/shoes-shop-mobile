@@ -3,6 +3,7 @@ package hcmute.edu.vn.caodinhsyvy_19110143.shoesshop.crane.page;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpMethod;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.http.converter.json.MappingJackson2HttpMessageConverter;
@@ -25,10 +26,18 @@ public class LoginPageCrane {
         HttpHeaders headers = new HttpHeaders();
         headers.setContentType(MediaType.APPLICATION_JSON);
         HttpEntity<UserEntity> entity = new HttpEntity<UserEntity>(userEntity, headers);
-        ResponseEntity<UserEntity> resp =
-                restTemplate.exchange(AppConstant.BASE_REST_URL + subUrl,
-                        HttpMethod.POST, entity, UserEntity.class);
-        return resp.getBody();
+        try {
+            ResponseEntity<UserEntity> resp =
+                    restTemplate.exchange(AppConstant.BASE_REST_URL + subUrl,
+                            HttpMethod.POST, entity, UserEntity.class);
+
+            return resp.getBody();
+        } catch (Exception ex) {
+            UserEntity user = new UserEntity();
+            user.setHttpStatus(HttpStatus.EXPECTATION_FAILED);
+            user.setMessage("Username or Password is invalid. Please check again!");
+            return user;
+        }
 
     }
 }

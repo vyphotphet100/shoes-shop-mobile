@@ -129,11 +129,6 @@ public class HomeActivity extends AppCompatActivity {
                 HomePageCrane homePageCrane = new HomePageCrane();
                 HomePageEntity homePageEntity = homePageCrane.getDataHomePage();
 
-                LoginPageCrane loginPageCrane = new LoginPageCrane();
-                UserEntity userEntity = loginPageCrane.login("user5", "123456");
-                if (userEntity.getHttpStatus() == HttpStatus.OK)
-                    AppConstant.loggedInUserEntity = userEntity;
-
                 // set to UI
                 runOnUiThread(new Runnable() {
                     @Override
