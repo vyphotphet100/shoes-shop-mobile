@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <TableRow xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:weightSum="5"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
@@ -12,7 +13,7 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:id="@+id/cardProductDetailinOrderDetailsItem_txtProductName"
+            android:id="@+id/cardProductDetailInOrderDetailsItem_txtProductName"
             android:text="Nike Air Force 1 '07"
             android:gravity="center"
             android:textColor="@color/black"
@@ -26,16 +27,17 @@
         android:layout_height="match_parent"
         android:padding="1dp"
         android:background="#E8E8E8">
+
         <TextView
+            android:id="@+id/cardProductDetailInOrderDetailsItem_txtBrand"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:id="@+id/cardProductDetailinOrderDetailsItem_txtBrand"
-            android:text="Nike"
-            android:gravity="center"
-            android:textColor="@color/black"
-            android:padding="5dp"
             android:background="@color/white"
-            android:maxWidth="30dp"/>
+            android:gravity="center"
+            android:maxWidth="40dp"
+            android:padding="5dp"
+            android:text="Converse"
+            android:textColor="@color/black"/>
     </TableRow>
     <TableRow
         android:layout_weight="1"
@@ -46,7 +48,7 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:id="@+id/cardProductDetailinOrderDetailsItem_txtQuantity"
+            android:id="@+id/cardProductDetailInOrderDetailsItem_txtQuantity"
             android:text="1"
             android:textAlignment="viewStart"
             android:textColor="@color/black"
@@ -63,7 +65,7 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:id="@+id/cardProductDetailinOrderDetailsItem_txtPrice"
+            android:id="@+id/cardProductDetailInOrderDetailsItem_txtPrice"
             android:text="$75.0"
             android:textAlignment="viewStart"
             android:textColor="@color/black"

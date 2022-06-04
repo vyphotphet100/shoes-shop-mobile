@@ -177,6 +177,7 @@
                             android:layout_height="match_parent"
                             android:layout_weight="1">
                             <TextView
+                                android:id="@+id/orderDetailsAct_txtPaymentAddress"
                                 android:layout_width="match_parent"
                                 android:layout_height="match_parent"
                                 android:text="Quang Binh"
@@ -193,6 +194,7 @@
                             android:maxWidth="50dp"
                             android:layout_weight="1">
                             <TextView
+                                android:id="@+id/orderDetailsAct_txtShippingAddress"
                                 android:layout_width="match_parent"
                                 android:layout_height="match_parent"
                                 android:text="0123456789"
@@ -296,6 +298,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="match_parent">
                             <TextView
+                                android:id="@+id/orderDetailsAct_txtTotal"
                                 android:text="$75.0"
                                 android:textAlignment="viewStart"
                                 android:textColor="@color/red"
