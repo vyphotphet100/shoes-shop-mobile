@@ -6,28 +6,44 @@
     android:layout_height="match_parent"
     tools:context=".PrivacyPolicyActivity">
 
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:id="@+id/privacyPolicyAct_headerContainer"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent">
+
+        <include layout="@layout/card_header" />
+
+    </FrameLayout>
+
     <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/privacyPolicyAct_headerContainer"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
-            <include layout="@layout/card_header"/>
-
-            <LinearLayout
-                android:orientation="vertical"
+            <FrameLayout
+                android:id="@+id/privacyPolicyAct_frmAccountLayContainer"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:padding="10dp">
-
+                android:layout_height="wrap_content">
                 <include layout="@layout/card_account"/>
+            </FrameLayout>
 
+            <FrameLayout
+                android:id="@+id/privacyPolicyAct_frmInfoLayContainer"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
                 <include layout="@layout/card_information"/>
 
-            </LinearLayout>
+            </FrameLayout>
 
             <LinearLayout
                 android:orientation="vertical"
@@ -72,6 +88,10 @@
             </LinearLayout>
 
             <include layout="@layout/card_footer"/>
+
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="215dp"/>
 
         </LinearLayout>
     </ScrollView>
