@@ -21,8 +21,10 @@
         <TextView
             android:id="@+id/cardAccount_txtLogin"
             android:focusable="true"
+            android:paddingTop="5dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:paddingLeft="10dp"
             android:textColor="@color/black"
             android:layout_marginBottom="8dp"
             android:text="Login"/>
@@ -35,8 +37,10 @@
         <TextView
             android:id="@+id/cardAccount_txtRegister"
             android:layout_width="match_parent"
+            android:paddingTop="5dp"
             android:layout_height="wrap_content"
             android:textColor="@color/black"
+            android:paddingLeft="10dp"
             android:layout_marginBottom="8dp"
             android:text="Register"/>
     </androidx.cardview.widget.CardView>

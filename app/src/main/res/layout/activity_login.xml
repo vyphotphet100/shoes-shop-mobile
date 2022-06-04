@@ -8,7 +8,7 @@
 
     <FrameLayout
         android:layout_width="match_parent"
-        android:id="@+id/registerAct_headerContainer"
+        android:id="@+id/loginAct_headerContainer"
         android:layout_height="wrap_content"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
@@ -21,7 +21,7 @@
     <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@id/registerAct_headerContainer"
+        app:layout_constraintTop_toBottomOf="@id/loginAct_headerContainer"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent">
 
@@ -36,8 +36,20 @@
                 android:orientation="vertical"
                 android:padding="10dp">
 
-                <include layout="@layout/card_account"/>
-                <include layout="@layout/card_information"/>
+                <FrameLayout
+                    android:id="@+id/loginAct_frmAccountLayContainer"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                    <include layout="@layout/card_account"/>
+                </FrameLayout>
+
+                <FrameLayout
+                    android:id="@+id/loginAct_frmInfoLayContainer"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                    <include layout="@layout/card_information"/>
+
+                </FrameLayout>
 
             </LinearLayout>
 

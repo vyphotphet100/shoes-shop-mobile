@@ -59,6 +59,7 @@
                         android:layout_height="wrap_content"
                         android:text="These Terms of Service (the “Terms”) including its appendices listed below constitutes the entire agreement between the Customer or You and Type W Inc. (”Type W” or “we,” “our” or “us” ), regarding your use of our services specified in the Terms (the software, and services are collectively referred to as the “Service”). Please read these Terms carefully. The term “you” shall also include your employees or other authorized users to the extent applicable and permitted under your subscription of the Service. The following appendices forms an inseparable part of and is governed by the terms of these Terms of Service:\n1. The Service \n2. Eligibility \n3. Account Registration \n4. Free Trial \n5. Fees and payment \n6. Use Restrictions \n7. Third-party services, data and content \n8. Modifications to the Service \n9. Subcontractors \n10. Term and Termination \n11. Feedback \n12. Trademarks \n13. Ownership and intellectual property rights \n14. Confidential information \n15. Privacy Policy and processing of data \n16. Customer Data \n17. Disclaimer of Warranties \n18. Limitation of Liability \n19. Consent to Electronic Communications \n20. Governing law and dispute resolution \n21. Other terms \n22. Questions and Contact Information"
                         android:layout_marginTop="10dp"
+                        android:layout_marginBottom="20dp"
                         android:textColor="@color/black"/>
 
                 </LinearLayout>

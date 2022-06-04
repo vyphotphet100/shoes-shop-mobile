@@ -1,6 +1,7 @@
 package hcmute.edu.vn.caodinhsyvy_19110143.shoesshop;
 
 import android.app.ProgressDialog;
+import android.content.Context;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -13,25 +14,36 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import org.springframework.http.HttpStatus;
 
+import hcmute.edu.vn.caodinhsyvy_19110143.shoesshop.card.AccountCard;
 import hcmute.edu.vn.caodinhsyvy_19110143.shoesshop.card.HeaderCard;
+import hcmute.edu.vn.caodinhsyvy_19110143.shoesshop.card.InformationCard;
+import hcmute.edu.vn.caodinhsyvy_19110143.shoesshop.constant.AppConstant;
 import hcmute.edu.vn.caodinhsyvy_19110143.shoesshop.crane.page.RegisterPageCrane;
 import hcmute.edu.vn.caodinhsyvy_19110143.shoesshop.entity.UserEntity;
 
 
 public class RegisterActivity extends AppCompatActivity {
 
+    private Context context;
     public TextView txtLogin;
     public Button btnRegister;
-    public FrameLayout frameLayHeaderContainer;
+    public FrameLayout frameHeaderContainer, frmAccountLayContainer, frmInfoLayContainer;
     public HeaderCard headerCard;
     public EditText edtTxtFirstName, edtTxtLastName, edtTxtPhone,
             edtTxtEmail, edtTxtUsername, edtTxtPassword, edtTxtConfirmPassword;
+    public AccountCard accountCard;
+    public InformationCard informationCard;
 
     private void mapping() {
+        this.context = this;
         txtLogin = findViewById(R.id.cardAccount_txtLogin);
         btnRegister = findViewById(R.id.registerAct_btnRegister);
-        frameLayHeaderContainer = findViewById(R.id.registerAct_headerContainer);
-        headerCard = new HeaderCard(this);
+        frameHeaderContainer = findViewById(R.id.registerAct_headerContainer);
+        frmAccountLayContainer = findViewById(R.id.registerAct_frmAccountLayContainer);
+        frmInfoLayContainer = findViewById(R.id.registerAct_frmInfoLayContainer);
+        headerCard = new HeaderCard(context);
+        accountCard = new AccountCard(context);
+        informationCard = new InformationCard(context);
         edtTxtFirstName = findViewById(R.id.cardRegister_edtTxtFirstName);
         edtTxtLastName = findViewById(R.id.cardRegister_edtTxtLastName);
         edtTxtPhone = findViewById(R.id.cardRegister_edtTxtPhone);
@@ -46,7 +58,8 @@ public class RegisterActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register);
         mapping();
-        setHeader();
+        AppConstant.waitingAnimation(context, 800);
+        initSetupLayout();
 
         txtLogin.requestFocus();
         btnRegister.setOnClickListener(new View.OnClickListener() {
@@ -57,9 +70,15 @@ public class RegisterActivity extends AppCompatActivity {
         });
     }
 
-    private void setHeader() {
-        frameLayHeaderContainer.removeAllViews();
-        frameLayHeaderContainer.addView(headerCard.getView());
+    private void initSetupLayout() {
+        frmAccountLayContainer.removeAllViews();
+        frmAccountLayContainer.addView(accountCard.getView());
+
+        frmInfoLayContainer.removeAllViews();
+        frmInfoLayContainer.addView(informationCard.getView());
+
+        frameHeaderContainer.removeAllViews();
+        frameHeaderContainer.addView(headerCard.getView());
     }
 
     private void register() {
