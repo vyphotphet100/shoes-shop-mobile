@@ -64,17 +64,6 @@ public class HeaderCard extends BaseCard {
         imgSearch.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (!(context instanceof HomeActivity)) {
-                    Intent intent = new Intent(context, HomeActivity.class);
-                    context.startActivity(intent);
-                    ((AppCompatActivity)context).finish();
-                }
-            }
-        });
-
-        imgLogo.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
                 AlertDialog.Builder b = new AlertDialog.Builder(context);
                 View cardSearch = View.inflate(context, R.layout.card_search, null);
                 TextView txtSearch = cardSearch.findViewById(R.id.cardSearch_txtSearch);
@@ -87,6 +76,17 @@ public class HeaderCard extends BaseCard {
                         al.dismiss();
                     }
                 });
+            }
+        });
+
+        imgLogo.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (!(context instanceof HomeActivity)) {
+                    Intent intent = new Intent(context, HomeActivity.class);
+                    context.startActivity(intent);
+                    ((AppCompatActivity)context).finish();
+                }
             }
         });
 
