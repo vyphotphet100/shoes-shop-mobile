@@ -104,7 +104,7 @@ public class ShoppingCartPageCrane {
                         HttpMethod.POST, entity, OrderItemEntity.class);
 
         OrderItemEntity resEntity = resp.getBody();
-        if (orderItemEntity.getHttpStatus() == HttpStatus.OK)
+        if (resEntity.getHttpStatus() == HttpStatus.OK)
             return true;
         return false;
     }
