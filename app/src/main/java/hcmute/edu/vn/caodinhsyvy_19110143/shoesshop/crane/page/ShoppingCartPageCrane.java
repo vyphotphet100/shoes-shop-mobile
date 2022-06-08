@@ -1,5 +1,7 @@
 package hcmute.edu.vn.caodinhsyvy_19110143.shoesshop.crane.page;
 
+import android.content.Context;
+
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpMethod;
@@ -107,5 +109,33 @@ public class ShoppingCartPageCrane {
         if (resEntity.getHttpStatus() == HttpStatus.OK)
             return true;
         return false;
+    }
+
+    public OrderItemEntity addToCart(Context context, String productCode, Integer quantity) {
+        OrderItemEntity errorEntity = new OrderItemEntity();
+        errorEntity.setHttpStatus(HttpStatus.EXPECTATION_FAILED);
+        if (!AppConstant.checkLoggedIn(context))
+            return errorEntity;
+
+        RestTemplate restTemplate = new RestTemplate();
+        restTemplate.getMessageConverters().add(new MappingJackson2HttpMessageConverter());
+
+        HttpHeaders headers = new HttpHeaders();
+        if (AppConstant.loggedInUserEntity != null)
+            headers.put("Authorization", Collections.singletonList("Token " + AppConstant.loggedInUserEntity.getValueInAddedData("token").toString()));
+
+        OrderItemEntity orderItemEntity = new OrderItemEntity();
+        orderItemEntity.getListRequest().put("productCode", productCode);
+        orderItemEntity.getListRequest().put("quantity", quantity);
+        HttpEntity<OrderItemEntity> entity = new HttpEntity<OrderItemEntity>(orderItemEntity, headers);
+        ResponseEntity<OrderItemEntity> resp =
+                restTemplate.exchange(AppConstant.BASE_URL + "/customer/product/add-product-to-cart",
+                        HttpMethod.POST, entity, OrderItemEntity.class);
+
+        if (resp.getStatusCode() == HttpStatus.OK)
+            return resp.getBody();
+
+        errorEntity.setMessage(resp.getBody().getMessage());
+        return errorEntity;
     }
 }

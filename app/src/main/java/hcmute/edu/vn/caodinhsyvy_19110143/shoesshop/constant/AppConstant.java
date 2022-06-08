@@ -28,7 +28,7 @@ public class AppConstant {
                     e.printStackTrace();
                 }
 
-                ((AppCompatActivity)context).runOnUiThread(new Runnable() {
+                ((AppCompatActivity) context).runOnUiThread(new Runnable() {
                     @Override
                     public void run() {
                         progressDialog.dismiss();
@@ -41,8 +41,15 @@ public class AppConstant {
 
     public static Boolean checkLoggedIn(Context context) {
         if (AppConstant.loggedInUserEntity == null) {
-            ProgressDialog progressDialog = ProgressDialog.show(context, "Noriva",
-                    "You need to log in before visiting this page...", true);
+            final ProgressDialog[] progressDialog = {null};
+            ((AppCompatActivity) context).runOnUiThread(new Runnable() {
+                @Override
+                public void run() {
+                    progressDialog[0] = ProgressDialog.show(context, "Noriva",
+                            "You need to log in to do this action!", true);
+                }
+            });
+
 
             new Thread() {
                 @Override
@@ -53,13 +60,15 @@ public class AppConstant {
                         e.printStackTrace();
                     }
 
-                    ((AppCompatActivity)context).runOnUiThread(new Runnable() {
+                    ((AppCompatActivity) context).runOnUiThread(new Runnable() {
                         @Override
                         public void run() {
-                            progressDialog.dismiss();
+                            while (progressDialog[0] == null) {
+                            }
+                            progressDialog[0].dismiss();
                             Intent intent = new Intent(context, LoginActivity.class);
-                            ((AppCompatActivity)context).startActivity(intent);
-                            ((AppCompatActivity)context).finish();
+                            ((AppCompatActivity) context).startActivity(intent);
+                            ((AppCompatActivity) context).finish();
                         }
                     });
 
