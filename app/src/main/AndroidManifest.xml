@@ -28,9 +28,6 @@
             android:name=".OrderHistoryActivity"
             android:exported="false" />
         <activity
-            android:name=".LoadingActivity"
-            android:exported="false" />
-        <activity
             android:name=".LoginActivity"
             android:exported="false" />
         <activity

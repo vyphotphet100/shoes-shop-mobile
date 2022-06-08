@@ -15,6 +15,7 @@ import hcmute.edu.vn.caodinhsyvy_19110143.shoesshop.LoginActivity;
 import hcmute.edu.vn.caodinhsyvy_19110143.shoesshop.MyAccountActivity;
 import hcmute.edu.vn.caodinhsyvy_19110143.shoesshop.R;
 import hcmute.edu.vn.caodinhsyvy_19110143.shoesshop.RegisterActivity;
+import hcmute.edu.vn.caodinhsyvy_19110143.shoesshop.ShoppingCartActivity;
 import hcmute.edu.vn.caodinhsyvy_19110143.shoesshop.constant.AppConstant;
 
 public class HeaderCard extends BaseCard {
@@ -87,6 +88,15 @@ public class HeaderCard extends BaseCard {
                     context.startActivity(intent);
                     ((AppCompatActivity)context).finish();
                 }
+            }
+        });
+
+        imgShoppingCart.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(context, ShoppingCartActivity.class);
+                context.startActivity(intent);
+                ((AppCompatActivity)context).finish();
             }
         });
 

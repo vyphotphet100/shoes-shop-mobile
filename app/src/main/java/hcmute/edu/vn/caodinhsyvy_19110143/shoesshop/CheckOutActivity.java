@@ -15,6 +15,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import hcmute.edu.vn.caodinhsyvy_19110143.shoesshop.card.ConfirmOrderItemCard;
 import hcmute.edu.vn.caodinhsyvy_19110143.shoesshop.card.HeaderCard;
+import hcmute.edu.vn.caodinhsyvy_19110143.shoesshop.constant.AppConstant;
 import hcmute.edu.vn.caodinhsyvy_19110143.shoesshop.crane.page.CheckOutPageCrane;
 import hcmute.edu.vn.caodinhsyvy_19110143.shoesshop.crane.page.ReviewPaymentPageCrane;
 import hcmute.edu.vn.caodinhsyvy_19110143.shoesshop.entity.OrderItemEntity;
@@ -25,7 +26,7 @@ public class CheckOutActivity extends AppCompatActivity {
 
     private Context context;
     public EditText edtTxtFirstName, edtTxtLastName, edtTxtPhone, edtTxtAddress;
-    public TextView txtTotal, txtPay;
+    public TextView txtTotal, txtPay, txtEdit;
     public TableLayout tbLayOrderItemContainer;
     public FrameLayout frameHeaderContainer;
     public HeaderCard headerCard;
@@ -38,6 +39,7 @@ public class CheckOutActivity extends AppCompatActivity {
         edtTxtAddress = findViewById(R.id.checkOutAct_edtTxtAddress);
         txtTotal = findViewById(R.id.checkOutAct_txtTotal);
         txtPay = findViewById(R.id.checkOutAct_txtPay);
+        txtEdit = findViewById(R.id.checkOutAct_txtEdit);
         tbLayOrderItemContainer = findViewById(R.id.checkOutAct_tbLayOrderItemContainer);
         frameHeaderContainer = findViewById(R.id.checkOutAct_headerContainer);
         headerCard = new HeaderCard(this);
@@ -50,6 +52,10 @@ public class CheckOutActivity extends AppCompatActivity {
         setContentView(R.layout.activity_check_out);
         this.context = this;
         mapping();
+        if (!AppConstant.checkLoggedIn(context))
+            return;
+
+        AppConstant.waitingAnimation(context, 600);
         setHeader();
 
         loadInitData();
@@ -94,6 +100,15 @@ public class CheckOutActivity extends AppCompatActivity {
                         });
                     }
                 }.start();
+            }
+        });
+
+        txtEdit.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(context, ShoppingCartActivity.class);
+                startActivity(intent);
+                finish();
             }
         });
     }
