@@ -29,35 +29,6 @@
         <entry key="..\:/School/MobileProgramming/shoes-shop-mobile/app/src/main/res/layout/fragment_first.xml" value="0.25416666666666665" />
         <entry key="..\:/School/MobileProgramming/shoes-shop-mobile/app/src/main/res/layout/fragment_second.xml" value="0.25416666666666665" />
         <entry key="..\:/School/MobileProgramming/shoes-shop-mobile/app/src/main/res/layout/home_frame_layout.xml" value="0.25416666666666665" />
-        <entry key="..\:/Users/Admin/AndroidStudioProjects/shoes-shop-mobile/app/src/main/res/layout/activity_about_us.xml" value="0.209375" />
-        <entry key="..\:/Users/Admin/AndroidStudioProjects/shoes-shop-mobile/app/src/main/res/layout/activity_check_out.xml" value="0.209375" />
-        <entry key="..\:/Users/Admin/AndroidStudioProjects/shoes-shop-mobile/app/src/main/res/layout/activity_contact_us.xml" value="0.209375" />
-        <entry key="..\:/Users/Admin/AndroidStudioProjects/shoes-shop-mobile/app/src/main/res/layout/activity_home.xml" value="0.209375" />
-        <entry key="..\:/Users/Admin/AndroidStudioProjects/shoes-shop-mobile/app/src/main/res/layout/activity_loading.xml" value="0.209375" />
-        <entry key="..\:/Users/Admin/AndroidStudioProjects/shoes-shop-mobile/app/src/main/res/layout/activity_login.xml" value="0.209375" />
-        <entry key="..\:/Users/Admin/AndroidStudioProjects/shoes-shop-mobile/app/src/main/res/layout/activity_my_account.xml" value="0.209375" />
-        <entry key="..\:/Users/Admin/AndroidStudioProjects/shoes-shop-mobile/app/src/main/res/layout/activity_order_details.xml" value="0.209375" />
-        <entry key="..\:/Users/Admin/AndroidStudioProjects/shoes-shop-mobile/app/src/main/res/layout/activity_order_history.xml" value="0.209375" />
-        <entry key="..\:/Users/Admin/AndroidStudioProjects/shoes-shop-mobile/app/src/main/res/layout/activity_privacy_policy.xml" value="0.209375" />
-        <entry key="..\:/Users/Admin/AndroidStudioProjects/shoes-shop-mobile/app/src/main/res/layout/activity_product_list.xml" value="0.16983523447401774" />
-        <entry key="..\:/Users/Admin/AndroidStudioProjects/shoes-shop-mobile/app/src/main/res/layout/activity_register.xml" value="0.209375" />
-        <entry key="..\:/Users/Admin/AndroidStudioProjects/shoes-shop-mobile/app/src/main/res/layout/activity_review_payment.xml" value="0.209375" />
-        <entry key="..\:/Users/Admin/AndroidStudioProjects/shoes-shop-mobile/app/src/main/res/layout/activity_shopping_cart.xml" value="0.209375" />
-        <entry key="..\:/Users/Admin/AndroidStudioProjects/shoes-shop-mobile/app/src/main/res/layout/activity_terms_and_conditions.xml" value="0.209375" />
-        <entry key="..\:/Users/Admin/AndroidStudioProjects/shoes-shop-mobile/app/src/main/res/layout/activity_thanks.xml" value="0.209375" />
-        <entry key="..\:/Users/Admin/AndroidStudioProjects/shoes-shop-mobile/app/src/main/res/layout/activity_web_view.xml" value="0.209375" />
-        <entry key="..\:/Users/Admin/AndroidStudioProjects/shoes-shop-mobile/app/src/main/res/layout/card_account.xml" value="0.209375" />
-        <entry key="..\:/Users/Admin/AndroidStudioProjects/shoes-shop-mobile/app/src/main/res/layout/card_account_after_login.xml" value="0.209375" />
-        <entry key="..\:/Users/Admin/AndroidStudioProjects/shoes-shop-mobile/app/src/main/res/layout/card_confirm_order_item.xml" value="0.209375" />
-        <entry key="..\:/Users/Admin/AndroidStudioProjects/shoes-shop-mobile/app/src/main/res/layout/card_information.xml" value="0.209375" />
-        <entry key="..\:/Users/Admin/AndroidStudioProjects/shoes-shop-mobile/app/src/main/res/layout/card_login.xml" value="0.209375" />
-        <entry key="..\:/Users/Admin/AndroidStudioProjects/shoes-shop-mobile/app/src/main/res/layout/card_order_history_item.xml" value="0.209375" />
-        <entry key="..\:/Users/Admin/AndroidStudioProjects/shoes-shop-mobile/app/src/main/res/layout/card_order_information.xml" value="0.209375" />
-        <entry key="..\:/Users/Admin/AndroidStudioProjects/shoes-shop-mobile/app/src/main/res/layout/card_product.xml" value="0.209375" />
-        <entry key="..\:/Users/Admin/AndroidStudioProjects/shoes-shop-mobile/app/src/main/res/layout/card_product_detail_in_order_details.xml" value="0.209375" />
-        <entry key="..\:/Users/Admin/AndroidStudioProjects/shoes-shop-mobile/app/src/main/res/layout/card_product_in_shopping_cart.xml" value="0.209375" />
-        <entry key="..\:/Users/Admin/AndroidStudioProjects/shoes-shop-mobile/app/src/main/res/layout/card_register.xml" value="0.209375" />
-        <entry key="..\:/Users/Admin/AndroidStudioProjects/shoes-shop-mobile/app/src/main/res/layout/card_search.xml" value="0.209375" />
         <entry key="app/src/main/res/drawable-xxxhdpi/ic_launcher_background.xml" value="0.134" />
         <entry key="app/src/main/res/drawable-xxxhdpi/ic_launcher_foreground.xml" value="0.134" />
         <entry key="app/src/main/res/layout/activity_about_us.xml" value="0.33" />
@@ -70,6 +41,7 @@
         <entry key="app/src/main/res/layout/activity_order_details.xml" value="0.33" />
         <entry key="app/src/main/res/layout/activity_order_history.xml" value="0.259375" />
         <entry key="app/src/main/res/layout/activity_privacy_policy.xml" value="0.25" />
+        <entry key="app/src/main/res/layout/activity_product_list.xml" value="0.259375" />
         <entry key="app/src/main/res/layout/activity_register.xml" value="0.3099906629318394" />
         <entry key="app/src/main/res/layout/activity_review_payment.xml" value="0.3235867446393762" />
         <entry key="app/src/main/res/layout/activity_shopping_cart.xml" value="0.36604189636163176" />

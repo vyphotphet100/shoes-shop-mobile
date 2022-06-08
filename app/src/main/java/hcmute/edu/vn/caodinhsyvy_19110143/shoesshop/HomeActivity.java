@@ -99,8 +99,7 @@ public class HomeActivity extends AppCompatActivity {
         txtBrand1ShopNow.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(HomeActivity.this, ShoppingCartActivity.class);
-                startActivity(intent);
+
             }
         });
     }

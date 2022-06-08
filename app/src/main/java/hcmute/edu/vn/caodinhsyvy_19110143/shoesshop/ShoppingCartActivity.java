@@ -2,6 +2,7 @@ package hcmute.edu.vn.caodinhsyvy_19110143.shoesshop;
 
 import android.app.ProgressDialog;
 import android.content.Context;
+import android.content.Intent;
 import android.content.res.Resources;
 import android.os.Bundle;
 import android.view.View;
@@ -63,6 +64,9 @@ public class ShoppingCartActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_shopping_cart);
         mapping();
+
+        if (!AppConstant.checkLoggedIn(context))
+            return;
 
         initSetupLayout();
         loadInitData();
@@ -136,15 +140,29 @@ public class ShoppingCartActivity extends AppCompatActivity {
                             }
                         }
 
+                        if (orderItemIdsNeededUpdateQuantity.isEmpty()) {
+                            runOnUiThread(new Runnable() {
+                                @Override
+                                public void run() {
+                                    Toast.makeText(context, "You have chosen nothing!", Toast.LENGTH_SHORT).show();
+                                }
+                            });
+                            return;
+                        }
+
                         Boolean isCheckedOut = shoppingCartPageCrane.checkOut(orderItemIdsNeededUpdateQuantity);
 
                         runOnUiThread(new Runnable() {
                             @Override
                             public void run() {
-                                if (isCheckedOut)
-                                    Toast.makeText(context, "Ok", Toast.LENGTH_SHORT).show();
+                                if (isCheckedOut) {
+                                    AppConstant.waitingAnimation(context, 600);
+                                    Intent intent = new Intent(context, CheckOutActivity.class);
+                                    startActivity(intent);
+                                    finish();
+                                }
                                 else
-                                    Toast.makeText(context, "Wrong", Toast.LENGTH_SHORT).show();
+                                    Toast.makeText(context, "Something's wrong. Please check again!", Toast.LENGTH_SHORT).show();
                             }
                         });
                     }
@@ -177,6 +195,8 @@ public class ShoppingCartActivity extends AppCompatActivity {
         tbLayOrderItemContainer.removeViewAt(i + 1);
 
     }
+
+
 
 
 }
