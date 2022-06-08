@@ -135,7 +135,7 @@ public class HomeActivity extends AppCompatActivity {
                         cate2Container.removeAllViews();
 
                         for (ProductEntity productEntity : homePageEntity.getCate1Products()) {
-                            ProductCard productCard = new ProductCard(context);
+                            ProductCard productCard = new ProductCard(context, productEntity);
                             productCard.txtName.setText(productEntity.getTitle());
                             productCard.txtPrice.setText(String.valueOf(productEntity.getPrice()));
                             Picasso.with(context)
@@ -147,7 +147,7 @@ public class HomeActivity extends AppCompatActivity {
                         }
 
                         for (ProductEntity productEntity : homePageEntity.getCate2Products()) {
-                            ProductCard productCard = new ProductCard(context);
+                            ProductCard productCard = new ProductCard(context, productEntity);
                             productCard.txtName.setText(productEntity.getTitle());
                             productCard.txtPrice.setText(String.valueOf(productEntity.getPrice()));
                             Picasso.with(context)
