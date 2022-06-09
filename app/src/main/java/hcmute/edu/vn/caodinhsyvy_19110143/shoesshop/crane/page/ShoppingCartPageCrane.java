@@ -2,12 +2,16 @@ package hcmute.edu.vn.caodinhsyvy_19110143.shoesshop.crane.page;
 
 import android.content.Context;
 
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
+
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpMethod;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.http.converter.json.MappingJackson2HttpMessageConverter;
+import org.springframework.web.client.HttpStatusCodeException;
 import org.springframework.web.client.RestTemplate;
 
 import java.util.Collections;
@@ -128,14 +132,25 @@ public class ShoppingCartPageCrane {
         orderItemEntity.getListRequest().put("productCode", productCode);
         orderItemEntity.getListRequest().put("quantity", quantity);
         HttpEntity<OrderItemEntity> entity = new HttpEntity<OrderItemEntity>(orderItemEntity, headers);
-        ResponseEntity<OrderItemEntity> resp =
-                restTemplate.exchange(AppConstant.BASE_URL + "/customer/product/add-product-to-cart",
-                        HttpMethod.POST, entity, OrderItemEntity.class);
+        ResponseEntity<OrderItemEntity> resp = null;
+//        restTemplate.exchange(AppConstant.BASE_URL + "/customer/product/add-product-to-cart",
+//                HttpMethod.POST, entity, OrderItemEntity.class);
 
-        if (resp.getStatusCode() == HttpStatus.OK)
-            return resp.getBody();
+        try {
+            resp = restTemplate.exchange(AppConstant.BASE_URL + "/customer/product/add-product-to-cart",
+                    HttpMethod.POST, entity, OrderItemEntity.class);
+        } catch (HttpStatusCodeException ex) {
+            System.out.println(ex.getResponseBodyAsString());
+            ObjectMapper objectMapper = new ObjectMapper();
+            OrderItemEntity resOrderItem = new OrderItemEntity();
+            try {
+                resOrderItem = objectMapper.readValue(ex.getResponseBodyAsString(), OrderItemEntity.class);
+            } catch (JsonProcessingException e) {
+                e.printStackTrace();
+            }
+            return resOrderItem;
+        }
 
-        errorEntity.setMessage(resp.getBody().getMessage());
-        return errorEntity;
+        return resp.getBody();
     }
 }

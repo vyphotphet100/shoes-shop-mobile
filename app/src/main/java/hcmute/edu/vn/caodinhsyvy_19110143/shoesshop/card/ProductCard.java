@@ -18,7 +18,7 @@ import hcmute.edu.vn.caodinhsyvy_19110143.shoesshop.entity.OrderItemEntity;
 import hcmute.edu.vn.caodinhsyvy_19110143.shoesshop.entity.ProductEntity;
 import hcmute.edu.vn.caodinhsyvy_19110143.shoesshop.page_entity.ShoppingCartPageEntity;
 
-public class ProductCard extends BaseCard{
+public class ProductCard extends BaseCard {
     private int layout = R.layout.card_product;
     private View view;
     private Context context;
@@ -55,10 +55,11 @@ public class ProductCard extends BaseCard{
                         ShoppingCartPageCrane shoppingCartPageCrane = new ShoppingCartPageCrane();
                         OrderItemEntity orderItemEntity = shoppingCartPageCrane.addToCart(context, productEntity.getCode(), 1);
 
-                        ((AppCompatActivity)context).runOnUiThread(new Runnable() {
+                        ((AppCompatActivity) context).runOnUiThread(new Runnable() {
                             @Override
                             public void run() {
-                                Toast.makeText(context, orderItemEntity.getMessage(), Toast.LENGTH_SHORT).show();
+                                if (orderItemEntity.getMessage() != null && !orderItemEntity.getMessage().trim().equals(""))
+                                    Toast.makeText(context, orderItemEntity.getMessage(), Toast.LENGTH_SHORT).show();
                                 progressDialog.dismiss();
                             }
                         });

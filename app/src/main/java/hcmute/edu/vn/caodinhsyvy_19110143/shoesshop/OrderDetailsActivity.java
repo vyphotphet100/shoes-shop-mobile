@@ -1,18 +1,17 @@
 package hcmute.edu.vn.caodinhsyvy_19110143.shoesshop;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.os.Bundle;
+import android.widget.FrameLayout;
 import android.widget.TextView;
 
-import hcmute.edu.vn.caodinhsyvy_19110143.shoesshop.card.OrderHistoryItemCard;
+import androidx.appcompat.app.AppCompatActivity;
+
+import hcmute.edu.vn.caodinhsyvy_19110143.shoesshop.card.HeaderCard;
 import hcmute.edu.vn.caodinhsyvy_19110143.shoesshop.crane.page.OrderDetailPageCrane;
-import hcmute.edu.vn.caodinhsyvy_19110143.shoesshop.crane.page.OrderHistoryPageCrane;
 import hcmute.edu.vn.caodinhsyvy_19110143.shoesshop.entity.OrderItemEntity;
 import hcmute.edu.vn.caodinhsyvy_19110143.shoesshop.page_entity.OrderDetailPageEntity;
-import hcmute.edu.vn.caodinhsyvy_19110143.shoesshop.page_entity.OrderHistoryPageEntity;
 
 public class OrderDetailsActivity extends AppCompatActivity {
 
@@ -21,6 +20,8 @@ public class OrderDetailsActivity extends AppCompatActivity {
     public TextView txtOrderID, txtCustomer, txtShipment, txtDateAdded, txtPaymentMethod,
             txtPaymentAddress, txtShippingAddress,
             txtProductName, txtBrand, txtQuantity, txtUnitPrice, txtTotal;
+    public FrameLayout frameHeaderContainer;
+    public HeaderCard headerCard;
     public Integer orderItemId;
 
     private void mapping() {
@@ -37,6 +38,8 @@ public class OrderDetailsActivity extends AppCompatActivity {
         txtUnitPrice = findViewById(R.id.cardProductDetailInOrderDetailsItem_txtPrice);
         txtTotal = findViewById(R.id.orderDetailsAct_txtTotal);
         orderItemId = getIntent().getExtras().getInt("id");
+        frameHeaderContainer = findViewById(R.id.orderDetailsAct_headerContainer);
+        headerCard = new HeaderCard(context);
     }
 
     @Override
@@ -45,6 +48,7 @@ public class OrderDetailsActivity extends AppCompatActivity {
         setContentView(R.layout.activity_order_details);
         this.context = this;
         mapping();
+        initSetupLayout();
 
         loadInitData();
     }
@@ -89,6 +93,11 @@ public class OrderDetailsActivity extends AppCompatActivity {
                 });
             }
         }.start();
+    }
+
+    private void initSetupLayout() {
+        frameHeaderContainer.removeAllViews();
+        frameHeaderContainer.addView(headerCard.getView());
     }
 
 }
