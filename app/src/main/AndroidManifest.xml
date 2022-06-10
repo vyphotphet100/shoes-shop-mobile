@@ -28,6 +28,9 @@
             android:name=".WebViewActivity"
             android:exported="false" />
         <activity
+            android:name=".ProductListActivity"
+            android:exported="false" />
+        <activity
             android:name=".ContactUsActivity"
             android:exported="false" />
         <activity

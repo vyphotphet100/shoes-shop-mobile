@@ -2,6 +2,7 @@ package hcmute.edu.vn.caodinhsyvy_19110143.shoesshop.card;
 
 import android.app.ProgressDialog;
 import android.content.Context;
+import android.content.Intent;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -12,6 +13,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import org.springframework.http.HttpStatus;
 
+import hcmute.edu.vn.caodinhsyvy_19110143.shoesshop.ProductDetailActivity;
 import hcmute.edu.vn.caodinhsyvy_19110143.shoesshop.R;
 import hcmute.edu.vn.caodinhsyvy_19110143.shoesshop.crane.page.ShoppingCartPageCrane;
 import hcmute.edu.vn.caodinhsyvy_19110143.shoesshop.entity.OrderItemEntity;
@@ -23,7 +25,7 @@ public class ProductCard extends BaseCard {
     private View view;
     private Context context;
 
-    public ImageView img;
+    public ImageView img, imgSeeDetail;
     public TextView txtName, txtPrice, txtAddToCard;
     public ProductEntity productEntity;
 
@@ -33,6 +35,7 @@ public class ProductCard extends BaseCard {
         txtName = view.findViewById(R.id.cardProduct_txtName);
         txtPrice = view.findViewById(R.id.cardProduct_txtPrice);
         txtAddToCard = view.findViewById(R.id.cardProduct_txtAddToCard);
+        imgSeeDetail = view.findViewById(R.id.cardProduct_imgSeeDetail);
 
     }
 
@@ -65,6 +68,23 @@ public class ProductCard extends BaseCard {
                         });
                     }
                 }.start();
+            }
+        });
+
+        imgSeeDetail.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(context, ProductDetailActivity.class);
+                intent.putExtra("code", productEntity.getCode());
+                context.startActivity(intent);
+                ((AppCompatActivity)context).finish();
+            }
+        });
+
+        img.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                imgSeeDetail.callOnClick();
             }
         });
 

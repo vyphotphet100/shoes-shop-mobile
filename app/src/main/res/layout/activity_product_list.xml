@@ -9,7 +9,7 @@
 
     <FrameLayout
         android:layout_width="match_parent"
-        android:id="@+id/homeAct_headerContainer"
+        android:id="@+id/productListAct_headerContainer"
         android:layout_height="wrap_content"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
@@ -19,145 +19,40 @@
 
     </FrameLayout>
 
-    <androidx.core.widget.NestedScrollView
-        android:id="@+id/homeAct_srv"
+    <WebView
+        android:id="@+id/productListAct_webView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@id/homeAct_headerContainer"
         app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent">
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/productListAct_headerContainer"/>
 
-        <LinearLayout
-            android:id="@+id/homeAct_itemContainer"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical">
+<!--    <androidx.core.widget.NestedScrollView-->
+<!--        android:id="@+id/homeAct_srv"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        app:layout_constraintTop_toBottomOf="@id/productListAct_headerContainer"-->
+<!--        app:layout_constraintLeft_toLeftOf="parent"-->
+<!--        app:layout_constraintRight_toRightOf="parent">-->
 
+<!--        <LinearLayout-->
+<!--            android:id="@+id/homeAct_itemContainer"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="match_parent"-->
+<!--            android:orientation="vertical">-->
 
+<!--&lt;!&ndash;            <WebView&ndash;&gt;-->
+<!--&lt;!&ndash;                android:id="@+id/productListAct_webView"&ndash;&gt;-->
+<!--&lt;!&ndash;                android:layout_width="match_parent"&ndash;&gt;-->
+<!--&lt;!&ndash;                android:layout_height="match_parent"/>&ndash;&gt;-->
 
-            <androidx.constraintlayout.widget.ConstraintLayout android:id="@+id/homeAct_CategoriesConsLayout"
-                android:layout_width="match_parent"
-                android:layout_height="180dp">
+<!--&lt;!&ndash;            <include layout="@layout/card_footer"/>&ndash;&gt;-->
 
+<!--&lt;!&ndash;            <FrameLayout android:id="@+id/homeAct_frm"&ndash;&gt;-->
+<!--&lt;!&ndash;                android:layout_width="match_parent"&ndash;&gt;-->
+<!--&lt;!&ndash;                android:layout_height="215dp"/>&ndash;&gt;-->
 
-
-            </androidx.constraintlayout.widget.ConstraintLayout>
-
-            <androidx.constraintlayout.widget.ConstraintLayout android:id="@+id/homeAct_RefineSearchConsLayout"
-                android:layout_width="match_parent"
-                android:layout_height="180dp">
-                <TextView
-                    android:id="@+id/homeAct_txtBrand5"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:background="@color/black"
-                    android:paddingLeft="20dp"
-                    android:paddingTop="10dp"
-                    android:paddingRight="20dp"
-                    android:paddingBottom="10dp"
-                    android:text="SEARCH"
-                    android:textColor="@color/white"
-                    android:textStyle="bold"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintLeft_toLeftOf="parent"
-                    app:layout_constraintRight_toRightOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
-
-
-            </androidx.constraintlayout.widget.ConstraintLayout>
-            <androidx.constraintlayout.widget.ConstraintLayout android:id="@+id/DescriptionsConsLayout"
-                android:layout_width="match_parent"
-                android:layout_height="180dp">
-
-
-
-            </androidx.constraintlayout.widget.ConstraintLayout>
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="30dp"
-                android:layout_marginBottom="50dp"
-                android:orientation="vertical">
-
-                <TextView
-                    android:id="@+id/homeAct_txtCategory1"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:padding="10dp"
-                    android:text="category1"
-                    android:textAlignment="center"
-                    android:textSize="19dp"
-                    android:textStyle="bold" />
-
-                <HorizontalScrollView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
-
-                    <LinearLayout
-                        android:id="@+id/homeAct_cate1Container"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:orientation="horizontal">
-
-                        <include layout="@layout/card_product"/>
-                        <include layout="@layout/card_product"/>
-                        <include layout="@layout/card_product"/>
-
-
-                    </LinearLayout>
-
-                </HorizontalScrollView>
-
-            </LinearLayout>
-
-
-
-
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="30dp"
-                android:layout_marginBottom="50dp"
-                android:orientation="vertical">
-
-                <TextView
-                    android:id="@+id/homeAct_txtCategory2"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:padding="10dp"
-                    android:text="category2"
-                    android:textAlignment="center"
-                    android:textSize="19dp"
-                    android:textStyle="bold" />
-
-                <HorizontalScrollView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
-
-                    <LinearLayout
-                        android:id="@+id/homeAct_cate2Container"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:orientation="horizontal">
-
-                        <include layout="@layout/card_product"/>
-                        <include layout="@layout/card_product"/>
-                        <include layout="@layout/card_product"/>
-
-                    </LinearLayout>
-
-                </HorizontalScrollView>
-
-            </LinearLayout>
-
-            <include layout="@layout/card_footer"/>
-
-            <FrameLayout android:id="@+id/homeAct_frm"
-                android:layout_width="match_parent"
-                android:layout_height="215dp"/>
-
-        </LinearLayout>
-    </androidx.core.widget.NestedScrollView>
+<!--        </LinearLayout>-->
+<!--    </androidx.core.widget.NestedScrollView>-->
 
 </androidx.constraintlayout.widget.ConstraintLayout>
