@@ -16,8 +16,8 @@ import hcmute.edu.vn.caodinhsyvy_19110143.shoesshop.page_entity.ProductPageEntit
 public class ProductDetailPageCrane {
     private final String subUrl = "page/product-detail";
 
-    public ProductDetailPageEntity getDataPageDetail(String id) {
-        String params = "?id=" + id;
+    public ProductDetailPageEntity getDataPageDetail(String code) {
+        String params = "?code=" + code;
 
         RestTemplate restTemplate = new RestTemplate();
 

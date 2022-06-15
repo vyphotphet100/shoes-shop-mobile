@@ -4,6 +4,7 @@ import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.res.Resources;
 import android.os.Bundle;
+import android.view.View;
 import android.view.ViewGroup;
 import android.widget.EditText;
 import android.widget.FrameLayout;
@@ -33,11 +34,12 @@ public class ProductDetailActivity extends AppCompatActivity {
     public LinearLayout cateContainer;
 
     public HeaderCard headerCard;
-    public String productId;
+    public String code;
+//    public ProductEntity productEntity;
 
     private void mapping() {
         this.context = this;
-        productId = getIntent().getExtras().getString("id");
+        code = getIntent().getExtras().getString("code");
         frameHeaderContainer = findViewById(R.id.productDetailAct_headerContainer);
         headerCard = new HeaderCard(context);
         txtTitle = findViewById(R.id.productDetailAct_txtTitle);
@@ -62,6 +64,8 @@ public class ProductDetailActivity extends AppCompatActivity {
         initSetupLayout();
 
         loadInitData();
+
+        setEvent();
     }
 
     private void initSetupLayout() {
@@ -79,7 +83,7 @@ public class ProductDetailActivity extends AppCompatActivity {
             @Override
             public void run() {
                 ProductDetailPageCrane productDetailPageCrane = new ProductDetailPageCrane();
-                ProductDetailPageEntity productDetailPageEntity = productDetailPageCrane.getDataPageDetail(productId);
+                ProductDetailPageEntity productDetailPageEntity = productDetailPageCrane.getDataPageDetail(code);
 
                 // set to UI
                 runOnUiThread(new Runnable() {
@@ -113,6 +117,34 @@ public class ProductDetailActivity extends AppCompatActivity {
                 });
             }
         }.start();
+    }
+
+    private void setEvent() {
+        txtAddToCart.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                ProductEntity productEntity = new ProductEntity();
+                productEntity.setCode(code);
+                ProductCard productCard = new ProductCard(context, productEntity);
+                productCard.quantity = Integer.valueOf(edtTxtQuantity.getText().toString());
+                productCard.txtAddToCard.callOnClick();
+            }
+        });
+
+        txtInc.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                edtTxtQuantity.setText(String.valueOf(Integer.valueOf(edtTxtQuantity.getText().toString()) + 1));
+            }
+        });
+
+        txtDec.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (!edtTxtQuantity.getText().toString().trim().equals("1"))
+                    edtTxtQuantity.setText(String.valueOf(Integer.valueOf(edtTxtQuantity.getText().toString()) - 1));
+            }
+        });
     }
 
 }

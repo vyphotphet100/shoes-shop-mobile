@@ -13,6 +13,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import hcmute.edu.vn.caodinhsyvy_19110143.shoesshop.HomeActivity;
 import hcmute.edu.vn.caodinhsyvy_19110143.shoesshop.LoginActivity;
 import hcmute.edu.vn.caodinhsyvy_19110143.shoesshop.MyAccountActivity;
+import hcmute.edu.vn.caodinhsyvy_19110143.shoesshop.ProductListActivity;
 import hcmute.edu.vn.caodinhsyvy_19110143.shoesshop.R;
 import hcmute.edu.vn.caodinhsyvy_19110143.shoesshop.RegisterActivity;
 import hcmute.edu.vn.caodinhsyvy_19110143.shoesshop.ShoppingCartActivity;
@@ -24,6 +25,7 @@ public class HeaderCard extends BaseCard {
     private Context context;
 
     public ImageView imgSearch, imgAccount, imgShoppingCart, imgLogo;
+    public TextView txtWomenShoes, txtMenShoes, txtSportsWear;
 
 
     @Override
@@ -32,6 +34,9 @@ public class HeaderCard extends BaseCard {
         imgAccount = view.findViewById(R.id.headerCard_imgAccount);
         imgShoppingCart = view.findViewById(R.id.headerCard_imgShoppingCart);
         imgLogo = view.findViewById(R.id.cardHeader_imgLogo);
+        txtWomenShoes = view.findViewById(R.id.headerCard_txtWomenShoes);
+        txtMenShoes = view.findViewById(R.id.headerCard_txtMenShoes);
+        txtSportsWear = view.findViewById(R.id.headerCard_txtSportsWear);
     }
 
     @Override
@@ -95,6 +100,16 @@ public class HeaderCard extends BaseCard {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(context, ShoppingCartActivity.class);
+                context.startActivity(intent);
+                ((AppCompatActivity)context).finish();
+            }
+        });
+
+        txtWomenShoes.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(context, ProductListActivity.class);
+                intent.putExtra("params", "categoryCode=CATEGORY1");
                 context.startActivity(intent);
                 ((AppCompatActivity)context).finish();
             }

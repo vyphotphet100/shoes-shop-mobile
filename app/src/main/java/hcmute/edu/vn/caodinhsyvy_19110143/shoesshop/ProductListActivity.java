@@ -18,12 +18,14 @@ public class ProductListActivity extends AppCompatActivity {
     public FrameLayout frameHeaderContainer;
     public HeaderCard headerCard;
     public WebView webView;
+    public String params;
 
     private void mapping() {
         this.context = this;
         frameHeaderContainer = findViewById(R.id.productListAct_headerContainer);
         headerCard = new HeaderCard(context);
         webView = findViewById(R.id.productListAct_webView);
+        params = getIntent().getExtras().getString("params");
     }
 
     @Override
@@ -35,7 +37,7 @@ public class ProductListActivity extends AppCompatActivity {
         initSetupLayout();
 
         webView.getSettings().setJavaScriptEnabled(true);
-        webView.loadUrl(AppConstant.BASE_URL + "/customer/m-product/product-list?limit=12");
+        webView.loadUrl(AppConstant.BASE_URL + "/customer/m-product/product-list?limit=12&" + params);
         webView.setWebViewClient(new WebViewClient() {
             @Override
             public boolean shouldOverrideUrlLoading(WebView view, String url) {

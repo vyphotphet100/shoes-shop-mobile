@@ -29,6 +29,7 @@
         android:weightSum="2">
 
         <TextView
+            android:id="@+id/headerCard_txtWomenShoes"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
@@ -40,6 +41,7 @@
             android:textColor="@color/black" />
 
         <TextView
+            android:id="@+id/headerCard_txtMenShoes"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
@@ -56,6 +58,7 @@
         android:orientation="horizontal">
 
         <TextView
+            android:id="@+id/headerCard_txtSportsWear"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:paddingTop="10dp"

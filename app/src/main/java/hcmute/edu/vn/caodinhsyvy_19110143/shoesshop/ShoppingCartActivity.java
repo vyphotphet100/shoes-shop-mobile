@@ -128,9 +128,12 @@ public class ShoppingCartActivity extends AppCompatActivity {
         txtCheckOut.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                ProgressDialog progressDialog = ProgressDialog.show(context, "Noriva",
+                        "Loading...", true);
                 new Thread() {
                     @Override
                     public void run() {
+
                         HashMap<String, Integer> orderItemIdsNeededUpdateQuantity = new HashMap<>();
                         for (ProductInShoppingCartCard productInShoppingCartCard : productInShoppingCartCards) {
                             if (productInShoppingCartCard.chBxPay.isChecked()) {
@@ -145,6 +148,7 @@ public class ShoppingCartActivity extends AppCompatActivity {
                                 @Override
                                 public void run() {
                                     Toast.makeText(context, "You have chosen nothing!", Toast.LENGTH_SHORT).show();
+                                    progressDialog.dismiss();
                                 }
                             });
                             return;
@@ -159,10 +163,13 @@ public class ShoppingCartActivity extends AppCompatActivity {
                                     AppConstant.waitingAnimation(context, 600);
                                     Intent intent = new Intent(context, CheckOutActivity.class);
                                     startActivity(intent);
+                                    progressDialog.dismiss();
                                     finish();
                                 }
-                                else
+                                else {
                                     Toast.makeText(context, "Something's wrong. Please check again!", Toast.LENGTH_SHORT).show();
+                                    progressDialog.dismiss();
+                                }
                             }
                         });
                     }

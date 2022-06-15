@@ -100,7 +100,7 @@ public class HomeActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(context, ProductDetailActivity.class);
-                intent.putExtra("id", "emiew");
+                intent.putExtra("code", "aqrrj");
                 startActivity(intent);
             }
         });

@@ -28,6 +28,7 @@ public class ProductCard extends BaseCard {
     public ImageView img, imgSeeDetail;
     public TextView txtName, txtPrice, txtAddToCard;
     public ProductEntity productEntity;
+    public Integer quantity = 1;
 
     @Override
     protected void mapping() {
@@ -36,7 +37,6 @@ public class ProductCard extends BaseCard {
         txtPrice = view.findViewById(R.id.cardProduct_txtPrice);
         txtAddToCard = view.findViewById(R.id.cardProduct_txtAddToCard);
         imgSeeDetail = view.findViewById(R.id.cardProduct_imgSeeDetail);
-
     }
 
     @Override
@@ -56,7 +56,7 @@ public class ProductCard extends BaseCard {
                     @Override
                     public void run() {
                         ShoppingCartPageCrane shoppingCartPageCrane = new ShoppingCartPageCrane();
-                        OrderItemEntity orderItemEntity = shoppingCartPageCrane.addToCart(context, productEntity.getCode(), 1);
+                        OrderItemEntity orderItemEntity = shoppingCartPageCrane.addToCart(context, productEntity.getCode(), quantity);
 
                         ((AppCompatActivity) context).runOnUiThread(new Runnable() {
                             @Override

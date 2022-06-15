@@ -13,10 +13,13 @@ import hcmute.edu.vn.caodinhsyvy_19110143.shoesshop.page_entity.ReviewPaymentPag
 
 public class WebViewActivity extends AppCompatActivity {
 
+    private Context context;
     public WebView webView;
     public ReviewPaymentPageEntity reviewPaymentPageEntity;
+    public Boolean checkBack = true;
 
     private void mapping() {
+        this.context = this;
         webView = findViewById(R.id.webViewAct_webView);
         this.reviewPaymentPageEntity = (ReviewPaymentPageEntity) getIntent().getSerializableExtra("reviewPaymentPageEntity");
     }
@@ -53,9 +56,10 @@ public class WebViewActivity extends AppCompatActivity {
                         PayerID.append(url.charAt(i));
                 PayerID = new StringBuilder(PayerID.toString().split("=")[1]);
 
-                Intent intent = new Intent(WebViewActivity.this, ReviewPaymentActivity.class);
+                Intent intent = new Intent(context, ReviewPaymentActivity.class);
                 reviewPaymentPageEntity.setPaymentId(paymentId.toString());
                 reviewPaymentPageEntity.setPayerID(PayerID.toString());
+                checkBack = false;
                 intent.putExtra("reviewPaymentPageEntity", reviewPaymentPageEntity);
                 startActivity(intent);
                 finish();
@@ -67,7 +71,9 @@ public class WebViewActivity extends AppCompatActivity {
     @Override
     protected void onStop() {
         super.onStop();
-        Intent intent = new Intent(this, ShoppingCartActivity.class);
-        startActivity(intent);
+        if (checkBack) {
+            Intent intent = new Intent(this, ShoppingCartActivity.class);
+            startActivity(intent);
+        }
     }
 }
