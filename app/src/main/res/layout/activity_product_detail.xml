@@ -31,6 +31,7 @@
             android:orientation="vertical">
 
             <TextView
+                android:id="@+id/productDetailAct_txtTitle"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="STAN SMITH SHOES"
@@ -48,8 +49,9 @@
                 android:layout_marginLeft="20dp"
                 android:layout_marginRight="20dp">
                 <ImageView
+                    android:id="@+id/productDetailAct_img"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    android:layout_height="250dp"
                     android:src="@mipmap/img_product1"/>
             </androidx.cardview.widget.CardView>
 
@@ -62,6 +64,7 @@
                 android:orientation="vertical">
 
                 <TextView
+                    android:id="@+id/productDetailAct_txtBrand"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:textColor="@color/black"
@@ -69,6 +72,7 @@
                     android:layout_marginBottom="5dp"
                     android:text="Brand: Adidas"/>
                 <TextView
+                    android:id="@+id/productDetailAct_txtCategory"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:textColor="@color/black"
@@ -77,6 +81,7 @@
                     android:text="Category: Women's Shoes"/>
 
                 <TextView
+                    android:id="@+id/productDetailAct_txtAvailability"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:textColor="@color/black"
@@ -108,6 +113,7 @@
                     android:layout_marginBottom="5dp"
                     android:text="Price:"/>
                 <TextView
+                    android:id="@+id/productDetailAct_txtPrice"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:textColor="@color/black"
@@ -148,6 +154,7 @@
                     android:orientation="horizontal">
 
                     <TextView
+                        android:id="@+id/productDetailAct_txtDec"
                         android:layout_width="35dp"
                         android:layout_height="35dp"
                         android:text="-"
@@ -164,6 +171,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content">
                         <EditText
+                            android:id="@+id/productDetailAct_edtTxtQuantity"
                             android:layout_width="35dp"
                             android:layout_height="35dp"
                             android:inputType="none"
@@ -176,6 +184,7 @@
                     </androidx.cardview.widget.CardView>
 
                     <TextView
+                        android:id="@+id/productDetailAct_txtInc"
                         android:layout_width="35dp"
                         android:layout_height="35dp"
                         android:text="+"
@@ -187,6 +196,7 @@
                         android:textSize="18dp"/>
 
                     <TextView
+                        android:id="@+id/productDetailAct_txtAddToCart"
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent"
                         android:text="ADD TO CART"
@@ -240,6 +250,7 @@
                         android:layout_height="wrap_content"
                         android:orientation="vertical">
                         <TextView
+                            android:id="@+id/productDetailAct_txtDescription"
                             android:paddingTop="5dp"
                             android:textColor="@color/black"
                             android:layout_width="match_parent"
@@ -285,7 +296,7 @@
                     android:layout_height="wrap_content">
 
                     <LinearLayout
-                        android:id="@+id/homeAct_cate1Container"
+                        android:id="@+id/productDetailAct_cateContainer"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:orientation="horizontal">
