@@ -50,10 +50,10 @@ public class OrderDetailsActivity extends AppCompatActivity {
         this.context = this;
         mapping();
         initSetupLayout();
-
-        loadInitData();
+        loadInitData(); //load data from api to activity order details
     }
 
+    //load data from api to activity order details
     private void loadInitData() {
 
         ProgressDialog progressDialog = ProgressDialog.show(this, "Noriva",

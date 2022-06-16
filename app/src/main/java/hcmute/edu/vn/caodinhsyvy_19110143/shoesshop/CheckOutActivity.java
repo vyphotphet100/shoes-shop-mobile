@@ -59,7 +59,8 @@ public class CheckOutActivity extends AppCompatActivity {
         AppConstant.waitingAnimation(context, 600);
         setHeader();
 
-        loadInitData();
+        loadInitData();     //load data from api to activity check out
+
         //when text Pay clicked
         txtPay.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -114,6 +115,7 @@ public class CheckOutActivity extends AppCompatActivity {
         });
     }
 
+    //load data from api to activity check out
     private void loadInitData() {
         ProgressDialog progressDialog = ProgressDialog.show(this, "Noriva",
                 "Loading...", true);

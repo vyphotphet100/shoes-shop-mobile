@@ -95,7 +95,7 @@ public class HomeActivity extends AppCompatActivity {
         setContentView(R.layout.activity_home);     // show activity home
         mapping();
         initSetupLayout();
-        loadInitData();
+        loadInitData(); //load data from api to activity home
 
         txtBrand1ShopNow.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -107,6 +107,7 @@ public class HomeActivity extends AppCompatActivity {
         });
     }
 
+    //load data from api to activity home
     private void loadInitData() {
 
         ProgressDialog progressDialog = ProgressDialog.show(this, "Noriva",

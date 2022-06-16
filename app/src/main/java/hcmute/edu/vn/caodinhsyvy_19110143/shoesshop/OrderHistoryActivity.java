@@ -39,9 +39,10 @@ public class OrderHistoryActivity extends AppCompatActivity {
         mapping();
         initSetupLayout();
 
-        loadInitData();
+        loadInitData();//load data from api to activity order history
     }
 
+    //load data from api to activity order history
     private void loadInitData() {
 
         ProgressDialog progressDialog = ProgressDialog.show(this, "Noriva",
