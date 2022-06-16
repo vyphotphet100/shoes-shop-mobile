@@ -1,5 +1,6 @@
 package hcmute.edu.vn.caodinhsyvy_19110143.shoesshop;
 
+import android.app.ProgressDialog;
 import android.content.Context;
 import android.os.Bundle;
 import android.webkit.WebView;
@@ -36,12 +37,24 @@ public class ProductListActivity extends AppCompatActivity {
         AppConstant.waitingAnimation(context, 800);
         initSetupLayout();
 
+        final ProgressDialog[] progressDialog = {ProgressDialog.show(context, "Noriva",
+                "Loading...", true)};
+        progressDialog[0].dismiss();
+
         webView.getSettings().setJavaScriptEnabled(true);
-        webView.loadUrl(AppConstant.BASE_URL + "/customer/m-product/product-list?limit=12&" + params);
         webView.setWebViewClient(new WebViewClient() {
+
+            @Override
+            public void onPageFinished(WebView view, String url) {
+                super.onPageFinished(view, url);
+                if (progressDialog[0] != null)
+                    progressDialog[0].dismiss();
+            }
+
             @Override
             public boolean shouldOverrideUrlLoading(WebView view, String url) {
-                AppConstant.waitingAnimation(context, 500);
+                progressDialog[0] = ProgressDialog.show(context, "Noriva",
+                        "Loading...", true);
                 if (!url.contains("shoesshop-app://"))
                     return super.shouldOverrideUrlLoading(view, url);
 
@@ -80,6 +93,7 @@ public class ProductListActivity extends AppCompatActivity {
                 return true;
             }
         });
+        webView.loadUrl(AppConstant.BASE_URL + "/customer/m-product/product-list?limit=12&" + params);
 
     }
 

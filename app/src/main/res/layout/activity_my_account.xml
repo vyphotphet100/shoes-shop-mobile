@@ -87,7 +87,7 @@
                         android:layout_marginTop="10dp">
 
                         <TextView
-                            android:id="@+id/cardAccount_txtLogin"
+                            android:id="@+id/myAccountAct_txtEditAccountInfo"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_marginBottom="8dp"
@@ -104,7 +104,7 @@
                         android:layout_marginTop="10dp">
 
                         <TextView
-                            android:id="@+id/cardAccount_txtRegister"
+                            android:id="@+id/myAccountAct_txtChangePassword"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:paddingTop="5dp"
@@ -120,7 +120,7 @@
                         android:layout_marginTop="10dp">
 
                         <TextView
-                            android:id="@+id/cardAccount_txtLogout"
+                            android:id="@+id/myAccountAct_txtLogout"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_marginBottom="8dp"

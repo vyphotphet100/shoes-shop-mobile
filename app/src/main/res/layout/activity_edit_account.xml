@@ -8,7 +8,7 @@
 
     <FrameLayout
         android:layout_width="match_parent"
-        android:id="@+id/loginAct_headerContainer"
+        android:id="@+id/editAccountAct_headerContainer"
         android:layout_height="wrap_content"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
@@ -21,7 +21,7 @@
     <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@id/loginAct_headerContainer"
+        app:layout_constraintTop_toBottomOf="@id/editAccountAct_headerContainer"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent">
 
@@ -37,14 +37,14 @@
                 android:padding="10dp">
 
                 <FrameLayout
-                    android:id="@+id/loginAct_frmAccountLayContainer"
+                    android:id="@+id/editAccountAct_frmAccountLayContainer"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content">
                     <include layout="@layout/card_account"/>
                 </FrameLayout>
 
                 <FrameLayout
-                    android:id="@+id/loginAct_frmInfoLayContainer"
+                    android:id="@+id/editAccountAct_frmInfoLayContainer"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content">
                     <include layout="@layout/card_information"/>
@@ -106,7 +106,7 @@
                     </LinearLayout>
 
                     <EditText
-                        android:id="@+id/cardRegister_edtTxtFirstName"
+                        android:id="@+id/editAccountAct_edtTxtFirstName"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="10dp"
@@ -133,7 +133,7 @@
                     </LinearLayout>
 
                     <EditText
-                        android:id="@+id/cardRegister_edtTxtLastName"
+                        android:id="@+id/editAccountAct_edtTxtLastName"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="10dp"
@@ -162,7 +162,7 @@
                     </LinearLayout>
 
                     <EditText
-                        android:id="@+id/cardRegister_edtTxtPhone"
+                        android:id="@+id/editAccountAct_edtTxtPhone"
                         android:layout_width="match_parent"
                         android:layout_marginTop="10dp"
                         android:layout_height="wrap_content"
@@ -191,7 +191,7 @@
                     </LinearLayout>
 
                     <EditText
-                        android:id="@+id/cardRegister_edtTxtEmail"
+                        android:id="@+id/editAccountAct_edtTxtEmail"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="10dp"
@@ -218,7 +218,7 @@
                 android:layout_marginBottom="20dp">
 
                 <Button
-                    android:id="@+id/loginAct_btnBack"
+                    android:id="@+id/editAccountAct_btnBack"
                     android:layout_width="100dp"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="20dp"
@@ -230,7 +230,7 @@
                     android:textSize="14dp" />
 
                 <Button
-                    android:id="@+id/loginAct_btnSaveChange"
+                    android:id="@+id/editAccountAct_btnSaveChange"
                     android:layout_width="130dp"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="20dp"

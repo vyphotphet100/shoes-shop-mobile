@@ -9,7 +9,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;
 import android.widget.HorizontalScrollView;
-import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
@@ -19,25 +18,12 @@ import androidx.core.widget.NestedScrollView;
 
 import com.squareup.picasso.Picasso;
 
-import org.springframework.http.HttpStatus;
-
-import java.util.List;
-
-import hcmute.edu.vn.caodinhsyvy_19110143.shoesshop.card.AccountCard;
 import hcmute.edu.vn.caodinhsyvy_19110143.shoesshop.card.HeaderCard;
-import hcmute.edu.vn.caodinhsyvy_19110143.shoesshop.card.InformationCard;
 import hcmute.edu.vn.caodinhsyvy_19110143.shoesshop.card.ProductCard;
 import hcmute.edu.vn.caodinhsyvy_19110143.shoesshop.constant.AppConstant;
-import hcmute.edu.vn.caodinhsyvy_19110143.shoesshop.crane.page.CheckOutPageCrane;
 import hcmute.edu.vn.caodinhsyvy_19110143.shoesshop.crane.page.HomePageCrane;
-import hcmute.edu.vn.caodinhsyvy_19110143.shoesshop.crane.page.LoginPageCrane;
-import hcmute.edu.vn.caodinhsyvy_19110143.shoesshop.crane.page.ProductPageCrane;
-import hcmute.edu.vn.caodinhsyvy_19110143.shoesshop.crane.page.ReviewPaymentPageCrane;
 import hcmute.edu.vn.caodinhsyvy_19110143.shoesshop.entity.ProductEntity;
-import hcmute.edu.vn.caodinhsyvy_19110143.shoesshop.entity.UserEntity;
 import hcmute.edu.vn.caodinhsyvy_19110143.shoesshop.page_entity.HomePageEntity;
-import hcmute.edu.vn.caodinhsyvy_19110143.shoesshop.page_entity.ProductPageEntity;
-import hcmute.edu.vn.caodinhsyvy_19110143.shoesshop.page_entity.ReviewPaymentPageEntity;
 
 public class HomeActivity extends AppCompatActivity {
 
