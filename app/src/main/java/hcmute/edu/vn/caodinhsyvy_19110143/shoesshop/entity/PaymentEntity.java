@@ -7,13 +7,14 @@ import java.util.Date;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class PaymentEntity extends BaseEntity<PaymentEntity> implements Serializable {
-
+    // declare the necessary variables used / properties of payment entity
     private Integer id;
     private Date paymentDate;
     private Date shipmentDate;
     private OrderItemEntity orderItem;
     private TransferPaymentEntity transferPayment;
 
+    //get and set all value to all variables
     @Override
     public Integer getId() {
         return id;

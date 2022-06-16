@@ -8,10 +8,12 @@ import java.util.List;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class PaymentMethodEntity extends BaseEntity<PaymentMethodEntity> implements Serializable {
+    // declare the necessary variables used / properties of payment method entity entity
     private Integer id;
     private String name;
     private List<UserEntity> users = new ArrayList<>();
 
+    //get and set all value to all variables
     @Override
     public Integer getId() {
         return id;
