@@ -69,7 +69,7 @@ public class MyAccountActivity extends AppCompatActivity {
                 if (!(context instanceof OrderHistoryActivity)) {
                     Intent intent = new Intent(context, OrderHistoryActivity.class);
                     context.startActivity(intent);
-                    ((AppCompatActivity)context).finish();
+                    ((AppCompatActivity) context).finish();
                 }
             }
         });
@@ -99,7 +99,7 @@ public class MyAccountActivity extends AppCompatActivity {
                 Toast.makeText(context, "Log out successfully!", Toast.LENGTH_SHORT).show();
                 Intent intent = new Intent(context, LoginActivity.class);
                 startActivity(intent);
-                ((AppCompatActivity)context).finish();
+                ((AppCompatActivity) context).finish();
             }
         });
     }

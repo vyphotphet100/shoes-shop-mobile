@@ -4,6 +4,7 @@ import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.content.res.Resources;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
 import android.view.ViewGroup;
@@ -42,7 +43,7 @@ public class ShoppingCartActivity extends AppCompatActivity {
     public HeaderCard headerCard;
     public HorizontalScrollView hsv;
     public TableLayout tbLayOrderItemContainer;
-    public TextView txtTotal, txtCheckOut;
+    public TextView txtTotal, txtCheckOut, txtContinueShopping;
     public List<OrderItemEntity> orderItemEntities = new ArrayList<>();
     public List<ProductInShoppingCartCard> productInShoppingCartCards = new ArrayList<>();
     public ShoppingCartPageCrane shoppingCartPageCrane;
@@ -56,6 +57,7 @@ public class ShoppingCartActivity extends AppCompatActivity {
         tbLayOrderItemContainer = findViewById(R.id.shoppingCartAct_tbLayOrderItemContainer);
         txtTotal = findViewById(R.id.shoppingCartAct_txtTotal);
         txtCheckOut = findViewById(R.id.shoppingCartAct_txtCheckOut);
+        txtContinueShopping = findViewById(R.id.shoppingCartAct_txtContinueShopping);
         shoppingCartPageCrane = new ShoppingCartPageCrane();
     }
 
@@ -128,6 +130,8 @@ public class ShoppingCartActivity extends AppCompatActivity {
         txtCheckOut.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                txtCheckOut.setBackgroundColor(Color.parseColor("#FFFFFF"));
+                txtCheckOut.setTextColor(Color.parseColor("#000000"));
                 ProgressDialog progressDialog = ProgressDialog.show(context, "Noriva",
                         "Loading...", true);
                 new Thread() {
@@ -174,6 +178,17 @@ public class ShoppingCartActivity extends AppCompatActivity {
                         });
                     }
                 }.start();
+            }
+        });
+
+        txtContinueShopping.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                txtContinueShopping.setBackgroundColor(Color.parseColor("#FFFFFF"));
+                txtContinueShopping.setTextColor(Color.parseColor("#000000"));
+                Intent intent = new Intent(context, ProductListActivity.class);
+                context.startActivity(intent);
+                finish();
             }
         });
     }

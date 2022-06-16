@@ -4,6 +4,7 @@ import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.content.res.Resources;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
 import android.view.ViewGroup;
@@ -27,6 +28,7 @@ import hcmute.edu.vn.caodinhsyvy_19110143.shoesshop.page_entity.HomePageEntity;
 
 public class HomeActivity extends AppCompatActivity {
 
+    public static Boolean checkActivity = false;
     private Context context;
     public NestedScrollView srv;
     public ConstraintLayout container;
@@ -43,7 +45,8 @@ public class HomeActivity extends AppCompatActivity {
             txtBrand3, txtBrand4,
             txtBrand5, txtBrand6,
             txtBrand7,
-            txtCategory1, txtCategory2, txtBrand1ShopNow;
+            txtCategory1, txtCategory2,
+            txtBrand1ShopNow, txtBrand2ShopNow, txtBrand3ShopNow, txtBrand4ShopNow;
 
     private void mapping() {
         this.context = this;
@@ -68,6 +71,9 @@ public class HomeActivity extends AppCompatActivity {
         txtCategory1 = findViewById(R.id.homeAct_txtCategory1);
         txtCategory2 = findViewById(R.id.homeAct_txtCategory2);
         txtBrand1ShopNow = findViewById(R.id.homeAct_txtBrand1ShopNow);
+        txtBrand2ShopNow = findViewById(R.id.homeAct_txtBrand2ShopNow);
+        txtBrand3ShopNow = findViewById(R.id.homeAct_txtBrand3ShopNow);
+        txtBrand4ShopNow = findViewById(R.id.homeAct_txtBrand4ShopNow);
 
         frameHeaderContainer = findViewById(R.id.homeAct_headerContainer);
         headerCard = new HeaderCard(context);
@@ -81,15 +87,8 @@ public class HomeActivity extends AppCompatActivity {
         mapping();
         initSetupLayout();
         loadInitData();
+        setEvent();
 
-        txtBrand1ShopNow.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(context, ProductDetailActivity.class);
-                intent.putExtra("code", "aqrrj");
-                startActivity(intent);
-            }
-        });
     }
 
     private void loadInitData() {
@@ -156,6 +155,85 @@ public class HomeActivity extends AppCompatActivity {
     private void initSetupLayout() {
         frameHeaderContainer.removeAllViews();
         frameHeaderContainer.addView(headerCard.getView());
+    }
+
+    private void setEvent() {
+        txtBrand1ShopNow.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                txtBrand1ShopNow.setBackgroundColor(Color.parseColor("#FFFFFF"));
+                txtBrand1ShopNow.setTextColor(Color.parseColor("#000000"));
+                Intent intent = new Intent(context, ProductListActivity.class);
+                intent.putExtra("params", "brandCode=BRAND1");
+                context.startActivity(intent);
+            }
+        });
+
+        txtBrand2ShopNow.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                txtBrand2ShopNow.setBackgroundColor(Color.parseColor("#FFFFFF"));
+                txtBrand2ShopNow.setTextColor(Color.parseColor("#000000"));
+                Intent intent = new Intent(context, ProductListActivity.class);
+                intent.putExtra("params", "brandCode=BRAND2");
+                context.startActivity(intent);
+            }
+        });
+
+        txtBrand3ShopNow.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                txtBrand3ShopNow.setBackgroundColor(Color.parseColor("#FFFFFF"));
+                txtBrand3ShopNow.setTextColor(Color.parseColor("#000000"));
+                Intent intent = new Intent(context, ProductListActivity.class);
+                intent.putExtra("params", "brandCode=BRAND3");
+                context.startActivity(intent);
+            }
+        });
+
+        txtBrand4ShopNow.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                txtBrand4ShopNow.setBackgroundColor(Color.parseColor("#FFFFFF"));
+                txtBrand4ShopNow.setTextColor(Color.parseColor("#000000"));
+                Intent intent = new Intent(context, ProductListActivity.class);
+                intent.putExtra("params", "brandCode=BRAND4");
+                context.startActivity(intent);
+            }
+        });
+
+        txtBrand5.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                txtBrand5.setBackgroundColor(Color.parseColor("#FFFFFF"));
+                txtBrand5.setTextColor(Color.parseColor("#000000"));
+                Intent intent = new Intent(context, ProductListActivity.class);
+                intent.putExtra("params", "brandCode=BRAND5");
+                context.startActivity(intent);
+            }
+        });
+
+        txtBrand6.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                txtBrand6.setBackgroundColor(Color.parseColor("#FFFFFF"));
+                txtBrand6.setTextColor(Color.parseColor("#000000"));
+                Intent intent = new Intent(context, ProductListActivity.class);
+                intent.putExtra("params", "brandCode=BRAND6");
+                context.startActivity(intent);
+            }
+        });
+
+        txtBrand7.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                txtBrand7.setBackgroundColor(Color.parseColor("#FFFFFF"));
+                txtBrand7.setTextColor(Color.parseColor("#000000"));
+                Intent intent = new Intent(context, ProductListActivity.class);
+                intent.putExtra("params", "brandCode=BRAND7");
+                context.startActivity(intent);
+            }
+        });
     }
 
 

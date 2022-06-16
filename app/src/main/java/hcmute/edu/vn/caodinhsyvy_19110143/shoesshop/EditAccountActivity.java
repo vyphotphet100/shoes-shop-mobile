@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -88,6 +89,9 @@ public class EditAccountActivity extends AppCompatActivity {
                 if (!checkValidate())
                     return;
 
+                btnSaveChange.setBackgroundColor(Color.parseColor("#FFFFFF"));
+                btnSaveChange.setTextColor(Color.parseColor("#000000"));
+
                 ProgressDialog progressDialog = ProgressDialog.show(context, "Noriva",
                         "Loading...", true);
                 new Thread() {
@@ -128,6 +132,8 @@ public class EditAccountActivity extends AppCompatActivity {
         btnBack.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                btnBack.setBackgroundColor(Color.parseColor("#FFFFFF"));
+                btnBack.setTextColor(Color.parseColor("#000000"));
                 ((AppCompatActivity)context).finish();
             }
         });

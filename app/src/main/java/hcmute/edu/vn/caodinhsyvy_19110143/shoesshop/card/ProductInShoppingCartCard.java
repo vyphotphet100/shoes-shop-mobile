@@ -11,8 +11,11 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import androidx.appcompat.app.AppCompatActivity;
+
 import com.squareup.picasso.Picasso;
 
+import hcmute.edu.vn.caodinhsyvy_19110143.shoesshop.ProductDetailActivity;
 import hcmute.edu.vn.caodinhsyvy_19110143.shoesshop.R;
 import hcmute.edu.vn.caodinhsyvy_19110143.shoesshop.ShoppingCartActivity;
 import hcmute.edu.vn.caodinhsyvy_19110143.shoesshop.constant.AppConstant;
@@ -123,6 +126,15 @@ public class ProductInShoppingCartCard extends BaseCard {
                         });
                     }
                 }.start();
+            }
+        });
+
+        img.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(context, ProductDetailActivity.class);
+                intent.putExtra("code", orderItemEntity.getProduct().getCode());
+                context.startActivity(intent);
             }
         });
     }

@@ -26,7 +26,11 @@ public class ProductListActivity extends AppCompatActivity {
         frameHeaderContainer = findViewById(R.id.productListAct_headerContainer);
         headerCard = new HeaderCard(context);
         webView = findViewById(R.id.productListAct_webView);
-        params = getIntent().getExtras().getString("params");
+        try {
+            params = getIntent().getExtras().getString("params");
+        } catch (Exception ex) {
+            params = null;
+        }
     }
 
     @Override
@@ -93,7 +97,10 @@ public class ProductListActivity extends AppCompatActivity {
                 return true;
             }
         });
-        webView.loadUrl(AppConstant.BASE_URL + "/customer/m-product/product-list?limit=12&" + params);
+        if (params != null)
+            webView.loadUrl(AppConstant.BASE_URL + "/customer/m-product/product-list?limit=12&" + params);
+        else
+            webView.loadUrl(AppConstant.BASE_URL + "/customer/m-product/product-list?limit=12");
 
     }
 

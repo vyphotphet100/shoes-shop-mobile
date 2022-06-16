@@ -2,6 +2,7 @@ package hcmute.edu.vn.caodinhsyvy_19110143.shoesshop;
 
 import android.app.ProgressDialog;
 import android.content.Context;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -18,7 +19,6 @@ import hcmute.edu.vn.caodinhsyvy_19110143.shoesshop.card.HeaderCard;
 import hcmute.edu.vn.caodinhsyvy_19110143.shoesshop.card.InformationCard;
 import hcmute.edu.vn.caodinhsyvy_19110143.shoesshop.constant.AppConstant;
 import hcmute.edu.vn.caodinhsyvy_19110143.shoesshop.crane.page.ChangePasswordPageCrane;
-import hcmute.edu.vn.caodinhsyvy_19110143.shoesshop.crane.page.EditAccountPageCrane;
 import hcmute.edu.vn.caodinhsyvy_19110143.shoesshop.entity.UserEntity;
 
 public class ChangePasswordActivity extends AppCompatActivity {
@@ -75,6 +75,9 @@ public class ChangePasswordActivity extends AppCompatActivity {
                 if (!checkValidate())
                     return;
 
+                btnSaveChange.setBackgroundColor(Color.parseColor("#FFFFFF"));
+                btnSaveChange.setTextColor(Color.parseColor("#000000"));
+
                 ProgressDialog progressDialog = ProgressDialog.show(context, "Noriva",
                         "Loading...", true);
                 new Thread() {
@@ -114,6 +117,8 @@ public class ChangePasswordActivity extends AppCompatActivity {
         btnBack.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                btnBack.setBackgroundColor(Color.parseColor("#FFFFFF"));
+                btnBack.setTextColor(Color.parseColor("#000000"));
                 ((AppCompatActivity)context).finish();
             }
         });

@@ -3,6 +3,7 @@ package hcmute.edu.vn.caodinhsyvy_19110143.shoesshop;
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -56,6 +57,8 @@ public class LoginActivity extends AppCompatActivity {
         btnLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                btnLogin.setBackgroundColor(Color.parseColor("#FFFFFF"));
+                btnLogin.setTextColor(Color.parseColor("#000000"));
                 ProgressDialog progressDialog = ProgressDialog.show(context, "Noriva",
                         "Loading...", true);
 

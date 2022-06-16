@@ -3,6 +3,7 @@ package hcmute.edu.vn.caodinhsyvy_19110143.shoesshop;
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.FrameLayout;
@@ -57,6 +58,8 @@ public class ReviewPaymentActivity extends AppCompatActivity {
         txtPayNow.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                txtPayNow.setBackgroundColor(Color.parseColor("#FFFFFF"));
+                txtPayNow.setTextColor(Color.parseColor("#000000"));
                 Intent intent = new Intent(context, ThanksActivity.class);
                 intent.putExtra("paymentId", reviewPaymentPageEntity.getPaymentId());
                 intent.putExtra("PayerID", reviewPaymentPageEntity.getPayerID());

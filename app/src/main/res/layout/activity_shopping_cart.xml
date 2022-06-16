@@ -212,33 +212,49 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content">
 
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
+                            <FrameLayout
+                                android:padding="2dp"
                                 android:layout_marginTop="10dp"
-                                android:background="@color/black"
-                                android:paddingLeft="20dp"
-                                android:textSize="12dp"
-                                android:paddingTop="10dp"
-                                android:paddingRight="20dp"
-                                android:paddingBottom="10dp"
                                 android:layout_marginRight="5dp"
-                                android:text="CONTINUE SHOPPING"
-                                android:textColor="@color/white"/>
-
-                            <TextView
-                                android:id="@+id/shoppingCartAct_txtCheckOut"
                                 android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
+                                android:background="@color/black"
+                                android:layout_height="wrap_content">
+                                <TextView
+                                    android:id="@+id/shoppingCartAct_txtContinueShopping"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:background="@color/black"
+                                    android:paddingLeft="20dp"
+                                    android:textSize="12dp"
+                                    android:paddingTop="10dp"
+                                    android:paddingRight="20dp"
+                                    android:paddingBottom="10dp"
+                                    android:text="CONTINUE SHOPPING"
+                                    android:textColor="@color/white"/>
+
+                            </FrameLayout>
+
+                            <FrameLayout
+                                android:padding="2dp"
                                 android:layout_marginTop="10dp"
                                 android:background="@color/black"
-                                android:paddingLeft="20dp"
-                                android:paddingTop="10dp"
-                                android:paddingRight="20dp"
-                                android:textSize="12dp"
-                                android:paddingBottom="10dp"
-                                android:text="CHECKOUT"
-                                android:textColor="@color/white"/>
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content">
+                                <TextView
+                                    android:id="@+id/shoppingCartAct_txtCheckOut"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:background="@color/black"
+                                    android:paddingLeft="20dp"
+                                    android:paddingTop="10dp"
+                                    android:paddingRight="20dp"
+                                    android:textSize="12dp"
+                                    android:paddingBottom="10dp"
+                                    android:text="CHECKOUT"
+                                    android:textColor="@color/white"/>
+
+                            </FrameLayout>
+
 
                         </LinearLayout>
                     </LinearLayout>
