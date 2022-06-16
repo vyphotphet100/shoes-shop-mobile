@@ -11,6 +11,7 @@ import hcmute.edu.vn.caodinhsyvy_19110143.shoesshop.R;
 import hcmute.edu.vn.caodinhsyvy_19110143.shoesshop.entity.OrderItemEntity;
 
 public class OrderHistoryItemCard extends BaseCard {
+    // declare the necessary variables used in the order history item card
     private int layout = R.layout.card_order_history_item;
     private View view;
     private Context context;
@@ -19,7 +20,7 @@ public class OrderHistoryItemCard extends BaseCard {
             txtNoOfProducts, txtShipment, txtTotal, txtDateAdded;
     ImageButton btnShow;
 
-
+    //Function to map object in code to text view and image button
     @Override
     protected void mapping() {
         txtOrderID = view.findViewById(R.id.cardOrderHistoryItem_txtOrderID);
@@ -41,7 +42,7 @@ public class OrderHistoryItemCard extends BaseCard {
     protected void setListenerEvent() {
 
     }
-
+//create order history item card
     public OrderHistoryItemCard(Context context, OrderItemEntity orderItemEntity) {
         this.context = context;
         view = View.inflate(this.context, layout, null);
@@ -55,12 +56,12 @@ public class OrderHistoryItemCard extends BaseCard {
         txtTotal.setText(orderItemEntity.getTotalCost().toString());
         txtDateAdded.setText(orderItemEntity.getPayment().getPaymentDate().toString());
 
-        btnShow.setOnClickListener(new View.OnClickListener() {
+        btnShow.setOnClickListener(new View.OnClickListener() { //when button show clicked
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(context, OrderDetailsActivity.class);
                 intent.putExtra("id", orderItemEntity.getId());
-                context.startActivity(intent);
+                context.startActivity(intent); // show order order details activity
             }
         });
     }

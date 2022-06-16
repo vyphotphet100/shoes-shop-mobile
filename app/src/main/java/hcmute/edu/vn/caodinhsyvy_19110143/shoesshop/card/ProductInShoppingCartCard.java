@@ -20,6 +20,7 @@ import hcmute.edu.vn.caodinhsyvy_19110143.shoesshop.crane.page.ShoppingCartPageC
 import hcmute.edu.vn.caodinhsyvy_19110143.shoesshop.entity.OrderItemEntity;
 
 public class ProductInShoppingCartCard extends BaseCard {
+    // declare the necessary variables used in the product in shopping cart card
     private int layout = R.layout.card_product_in_shopping_cart;
     private View view;
     private ShoppingCartActivity context;
@@ -30,6 +31,7 @@ public class ProductInShoppingCartCard extends BaseCard {
     public CheckBox chBxPay;
     public OrderItemEntity orderItemEntity;
 
+    //Function to map object in code to text view , image view
     @Override
     protected void mapping() {
         txtProductName = view.findViewById(R.id.cardProductInShoppingCart_txtProductName);
@@ -53,14 +55,14 @@ public class ProductInShoppingCartCard extends BaseCard {
     @Override
     protected void setListenerEvent() {
 
-        imgResetQuantity.setOnClickListener(new View.OnClickListener() {
+        imgResetQuantity.setOnClickListener(new View.OnClickListener() { //when img Reset Quantity clicked
             @Override
             public void onClick(View v) {
                 edtTxtQuantity.setText(orderItemEntity.getQuantityBought().toString());
             }
         });
 
-        edtTxtQuantity.addTextChangedListener(new TextWatcher() {
+        edtTxtQuantity.addTextChangedListener(new TextWatcher() { //when edt Txt Quantity
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {
 
@@ -127,6 +129,7 @@ public class ProductInShoppingCartCard extends BaseCard {
         });
     }
 
+    //create Product In Shopping Cart Card
     public ProductInShoppingCartCard(ShoppingCartActivity context, OrderItemEntity orderItemEntity) {
         this.context = context;
         view = View.inflate(this.context, layout, null);

@@ -20,6 +20,7 @@ import hcmute.edu.vn.caodinhsyvy_19110143.shoesshop.ShoppingCartActivity;
 import hcmute.edu.vn.caodinhsyvy_19110143.shoesshop.constant.AppConstant;
 
 public class HeaderCard extends BaseCard {
+    // declare the necessary variables used in the header card
     private int layout = R.layout.card_header;
     private View view;
     private Context context;
@@ -27,7 +28,7 @@ public class HeaderCard extends BaseCard {
     public ImageView imgSearch, imgAccount, imgShoppingCart, imgLogo;
     public TextView txtWomenShoes, txtMenShoes, txtSportsWear;
 
-
+    //Function to map object in code to text view and image view
     @Override
     protected void mapping() {
         imgSearch = view.findViewById(R.id.headerCard_imgSearch);
@@ -47,12 +48,13 @@ public class HeaderCard extends BaseCard {
     @Override
     protected void setListenerEvent() {
         imgAccount.setOnClickListener(new View.OnClickListener() {
+            // when img Account clicked
             @Override
             public void onClick(View v) {
-                if (AppConstant.loggedInUserEntity == null) {
+                if (AppConstant.loggedInUserEntity == null) { // if log in user entity is null
                     if (!(context instanceof LoginActivity)) {
                         Intent intent = new Intent(context, LoginActivity.class);
-                        context.startActivity(intent);
+                        context.startActivity(intent); // start login activity
                         ((AppCompatActivity)context).finish();
                     }
                 }
@@ -67,7 +69,7 @@ public class HeaderCard extends BaseCard {
             }
         });
 
-        imgSearch.setOnClickListener(new View.OnClickListener() {
+        imgSearch.setOnClickListener(new View.OnClickListener() { //when img Search clicked
             @Override
             public void onClick(View v) {
                 AlertDialog.Builder b = new AlertDialog.Builder(context);
@@ -85,38 +87,39 @@ public class HeaderCard extends BaseCard {
             }
         });
 
-        imgLogo.setOnClickListener(new View.OnClickListener() {
+        imgLogo.setOnClickListener(new View.OnClickListener() { //when img Logo clicked
             @Override
             public void onClick(View v) {
                 if (!(context instanceof HomeActivity)) {
                     Intent intent = new Intent(context, HomeActivity.class);
-                    context.startActivity(intent);
+                    context.startActivity(intent);  // start home activity
                     ((AppCompatActivity)context).finish();
                 }
             }
         });
 
-        imgShoppingCart.setOnClickListener(new View.OnClickListener() {
+        imgShoppingCart.setOnClickListener(new View.OnClickListener() { //when img shopping cart clicked
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(context, ShoppingCartActivity.class);
-                context.startActivity(intent);
+                context.startActivity(intent); // start shopping cart activity
                 ((AppCompatActivity)context).finish();
             }
         });
 
-        txtWomenShoes.setOnClickListener(new View.OnClickListener() {
+        txtWomenShoes.setOnClickListener(new View.OnClickListener() { //when txt womenshoes clicked
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(context, ProductListActivity.class);
                 intent.putExtra("params", "categoryCode=CATEGORY1");
-                context.startActivity(intent);
+                context.startActivity(intent); // start  Product List activity
                 ((AppCompatActivity)context).finish();
             }
         });
 
     }
 
+    //create header card
     public HeaderCard(Context context) {
         this.context = context;
         view = View.inflate(this.context, layout, null);
