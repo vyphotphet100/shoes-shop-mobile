@@ -32,7 +32,7 @@ public class LoginActivity extends AppCompatActivity {
     public AccountCard accountCard;
     public InformationCard informationCard;
 
-    //function to access or update properties of UI Login
+    //Function to map object in code to view in UI
     private void mapping() {
         btnLogin = findViewById(R.id.loginAct_btnLogin);
         edtTxtUsername = findViewById(R.id.cardLogin_edtTxtUsername);
@@ -50,11 +50,11 @@ public class LoginActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_login);
+        super.onCreate(savedInstanceState);     // save instance state
+        setContentView(R.layout.activity_login);    // show activity login
         this.context = this;
         AppConstant.waitingAnimation(context, 800); //create loading animation that lasts 800ms
-        mapping();  //function to access or update properties of UI Login
+        mapping();  //Function to map object in code to view in UI
         initSetupLayout(); //remove all view and then add 3 new view : headerCard, AccountCard, InformationCard
 
         btnLogin.setOnClickListener(new View.OnClickListener() { //when button login clicked

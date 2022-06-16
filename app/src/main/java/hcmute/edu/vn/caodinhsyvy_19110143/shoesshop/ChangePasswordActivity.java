@@ -8,7 +8,7 @@ public class ChangePasswordActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_change_password);
+        super.onCreate(savedInstanceState);     //save instance state
+        setContentView(R.layout.activity_change_password);  //  View activity change password
     }
 }

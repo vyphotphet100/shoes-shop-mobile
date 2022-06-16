@@ -14,7 +14,7 @@ import hcmute.edu.vn.caodinhsyvy_19110143.shoesshop.entity.OrderItemEntity;
 import hcmute.edu.vn.caodinhsyvy_19110143.shoesshop.page_entity.OrderDetailPageEntity;
 
 public class OrderDetailsActivity extends AppCompatActivity {
-
+    // declare the necessary variables used in the form
     private Context context;
 
     public TextView txtOrderID, txtCustomer, txtShipment, txtDateAdded, txtPaymentMethod,
@@ -24,6 +24,7 @@ public class OrderDetailsActivity extends AppCompatActivity {
     public HeaderCard headerCard;
     public Integer orderItemId;
 
+    //Function to map object in code to view in UI
     private void mapping() {
         txtOrderID = findViewById(R.id.cardOrderDetailsItem_txtOrderID);
         txtCustomer = findViewById(R.id.cardOrderDetailsItem_txtCustomer);
@@ -44,8 +45,8 @@ public class OrderDetailsActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_order_details);
+        super.onCreate(savedInstanceState);             // save instance state
+        setContentView(R.layout.activity_order_details);    // show activity order details
         this.context = this;
         mapping();
         initSetupLayout();
@@ -69,6 +70,8 @@ public class OrderDetailsActivity extends AppCompatActivity {
                 runOnUiThread(new Runnable() {
                     @Override
                     public void run() {
+                        //get order item entity
+
                         OrderItemEntity orderItemEntity = orderDetailPageEntity.getOrderItemEntity();
                         txtOrderID.setText("#" + orderItemEntity.getId().toString());
                         txtCustomer.setText(orderItemEntity.getCustomer().getLastName());
@@ -94,7 +97,7 @@ public class OrderDetailsActivity extends AppCompatActivity {
             }
         }.start();
     }
-
+    //remove all view and add view header card
     private void initSetupLayout() {
         frameHeaderContainer.removeAllViews();
         frameHeaderContainer.addView(headerCard.getView());

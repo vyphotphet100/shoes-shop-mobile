@@ -8,7 +8,7 @@ public class EditAccountActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_edit_account);
+        super.onCreate(savedInstanceState);         //save instance state
+        setContentView(R.layout.activity_edit_account);     //view activity edit account
     }
 }

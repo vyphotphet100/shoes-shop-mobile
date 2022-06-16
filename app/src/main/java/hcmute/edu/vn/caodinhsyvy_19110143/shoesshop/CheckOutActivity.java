@@ -23,7 +23,7 @@ import hcmute.edu.vn.caodinhsyvy_19110143.shoesshop.page_entity.CheckOutPageEnti
 import hcmute.edu.vn.caodinhsyvy_19110143.shoesshop.page_entity.ReviewPaymentPageEntity;
 
 public class CheckOutActivity extends AppCompatActivity {
-
+    // declare the necessary variables used in the form
     private Context context;
     public EditText edtTxtFirstName, edtTxtLastName, edtTxtPhone, edtTxtAddress;
     public TextView txtTotal, txtPay, txtEdit;
@@ -32,6 +32,7 @@ public class CheckOutActivity extends AppCompatActivity {
     public HeaderCard headerCard;
     private RadioButton rBtnPaypal;
 
+    //Function to map object in code to view in UI
     private void mapping() {
         edtTxtFirstName = findViewById(R.id.checkOutAct_edtTxtFirstName);
         edtTxtLastName = findViewById(R.id.checkOutAct_edtTxtLastName);
@@ -48,8 +49,8 @@ public class CheckOutActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_check_out);
+        super.onCreate(savedInstanceState);         // save instance state
+        setContentView(R.layout.activity_check_out);    // show activity check out
         this.context = this;
         mapping();
         if (!AppConstant.checkLoggedIn(context))
@@ -59,7 +60,7 @@ public class CheckOutActivity extends AppCompatActivity {
         setHeader();
 
         loadInitData();
-
+        //when text Pay clicked
         txtPay.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -69,9 +70,9 @@ public class CheckOutActivity extends AppCompatActivity {
 
                     @Override
                     public void run() {
-                        Integer paymentMethod = 3;
+                        Integer paymentMethod = 3;  //set payment method = 3
                         if (rBtnPaypal.isChecked())
-                            paymentMethod = 1;
+                            paymentMethod = 1;      // if button Paypal checked, payment Method = 1
                         ReviewPaymentPageCrane reviewPaymentPageCrane = new ReviewPaymentPageCrane();
                         ReviewPaymentPageEntity reviewPaymentPageEntity =
                                 reviewPaymentPageCrane.getDataReviewPaymentPage(
@@ -149,6 +150,7 @@ public class CheckOutActivity extends AppCompatActivity {
         }.start();
     }
 
+    //remove all view and add view header card
     private void setHeader() {
         frameHeaderContainer.removeAllViews();
         frameHeaderContainer.addView(headerCard.getView());
