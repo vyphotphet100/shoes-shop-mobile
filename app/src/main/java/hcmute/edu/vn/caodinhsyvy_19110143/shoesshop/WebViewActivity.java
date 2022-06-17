@@ -18,6 +18,7 @@ public class WebViewActivity extends AppCompatActivity {
     public ReviewPaymentPageEntity reviewPaymentPageEntity;
     public Boolean checkBack = true;
 
+    //mapping all elements on activity_web_view
     private void mapping() {
         this.context = this;
         webView = findViewById(R.id.webViewAct_webView);

@@ -31,6 +31,7 @@ public class TermsAndConditionsActivity extends AppCompatActivity {
 
     }
 
+    //mapping all elements on activity_terms_and_conditions
     private void mapping() {
         this.context = this;
         frmAccountLayContainer = findViewById(R.id.termsAct_frmAccountLayContainer);
@@ -42,16 +43,22 @@ public class TermsAndConditionsActivity extends AppCompatActivity {
         informationCard = new InformationCard(context);
     }
 
+
     private void initSetupLayout() {
         frmAccountLayContainer.removeAllViews();
+        //check if customer logged in or not
         if (AppConstant.loggedInUserEntity == null)
+            //if customer have not logged in, add accountCard into frmAccountLayContainer
             frmAccountLayContainer.addView(accountCard.getView());
         else
+            //else add accountAfterLoginCard into frmAccountLayContainer
             frmAccountLayContainer.addView(accountAfterLoginCard.getView());
 
+        //add informationCard into frmInfoLayContainer when activity_terms_and_conditions loaded
         frmInfoLayContainer.removeAllViews();
         frmInfoLayContainer.addView(informationCard.getView());
 
+        //add headerCard into frameHeaderContainer when activity_terms_and_conditions loaded
         frameHeaderContainer.removeAllViews();
         frameHeaderContainer.addView(headerCard.getView());
     }

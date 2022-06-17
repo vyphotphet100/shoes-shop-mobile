@@ -21,6 +21,7 @@ public class PrivacyPolicyActivity extends AppCompatActivity {
     public AccountAfterLoginCard accountAfterLoginCard;
     public InformationCard informationCard;
 
+    //mapping all elements on activity_privacy_policy
     private void mapping() {
         this.context = this;
         frmAccountLayContainer = findViewById(R.id.privacyPolicyAct_frmAccountLayContainer);
@@ -44,14 +45,16 @@ public class PrivacyPolicyActivity extends AppCompatActivity {
 
     private void initSetupLayout() {
         frmAccountLayContainer.removeAllViews();
+        //check if the customer logged in the account or not
         if (AppConstant.loggedInUserEntity == null)
             frmAccountLayContainer.addView(accountCard.getView());
         else
             frmAccountLayContainer.addView(accountAfterLoginCard.getView());
 
+        //add informationCard into frmInfoLayContainer when activity_privacy_policy loaded
         frmInfoLayContainer.removeAllViews();
         frmInfoLayContainer.addView(informationCard.getView());
-
+        //add headerCard into frameHeaderContainer when activity_privacy_policy loaded
         frameHeaderContainer.removeAllViews();
         frameHeaderContainer.addView(headerCard.getView());
     }
