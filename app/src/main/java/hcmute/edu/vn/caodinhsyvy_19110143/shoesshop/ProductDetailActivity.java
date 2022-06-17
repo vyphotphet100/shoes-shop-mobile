@@ -37,6 +37,8 @@ public class ProductDetailActivity extends AppCompatActivity {
     public String code;
 //    public ProductEntity productEntity;
 
+
+    //mapping all elements on activity_product_detail
     private void mapping() {
         this.context = this;
         code = getIntent().getExtras().getString("code");
@@ -68,13 +70,14 @@ public class ProductDetailActivity extends AppCompatActivity {
         setEvent();
     }
 
+    //add headerCard into frameHeaderContainer when activity_product_detail loaded
     private void initSetupLayout() {
         frameHeaderContainer.removeAllViews();
         frameHeaderContainer.addView(headerCard.getView());
     }
 
     private void loadInitData() {
-
+        // loading screen
         ProgressDialog progressDialog = ProgressDialog.show(this, "Noriva",
                 "Loading...", true);
 
@@ -90,15 +93,22 @@ public class ProductDetailActivity extends AppCompatActivity {
                     @Override
                     public void run() {
                         ProductEntity productEntity = productDetailPageEntity.getProductEntity();
+                        //get title for the product
                         txtTitle.setText(productEntity.getTitle());
+                        //get brand for the product
                         txtBrand.setText("Brand: " + productEntity.getBrand().getName());
+                        //get category for the product
                         txtCategory.setText("Category: " + productEntity.getCategory().getName());
+                        //get price for the product
                         txtPrice.setText("$" + productEntity.getPrice());
+                        //get description for the product
                         txtDescription.setText(productEntity.getDescription());
+                        //get picture for the product
                         Picasso.with(context)
                                 .load(AppConstant.BASE_URL + productEntity.getPictureUrl())
                                 .into(img);
 
+                        //add product information into productDetailAct_cateContainer
                         cateContainer.removeAllViews();
                         for (ProductEntity product : productDetailPageEntity.getRelatedProducts()) {
                             ProductCard productCard = new ProductCard(context, product);
@@ -120,6 +130,7 @@ public class ProductDetailActivity extends AppCompatActivity {
     }
 
     private void setEvent() {
+        //set event click for productDetailAct_txtAddToCart
         txtAddToCart.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -131,6 +142,7 @@ public class ProductDetailActivity extends AppCompatActivity {
             }
         });
 
+        //set event click for productDetailAct_txtInc
         txtInc.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -138,6 +150,7 @@ public class ProductDetailActivity extends AppCompatActivity {
             }
         });
 
+        //set event click for productDetailAct_txtDec
         txtDec.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

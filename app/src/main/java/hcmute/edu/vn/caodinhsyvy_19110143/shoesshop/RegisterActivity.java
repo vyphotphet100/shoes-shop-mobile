@@ -35,6 +35,7 @@ public class RegisterActivity extends AppCompatActivity {
     public AccountCard accountCard;
     public InformationCard informationCard;
 
+    //mapping all elements on activity_register
     private void mapping() {
         this.context = this;
         txtLogin = findViewById(R.id.cardAccount_txtLogin);
@@ -63,6 +64,7 @@ public class RegisterActivity extends AppCompatActivity {
         initSetupLayout();
 
         txtLogin.requestFocus();
+        //set event onclick for registerAct_btnRegister
         btnRegister.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -72,12 +74,15 @@ public class RegisterActivity extends AppCompatActivity {
     }
 
     private void initSetupLayout() {
+        //add accountCard into frmAccountLayContainer when activity_register
         frmAccountLayContainer.removeAllViews();
         frmAccountLayContainer.addView(accountCard.getView());
 
+        //add informationCard into frmInfoLayContainer when activity_register
         frmInfoLayContainer.removeAllViews();
         frmInfoLayContainer.addView(informationCard.getView());
 
+        //add headerCard into frameHeaderContainer when activity_register
         frameHeaderContainer.removeAllViews();
         frameHeaderContainer.addView(headerCard.getView());
     }
@@ -86,15 +91,18 @@ public class RegisterActivity extends AppCompatActivity {
         ProgressDialog progressDialog = ProgressDialog.show(this, "Noriva",
                 "Loading...", true);
 
+        //check if all fields are filled in
         if (!checkBeforeRegister())
             return;
 
+        //check if value on edtTxtConfirmPassword = edtTxtPassword or not
         if (!edtTxtPassword.getText().toString().equals(edtTxtConfirmPassword.getText().toString())) {
             Toast.makeText(RegisterActivity.this, "Confirm password doesn't match!", Toast.LENGTH_SHORT).show();
             progressDialog.dismiss();
             return;
         }
 
+        //set all information into UserEntity
         UserEntity userEntity = new UserEntity();
         userEntity.setFirstName(edtTxtFirstName.getText().toString());
         userEntity.setLastName(edtTxtLastName.getText().toString());
@@ -131,6 +139,7 @@ public class RegisterActivity extends AppCompatActivity {
         }.start();
     }
 
+    //function to check all fields are filled in
     private Boolean checkBeforeRegister() {
         if (edtTxtFirstName.getText().toString().trim().equals("")) {
             Toast.makeText(RegisterActivity.this, "First name is empty!", Toast.LENGTH_SHORT).show();

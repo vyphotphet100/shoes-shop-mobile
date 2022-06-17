@@ -29,6 +29,7 @@ public class ReviewPaymentActivity extends AppCompatActivity {
     public FrameLayout frameLayHeaderContainer;
     public HeaderCard headerCard;
 
+    //mapping all elements on activity_review_payment
     private void mapping() {
         tbLayOrderItemContainer = findViewById(R.id.reviewPaymentAct_tbLayOrderItemContainer);
         txtShippingAddress = findViewById(R.id.reviewPaymentAct_txtShippingAddress);
@@ -54,6 +55,7 @@ public class ReviewPaymentActivity extends AppCompatActivity {
 
         loadInitData();
 
+        //set event click for txtPayNow
         txtPayNow.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -74,11 +76,13 @@ public class ReviewPaymentActivity extends AppCompatActivity {
         for (int i = 0; i < 3; i++)
             tbLayOrderItemContainer.removeViewAt(1);
 
+        //
         for (OrderItemEntity orderItemEntity : reviewPaymentPageEntity.getReadyOrderItems()) {
             ConfirmOrderItemCard confirmOrderItemCard = new ConfirmOrderItemCard(context, orderItemEntity);
             tbLayOrderItemContainer.addView(confirmOrderItemCard.getView(), tbLayOrderItemContainer.getChildCount());
         }
 
+        //set information into all element on activity_review_payment
         txtShippingAddress.setText(reviewPaymentPageEntity.getUserEntity().getAddress());
         txtDescription.setText(reviewPaymentPageEntity.getDescription());
         txtSubTotal.setText(reviewPaymentPageEntity.getTotal().toString() + " USD");
@@ -136,6 +140,7 @@ public class ReviewPaymentActivity extends AppCompatActivity {
 //        }.start();
     }
 
+    //add headerCard into frameLayHeaderContainer when activity_review_payment loaded
     private void setHeader() {
         frameLayHeaderContainer.removeAllViews();
         frameLayHeaderContainer.addView(headerCard.getView());
