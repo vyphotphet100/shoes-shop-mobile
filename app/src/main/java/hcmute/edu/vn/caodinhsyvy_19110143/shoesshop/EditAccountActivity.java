@@ -1,49 +1,40 @@
 package hcmute.edu.vn.caodinhsyvy_19110143.shoesshop;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.app.ProgressDialog;
 import android.content.Context;
-import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.FrameLayout;
-import android.widget.TextView;
 import android.widget.Toast;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 import org.springframework.http.HttpStatus;
 
-import hcmute.edu.vn.caodinhsyvy_19110143.shoesshop.card.AccountAfterLoginCard;
-import hcmute.edu.vn.caodinhsyvy_19110143.shoesshop.card.AccountCard;
-import hcmute.edu.vn.caodinhsyvy_19110143.shoesshop.card.HeaderCard;
-import hcmute.edu.vn.caodinhsyvy_19110143.shoesshop.card.InformationCard;
 import hcmute.edu.vn.caodinhsyvy_19110143.shoesshop.constant.AppConstant;
 import hcmute.edu.vn.caodinhsyvy_19110143.shoesshop.crane.page.EditAccountPageCrane;
 import hcmute.edu.vn.caodinhsyvy_19110143.shoesshop.entity.UserEntity;
 
-import hcmute.edu.vn.caodinhsyvy_19110143.shoesshop.constant.AppConstant;
-
 public class EditAccountActivity extends AppCompatActivity {
 
     private Context context;
+
+    // frame layout to contain account card, info card, header card views
     public FrameLayout frmAccountLayContainer, frmInfoLayContainer, frameHeaderContainer;
-    public HeaderCard headerCard;
-    public AccountAfterLoginCard accountAfterLoginCard;
-    public InformationCard informationCard;
+
+    // objects to map to ui
     public EditText edtTxtFirstName, edtTxtLastName, edtTxtPhone, edtTxtEmail;
     public Button btnSaveChange, btnBack;
 
+    //Function to map objects in code to associated views in UI
     private void mapping() {
         this.context = this;
         frmAccountLayContainer = findViewById(R.id.editAccountAct_frmAccountLayContainer);
         frmInfoLayContainer = findViewById(R.id.editAccountAct_frmInfoLayContainer);
         frameHeaderContainer = findViewById(R.id.editAccountAct_headerContainer);
-        headerCard = new HeaderCard(context);
-        accountAfterLoginCard = new AccountAfterLoginCard(context);
-        informationCard = new InformationCard(context);
         edtTxtFirstName = findViewById(R.id.editAccountAct_edtTxtFirstName);
         edtTxtLastName = findViewById(R.id.editAccountAct_edtTxtLastName);
         edtTxtPhone = findViewById(R.id.editAccountAct_edtTxtPhone);
@@ -59,24 +50,16 @@ public class EditAccountActivity extends AppCompatActivity {
         setContentView(R.layout.activity_edit_account);
         mapping();
         AppConstant.waitingAnimation(context, 800);
-        initSetupLayout();
-        initSetupData();
 
+        //Add account card, info card and header card views before beginning activity
+        AppConstant.initSetupLayout(context, frmAccountLayContainer, frmInfoLayContainer, frameHeaderContainer);
+
+        initSetupData();
         setEvent();
 
     }
 
-    private void initSetupLayout() {
-        frmAccountLayContainer.removeAllViews();
-        frmAccountLayContainer.addView(accountAfterLoginCard.getView());
-
-        frmInfoLayContainer.removeAllViews();
-        frmInfoLayContainer.addView(informationCard.getView());
-
-        frameHeaderContainer.removeAllViews();
-        frameHeaderContainer.addView(headerCard.getView());
-    }
-
+    // add user info to edit text views
     private void initSetupData() {
         edtTxtFirstName.setText(AppConstant.loggedInUserEntity.getFirstName());
         edtTxtLastName.setText(AppConstant.loggedInUserEntity.getLastName());
@@ -84,18 +67,25 @@ public class EditAccountActivity extends AppCompatActivity {
         edtTxtEmail.setText(AppConstant.loggedInUserEntity.getEmail());
     }
 
+    // set events for objects
     private void setEvent() {
+
+        // Save clicked
         btnSaveChange.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 if (!checkValidate())
                     return;
 
+                // color animation
                 btnSaveChange.setBackgroundColor(Color.parseColor("#FFFFFF"));
                 btnSaveChange.setTextColor(Color.parseColor("#000000"));
 
+                // waiting dialog
                 ProgressDialog progressDialog = ProgressDialog.show(context, "Noriva",
                         "Loading...", true);
+
+                // send data to server
                 new Thread() {
                     @Override
                     public void run() {
@@ -131,16 +121,21 @@ public class EditAccountActivity extends AppCompatActivity {
             }
         });
 
+        // Back clicked
         btnBack.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
+                // color animation
                 btnBack.setBackgroundColor(Color.parseColor("#FFFFFF"));
                 btnBack.setTextColor(Color.parseColor("#000000"));
+
                 ((AppCompatActivity)context).finish();
             }
         });
     }
 
+    // check if there are any fields blank
     private Boolean checkValidate() {
         if (edtTxtFirstName.getText().toString().trim().equals("") ||
                 edtTxtLastName.getText().toString().trim().equals("") ||

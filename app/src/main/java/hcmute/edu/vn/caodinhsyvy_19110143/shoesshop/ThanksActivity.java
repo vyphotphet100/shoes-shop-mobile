@@ -12,12 +12,15 @@ import hcmute.edu.vn.caodinhsyvy_19110143.shoesshop.page_entity.ThanksPageEntity
 
 public class ThanksActivity extends AppCompatActivity {
 
+    // to contain header card view
     public FrameLayout frameLayHeaderContainer;
     public HeaderCard headerCard;
+
+    // to get paymentId and PayerID passed from other activity
     public String paymentId;
     public String PayerID;
 
-    //mapping all elements on activity_thanks
+    //Function to map objects in code to associated views in UI
     private void mapping() {
         frameLayHeaderContainer = findViewById(R.id.thanksAct_headerContainer);
         headerCard = new HeaderCard(this);
@@ -35,6 +38,7 @@ public class ThanksActivity extends AppCompatActivity {
         loadInitData();
     }
 
+    //load data from api before beginning activity
     private void loadInitData() {
         ProgressDialog progressDialog = ProgressDialog.show(this, "Noriva",
                 "Loading...", true);

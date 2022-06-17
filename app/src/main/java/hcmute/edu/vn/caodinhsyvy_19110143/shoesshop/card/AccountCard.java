@@ -12,31 +12,35 @@ import hcmute.edu.vn.caodinhsyvy_19110143.shoesshop.R;
 import hcmute.edu.vn.caodinhsyvy_19110143.shoesshop.RegisterActivity;
 
 public class AccountCard extends BaseCard{
-    // declare the necessary variables used in the account card
-    private int layout = R.layout.card_account;
+    private int layout = R.layout.card_account; // main layout
     private View view;
     private Context context;
 
+    // objects to map to ui of card
     public TextView txtLogin, txtRegister;
 
-    //Function to map object in code to text view
+    //Function to map objects in code to associated views in UI
     @Override
     protected void mapping() {
         txtLogin = view.findViewById(R.id.cardAccount_txtLogin);
         txtRegister = view.findViewById(R.id.cardAccount_txtRegister);
     }
 
+    // return to view of this layout
     @Override
     public View getView() {
         return this.view;
     }
 
+    // set events for objects
     @Override
     protected void setListenerEvent() {
+
+        //when txt Login clicked
         txtLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (!(context instanceof LoginActivity)) { //when txt Login clicked
+                if (!(context instanceof LoginActivity)) {
                     Intent intent = new Intent(context, LoginActivity.class);
                     context.startActivity(intent); // start login activity
                     ((AppCompatActivity)context).finish();
@@ -44,8 +48,8 @@ public class AccountCard extends BaseCard{
             }
         });
 
+        //when txt Register clicked
         txtRegister.setOnClickListener(new View.OnClickListener() {
-            //when txt Register clicked
             @Override
             public void onClick(View v) {
                 if (!(context instanceof RegisterActivity)) {

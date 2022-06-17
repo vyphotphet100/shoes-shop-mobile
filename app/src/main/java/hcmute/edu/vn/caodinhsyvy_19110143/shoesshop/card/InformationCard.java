@@ -14,14 +14,14 @@ import hcmute.edu.vn.caodinhsyvy_19110143.shoesshop.R;
 import hcmute.edu.vn.caodinhsyvy_19110143.shoesshop.TermsAndConditionsActivity;
 
 public class InformationCard extends BaseCard{
-    // declare the necessary variables used in the information card
-    private int layout = R.layout.card_information;
+    private int layout = R.layout.card_information; // main layout
     private View view;
     private Context context;
 
+    // objects to map to ui of card
     public TextView txtAboutUs, txtPrivacyPolicy, txtTerms, txtContactUs;
 
-    //Function to map object in code to text view
+    //Function to map objects in code to associated views in UI
     @Override
     protected void mapping() {
         txtAboutUs = view.findViewById(R.id.cardInfo_txtAboutUs);
@@ -30,14 +30,17 @@ public class InformationCard extends BaseCard{
         txtContactUs = view.findViewById(R.id.cardInfo_txtContactUs);
     }
 
+    // return to view of this layout
     @Override
     public View getView() {
         return this.view;
     }
 
+    // set events for objects
     @Override
     protected void setListenerEvent() {
-        txtAboutUs.setOnClickListener(new View.OnClickListener() { // when txt about us clicked
+        // when txt about us clicked
+        txtAboutUs.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 if (!(context instanceof AboutUsActivity)) {
@@ -48,7 +51,8 @@ public class InformationCard extends BaseCard{
             }
         });
 
-        txtPrivacyPolicy.setOnClickListener(new View.OnClickListener() { // when txt Privacy Policy clicked
+        // when txt Privacy Policy clicked
+        txtPrivacyPolicy.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 if (!(context instanceof PrivacyPolicyActivity)) {
@@ -59,7 +63,8 @@ public class InformationCard extends BaseCard{
             }
         });
 
-        txtTerms.setOnClickListener(new View.OnClickListener() { // when txt Terms clicked
+        // when txt Terms clicked
+        txtTerms.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 if (!(context instanceof TermsAndConditionsActivity)) {
@@ -70,7 +75,8 @@ public class InformationCard extends BaseCard{
             }
         });
 
-        txtContactUs.setOnClickListener(new View.OnClickListener() { //when txt contact us clicked
+        //when txt contact us clicked
+        txtContactUs.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 if (!(context instanceof ContactUsActivity)) {

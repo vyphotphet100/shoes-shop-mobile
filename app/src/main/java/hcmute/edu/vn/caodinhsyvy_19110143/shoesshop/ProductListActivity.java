@@ -16,12 +16,16 @@ import hcmute.edu.vn.caodinhsyvy_19110143.shoesshop.entity.ProductEntity;
 
 public class ProductListActivity extends AppCompatActivity {
     private Context context;
+
+    // to contain header card view
     public FrameLayout frameHeaderContainer;
     public HeaderCard headerCard;
+
+    // to show product list page
     public WebView webView;
     public String params;
 
-    //mapping all elements on activity_product_list
+    //Function to map objects in code to associated views in UI
     private void mapping() {
         this.context = this;
         frameHeaderContainer = findViewById(R.id.productListAct_headerContainer);
@@ -39,12 +43,12 @@ public class ProductListActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_product_list);
         mapping();
-//        AppConstant.waitingAnimation(context, 800);
         initSetupLayout();
 
+
+        // set events for web view
         final ProgressDialog[] progressDialog = {ProgressDialog.show(context, "Noriva",
                 "Loading...", true)};
-//        progressDialog[0].dismiss();
 
         webView.getSettings().setJavaScriptEnabled(true);
         webView.setWebViewClient(new WebViewClient() {
@@ -60,9 +64,12 @@ public class ProductListActivity extends AppCompatActivity {
             public boolean shouldOverrideUrlLoading(WebView view, String url) {
                 progressDialog[0] = ProgressDialog.show(context, "Noriva",
                         "Loading...", true);
+
+                // if url not contain 'shoesshop-app://'
                 if (!url.contains("shoesshop-app://"))
                     return super.shouldOverrideUrlLoading(view, url);
 
+                // trig 'Add product to cart' function
                 if (url.contains("/add-product-to-cart")) {
                     // get productCode
                     StringBuilder productCode = new StringBuilder();
@@ -78,7 +85,10 @@ public class ProductListActivity extends AppCompatActivity {
                     ProductCard productCard = new ProductCard(context, new ProductEntity());
                     productCard.productEntity.setCode(productCode.toString());
                     productCard.txtAddToCard.callOnClick();
-                } else if (url.contains("/product-detail")) {
+                }
+
+                // open product detail activity
+                else if (url.contains("/product-detail")) {
                     // get productCode
                     StringBuilder productCode = new StringBuilder();
                     if (url.contains("code"))
@@ -98,6 +108,8 @@ public class ProductListActivity extends AppCompatActivity {
                 return true;
             }
         });
+
+        // visit product list page of website
         if (params != null)
             webView.loadUrl(AppConstant.BASE_URL + "/customer/m-product/product-list?limit=12&" + params);
         else

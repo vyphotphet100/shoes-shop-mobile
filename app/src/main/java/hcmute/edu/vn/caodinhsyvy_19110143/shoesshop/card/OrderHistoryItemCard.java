@@ -11,16 +11,16 @@ import hcmute.edu.vn.caodinhsyvy_19110143.shoesshop.R;
 import hcmute.edu.vn.caodinhsyvy_19110143.shoesshop.entity.OrderItemEntity;
 
 public class OrderHistoryItemCard extends BaseCard {
-    // declare the necessary variables used in the order history item card
-    private int layout = R.layout.card_order_history_item;
+    private int layout = R.layout.card_order_history_item; // main layout
     private View view;
     private Context context;
 
+    // objects to map to ui of card
     public TextView txtOrderID, txtLastName, txtProductName,
             txtNoOfProducts, txtShipment, txtTotal, txtDateAdded;
-    ImageButton btnShow;
+    public ImageButton btnShow;
 
-    //Function to map object in code to text view and image button
+    //Function to map objects in code to associated views in UI
     @Override
     protected void mapping() {
         txtOrderID = view.findViewById(R.id.cardOrderHistoryItem_txtOrderID);
@@ -33,16 +33,19 @@ public class OrderHistoryItemCard extends BaseCard {
         btnShow = view.findViewById(R.id.cardOrderHistoryItem_btnShow);
     }
 
+    // return to view of this layout
     @Override
     public View getView() {
         return this.view;
     }
 
+    // set events for objects
     @Override
     protected void setListenerEvent() {
 
     }
-//create order history item card
+
+    //create order history item card
     public OrderHistoryItemCard(Context context, OrderItemEntity orderItemEntity) {
         this.context = context;
         view = View.inflate(this.context, layout, null);

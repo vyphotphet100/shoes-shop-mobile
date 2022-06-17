@@ -17,14 +17,19 @@ public class OrderDetailsActivity extends AppCompatActivity {
     // declare the necessary variables used in the form
     private Context context;
 
+    // to contain header card view
+    public FrameLayout frameHeaderContainer;
+    public HeaderCard headerCard;
+
+    // order item id passed from other activity
+    public Integer orderItemId;
+
+    // objects to map to ui
     public TextView txtOrderID, txtCustomer, txtShipment, txtDateAdded, txtPaymentMethod,
             txtPaymentAddress, txtShippingAddress,
             txtProductName, txtBrand, txtQuantity, txtUnitPrice, txtTotal;
-    public FrameLayout frameHeaderContainer;
-    public HeaderCard headerCard;
-    public Integer orderItemId;
 
-    //Function to map object in code to view in UI
+    //Function to map objects in code to associated views in UI
     private void mapping() {
         txtOrderID = findViewById(R.id.cardOrderDetailsItem_txtOrderID);
         txtCustomer = findViewById(R.id.cardOrderDetailsItem_txtCustomer);
@@ -38,27 +43,28 @@ public class OrderDetailsActivity extends AppCompatActivity {
         txtQuantity = findViewById(R.id.cardProductDetailInOrderDetailsItem_txtQuantity);
         txtUnitPrice = findViewById(R.id.cardProductDetailInOrderDetailsItem_txtPrice);
         txtTotal = findViewById(R.id.orderDetailsAct_txtTotal);
-        orderItemId = getIntent().getExtras().getInt("id");
+        orderItemId = getIntent().getExtras().getInt("id"); // get order item id from intent
         frameHeaderContainer = findViewById(R.id.orderDetailsAct_headerContainer);
         headerCard = new HeaderCard(context);
     }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);             // save instance state
-        setContentView(R.layout.activity_order_details);    // show activity order details
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_order_details);
         this.context = this;
         mapping();
         initSetupLayout();
-        loadInitData(); //load data from api to activity order details
+        loadInitData();
     }
 
-    //load data from api to activity order details
+    //load data from api before beginning activity
     private void loadInitData() {
 
         ProgressDialog progressDialog = ProgressDialog.show(this, "Noriva",
                 "Loading...", true);
 
+        // load from server
         new Thread() {
 
             @Override
@@ -70,8 +76,8 @@ public class OrderDetailsActivity extends AppCompatActivity {
                 runOnUiThread(new Runnable() {
                     @Override
                     public void run() {
-                        //get order item entity
 
+                        //get order item entity
                         OrderItemEntity orderItemEntity = orderDetailPageEntity.getOrderItemEntity();
                         txtOrderID.setText("#" + orderItemEntity.getId().toString());
                         txtCustomer.setText(orderItemEntity.getCustomer().getLastName());
@@ -97,7 +103,7 @@ public class OrderDetailsActivity extends AppCompatActivity {
             }
         }.start();
     }
-    //remove all view and add view header card
+    //add header card view
     private void initSetupLayout() {
         frameHeaderContainer.removeAllViews();
         frameHeaderContainer.addView(headerCard.getView());

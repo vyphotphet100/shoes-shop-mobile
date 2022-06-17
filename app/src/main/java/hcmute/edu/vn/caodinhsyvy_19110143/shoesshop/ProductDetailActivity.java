@@ -26,19 +26,22 @@ import hcmute.edu.vn.caodinhsyvy_19110143.shoesshop.page_entity.ProductDetailPag
 public class ProductDetailActivity extends AppCompatActivity {
 
     private Context context;
+
+    // to contain header card view
     public FrameLayout frameHeaderContainer;
+    public HeaderCard headerCard;
+
+    // objects to map to ui
     public TextView txtTitle, txtBrand, txtCategory, txtAvailability, txtPrice,
             txtDec, txtInc, txtAddToCart, txtDescription;
     public ImageView img;
     public EditText edtTxtQuantity;
     public LinearLayout cateContainer;
 
-    public HeaderCard headerCard;
     public String code;
-//    public ProductEntity productEntity;
 
 
-    //mapping all elements on activity_product_detail
+    //Function to map objects in code to associated views in UI
     private void mapping() {
         this.context = this;
         code = getIntent().getExtras().getString("code");
@@ -76,6 +79,7 @@ public class ProductDetailActivity extends AppCompatActivity {
         frameHeaderContainer.addView(headerCard.getView());
     }
 
+    //load data from api before beginning activity
     private void loadInitData() {
         // loading screen
         ProgressDialog progressDialog = ProgressDialog.show(this, "Noriva",
@@ -86,7 +90,7 @@ public class ProductDetailActivity extends AppCompatActivity {
             @Override
             public void run() {
                 ProductDetailPageCrane productDetailPageCrane = new ProductDetailPageCrane();
-                ProductDetailPageEntity productDetailPageEntity = productDetailPageCrane.getDataPageDetail(code);
+                ProductDetailPageEntity productDetailPageEntity = productDetailPageCrane.getDataProductDetail(code);
 
                 // set to UI
                 runOnUiThread(new Runnable() {
@@ -129,6 +133,7 @@ public class ProductDetailActivity extends AppCompatActivity {
         }.start();
     }
 
+    // set events to objects
     private void setEvent() {
         //set event click for productDetailAct_txtAddToCart
         txtAddToCart.setOnClickListener(new View.OnClickListener() {

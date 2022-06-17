@@ -14,23 +14,25 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import hcmute.edu.vn.caodinhsyvy_19110143.shoesshop.card.ConfirmOrderItemCard;
 import hcmute.edu.vn.caodinhsyvy_19110143.shoesshop.card.HeaderCard;
-import hcmute.edu.vn.caodinhsyvy_19110143.shoesshop.constant.AppConstant;
-import hcmute.edu.vn.caodinhsyvy_19110143.shoesshop.crane.page.ReviewPaymentPageCrane;
 import hcmute.edu.vn.caodinhsyvy_19110143.shoesshop.entity.OrderItemEntity;
 import hcmute.edu.vn.caodinhsyvy_19110143.shoesshop.page_entity.ReviewPaymentPageEntity;
 
 public class ReviewPaymentActivity extends AppCompatActivity {
 
     private Context context;
+
+    // to contain header card view
+    public FrameLayout frameLayHeaderContainer;
+    public HeaderCard headerCard;
+
+    // objects to map to ui
     public TableLayout tbLayOrderItemContainer;
     public TextView txtShippingAddress, txtDescription, txtSubTotal, txtTotal,
             txtFirstName, txtLastName, txtEmail, txtPayNow;
 
     public ReviewPaymentPageEntity reviewPaymentPageEntity;
-    public FrameLayout frameLayHeaderContainer;
-    public HeaderCard headerCard;
 
-    //mapping all elements on activity_review_payment
+    //Function to map objects in code to associated views in UI
     private void mapping() {
         tbLayOrderItemContainer = findViewById(R.id.reviewPaymentAct_tbLayOrderItemContainer);
         txtShippingAddress = findViewById(R.id.reviewPaymentAct_txtShippingAddress);
@@ -53,7 +55,6 @@ public class ReviewPaymentActivity extends AppCompatActivity {
         this.context = this;
         mapping();
         setHeader();
-
         loadInitData();
 
         //set event click for txtPayNow
@@ -72,6 +73,7 @@ public class ReviewPaymentActivity extends AppCompatActivity {
 
     }
 
+    //load data from api before beginning activity
     private void loadInitData() {
         ProgressDialog progressDialog = ProgressDialog.show(this, "Noriva",
                 "Loading...", true);
@@ -89,8 +91,6 @@ public class ReviewPaymentActivity extends AppCompatActivity {
         txtShippingAddress.setText(reviewPaymentPageEntity.getUserEntity().getAddress());
         txtDescription.setText(reviewPaymentPageEntity.getDescription());
         txtSubTotal.setText(reviewPaymentPageEntity.getTotal().toString() + " USD");
-        Float total = reviewPaymentPageEntity.getTotal() * reviewPaymentPageEntity.getExchangeRate();
-//                        txtTotal.setText(reviewPaymentPageEntity.getTotal() + " USD -> " + total.toString() + " VND");
         txtTotal.setText(reviewPaymentPageEntity.getTotal() + " USD");
 
         txtFirstName.setText(reviewPaymentPageEntity.getUserEntity().getFirstName());
@@ -98,49 +98,6 @@ public class ReviewPaymentActivity extends AppCompatActivity {
         txtEmail.setText(reviewPaymentPageEntity.getUserEntity().getEmail());
 
         progressDialog.dismiss();
-
-//        new Thread() {
-//
-//            @Override
-//            public void run() {
-//                ReviewPaymentPageCrane reviewPaymentPageCrane = new ReviewPaymentPageCrane();
-//                ReviewPaymentPageEntity reviewPaymentPageEntity = reviewPaymentPageCrane.getDataReviewPaymentPage(phone, address);
-//
-//                // check if it is paypal payment
-//                if (reviewPaymentPageEntity.getRedirectLink() != null) {
-//                    Intent intent = new Intent(context, WebViewActivity.class);
-//                    startActivity(intent);
-//                }
-//
-//                // set to UI
-//                runOnUiThread(new Runnable() {
-//                    @Override
-//                    public void run() {
-//
-//                        for (int i = 0; i < 3; i++)
-//                            tbLayOrderItemContainer.removeViewAt(1);
-//
-//                        for (OrderItemEntity orderItemEntity : reviewPaymentPageEntity.getReadyOrderItems()) {
-//                            ConfirmOrderItemCard confirmOrderItemCard = new ConfirmOrderItemCard(context, orderItemEntity);
-//                            tbLayOrderItemContainer.addView(confirmOrderItemCard.getView(), tbLayOrderItemContainer.getChildCount());
-//                        }
-//
-//                        txtShippingAddress.setText(reviewPaymentPageEntity.getUserEntity().getAddress());
-//                        txtDescription.setText(reviewPaymentPageEntity.getDescription());
-//                        txtSubTotal.setText(reviewPaymentPageEntity.getTotal().toString() + " USD");
-//                        Float total = reviewPaymentPageEntity.getTotal() * reviewPaymentPageEntity.getExchangeRate();
-////                        txtTotal.setText(reviewPaymentPageEntity.getTotal() + " USD -> " + total.toString() + " VND");
-//                        txtTotal.setText(reviewPaymentPageEntity.getTotal() + " USD");
-//
-//                        txtFirstName.setText(reviewPaymentPageEntity.getUserEntity().getFirstName());
-//                        txtLastName.setText(reviewPaymentPageEntity.getUserEntity().getLastName());
-//                        txtEmail.setText(reviewPaymentPageEntity.getUserEntity().getEmail());
-//
-//                        progressDialog.dismiss();
-//                    }
-//                });
-//            }
-//        }.start();
     }
 
     //add headerCard into frameLayHeaderContainer when activity_review_payment loaded

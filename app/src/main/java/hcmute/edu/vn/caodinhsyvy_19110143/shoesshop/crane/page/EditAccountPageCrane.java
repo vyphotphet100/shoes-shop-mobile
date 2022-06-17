@@ -14,9 +14,11 @@ import java.util.Collections;
 import hcmute.edu.vn.caodinhsyvy_19110143.shoesshop.constant.AppConstant;
 import hcmute.edu.vn.caodinhsyvy_19110143.shoesshop.entity.UserEntity;
 
+// Crane package: to communicate with server through API
 public class EditAccountPageCrane {
     private final String subUrl = "/customer/my-account/edit-account";
 
+    // send user info to server to edit
     public UserEntity editAccount(String firstName, String lastName, String phone, String email) {
         UserEntity userEntity = new UserEntity();
         userEntity.setFirstName(firstName);

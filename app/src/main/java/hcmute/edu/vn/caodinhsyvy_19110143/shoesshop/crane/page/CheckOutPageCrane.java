@@ -12,9 +12,11 @@ import java.util.Collections;
 import hcmute.edu.vn.caodinhsyvy_19110143.shoesshop.constant.AppConstant;
 import hcmute.edu.vn.caodinhsyvy_19110143.shoesshop.page_entity.CheckOutPageEntity;
 
+// Crane package: to communicate with server through API
 public class CheckOutPageCrane {
     String subUrl = "page/check-out";
 
+    // get data for check out activity from server
     public CheckOutPageEntity getDataCheckOutPage() {
         RestTemplate restTemplate = new RestTemplate();
 

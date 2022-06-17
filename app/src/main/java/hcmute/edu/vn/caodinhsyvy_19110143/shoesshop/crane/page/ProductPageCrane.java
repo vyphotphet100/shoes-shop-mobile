@@ -16,12 +16,15 @@ import hcmute.edu.vn.caodinhsyvy_19110143.shoesshop.constant.AppConstant;
 import hcmute.edu.vn.caodinhsyvy_19110143.shoesshop.entity.ProductEntity;
 import hcmute.edu.vn.caodinhsyvy_19110143.shoesshop.page_entity.ProductPageEntity;
 
+// Crane package: to communicate with server through API
 public class ProductPageCrane {
     private final String subUrl = "products";
 
+    // parameters for GET method of this page
     public Integer limit=12, offset, prize, size;
     public String keyword, categoryCode, brandCode;
 
+    // get data for Product List Activity from server
     public List<ProductEntity> getDataProductPage() {
         StringBuilder params = new StringBuilder();
         if (limit == null)

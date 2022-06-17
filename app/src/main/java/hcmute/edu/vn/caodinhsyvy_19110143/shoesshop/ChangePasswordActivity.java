@@ -14,9 +14,6 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import org.springframework.http.HttpStatus;
 
-import hcmute.edu.vn.caodinhsyvy_19110143.shoesshop.card.AccountAfterLoginCard;
-import hcmute.edu.vn.caodinhsyvy_19110143.shoesshop.card.HeaderCard;
-import hcmute.edu.vn.caodinhsyvy_19110143.shoesshop.card.InformationCard;
 import hcmute.edu.vn.caodinhsyvy_19110143.shoesshop.constant.AppConstant;
 import hcmute.edu.vn.caodinhsyvy_19110143.shoesshop.crane.page.ChangePasswordPageCrane;
 import hcmute.edu.vn.caodinhsyvy_19110143.shoesshop.entity.UserEntity;
@@ -24,21 +21,20 @@ import hcmute.edu.vn.caodinhsyvy_19110143.shoesshop.entity.UserEntity;
 public class ChangePasswordActivity extends AppCompatActivity {
 
     private Context context;
+
+    // frame layout to contain account card, info card, header card views
     public FrameLayout frmAccountLayContainer, frmInfoLayContainer, frameHeaderContainer;
-    public HeaderCard headerCard;
-    public AccountAfterLoginCard accountAfterLoginCard;
-    public InformationCard informationCard;
+
+    // objects to map to ui
     public EditText edtTxtOldPassword, edtTxtNewPassword, edtTxtPasswordConfirm;
     public Button btnSaveChange, btnBack;
 
+    //Function to map objects in code to associated views in UI
     private void mapping() {
         this.context = this;
         frmAccountLayContainer = findViewById(R.id.changePasswordAct_frmAccountLayContainer);
         frmInfoLayContainer = findViewById(R.id.changePasswordAct_frmInfoLayContainer);
         frameHeaderContainer = findViewById(R.id.changePasswordAct_headerContainer);
-        headerCard = new HeaderCard(context);
-        accountAfterLoginCard = new AccountAfterLoginCard(context);
-        informationCard = new InformationCard(context);
         edtTxtOldPassword = findViewById(R.id.changePasswordAct_edtTxtOldPassword);
         edtTxtNewPassword = findViewById(R.id.changePasswordAct_edtTxtNewPassword);
         edtTxtPasswordConfirm = findViewById(R.id.changePasswordAct_edtTxtPasswordConfirm);
@@ -52,34 +48,30 @@ public class ChangePasswordActivity extends AppCompatActivity {
         setContentView(R.layout.activity_change_password);
         mapping();
         AppConstant.waitingAnimation(context, 800);
-        initSetupLayout();
+
+        //Add account card, info card and header card views before beginning activity
+        AppConstant.initSetupLayout(context, frmAccountLayContainer, frmInfoLayContainer, frameHeaderContainer);
 
         setEvent();
     }
 
-    private void initSetupLayout() {
-        frmAccountLayContainer.removeAllViews();
-        frmAccountLayContainer.addView(accountAfterLoginCard.getView());
-
-        frmInfoLayContainer.removeAllViews();
-        frmInfoLayContainer.addView(informationCard.getView());
-
-        frameHeaderContainer.removeAllViews();
-        frameHeaderContainer.addView(headerCard.getView());
-    }
-
+    // set events for objects
     private void setEvent() {
+        // click Save Change button
         btnSaveChange.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 if (!checkValidate())
                     return;
 
+                // Color animation when clicking
                 btnSaveChange.setBackgroundColor(Color.parseColor("#FFFFFF"));
                 btnSaveChange.setTextColor(Color.parseColor("#000000"));
 
                 ProgressDialog progressDialog = ProgressDialog.show(context, "Noriva",
-                        "Loading...", true);
+                        "Loading...", true); // Waiting dialog
+
+                // get data from API
                 new Thread() {
                     @Override
                     public void run() {
@@ -114,6 +106,7 @@ public class ChangePasswordActivity extends AppCompatActivity {
             }
         });
 
+        // click Back button
         btnBack.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -124,6 +117,7 @@ public class ChangePasswordActivity extends AppCompatActivity {
         });
     }
 
+    // check if there are any fields blank
     private Boolean checkValidate() {
         if (edtTxtOldPassword.getText().toString().trim().equals("") ||
                 edtTxtNewPassword.getText().toString().trim().equals("") ||

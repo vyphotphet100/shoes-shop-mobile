@@ -6,31 +6,21 @@ import android.widget.FrameLayout;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import hcmute.edu.vn.caodinhsyvy_19110143.shoesshop.card.AccountAfterLoginCard;
-import hcmute.edu.vn.caodinhsyvy_19110143.shoesshop.card.AccountCard;
-import hcmute.edu.vn.caodinhsyvy_19110143.shoesshop.card.HeaderCard;
-import hcmute.edu.vn.caodinhsyvy_19110143.shoesshop.card.InformationCard;
 import hcmute.edu.vn.caodinhsyvy_19110143.shoesshop.constant.AppConstant;
 
 public class PrivacyPolicyActivity extends AppCompatActivity {
 
     private Context context;
-    public FrameLayout frmAccountLayContainer, frmInfoLayContainer, frameHeaderContainer;
-    public HeaderCard headerCard;
-    public AccountCard accountCard;
-    public AccountAfterLoginCard accountAfterLoginCard;
-    public InformationCard informationCard;
 
-    //mapping all elements on activity_privacy_policy
+    // frame layout to contain account card, info card, header card views
+    public FrameLayout frmAccountLayContainer, frmInfoLayContainer, frameHeaderContainer;
+
+    //Function to map objects in code to associated views in UI
     private void mapping() {
         this.context = this;
         frmAccountLayContainer = findViewById(R.id.privacyPolicyAct_frmAccountLayContainer);
         frameHeaderContainer = findViewById(R.id.privacyPolicyAct_headerContainer);
         frmInfoLayContainer = findViewById(R.id.privacyPolicyAct_frmInfoLayContainer);
-        headerCard = new HeaderCard(context);
-        accountAfterLoginCard = new AccountAfterLoginCard(context);
-        accountCard = new AccountCard(context);
-        informationCard = new InformationCard(context);
     }
 
 
@@ -40,24 +30,9 @@ public class PrivacyPolicyActivity extends AppCompatActivity {
         setContentView(R.layout.activity_privacy_policy);
         mapping();
         AppConstant.waitingAnimation(context, 800);
-        initSetupLayout();
+
+        //Add account card, info card and header card views before beginning activity
+        AppConstant.initSetupLayout(context, frmAccountLayContainer, frmInfoLayContainer, frameHeaderContainer);
     }
-
-    private void initSetupLayout() {
-        frmAccountLayContainer.removeAllViews();
-        //check if the customer logged in the account or not
-        if (AppConstant.loggedInUserEntity == null)
-            frmAccountLayContainer.addView(accountCard.getView());
-        else
-            frmAccountLayContainer.addView(accountAfterLoginCard.getView());
-
-        //add informationCard into frmInfoLayContainer when activity_privacy_policy loaded
-        frmInfoLayContainer.removeAllViews();
-        frmInfoLayContainer.addView(informationCard.getView());
-        //add headerCard into frameHeaderContainer when activity_privacy_policy loaded
-        frameHeaderContainer.removeAllViews();
-        frameHeaderContainer.addView(headerCard.getView());
-    }
-
 
 }

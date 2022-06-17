@@ -16,9 +16,6 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import org.springframework.http.HttpStatus;
 
-import hcmute.edu.vn.caodinhsyvy_19110143.shoesshop.card.AccountCard;
-import hcmute.edu.vn.caodinhsyvy_19110143.shoesshop.card.HeaderCard;
-import hcmute.edu.vn.caodinhsyvy_19110143.shoesshop.card.InformationCard;
 import hcmute.edu.vn.caodinhsyvy_19110143.shoesshop.constant.AppConstant;
 import hcmute.edu.vn.caodinhsyvy_19110143.shoesshop.crane.page.RegisterPageCrane;
 import hcmute.edu.vn.caodinhsyvy_19110143.shoesshop.entity.UserEntity;
@@ -27,16 +24,18 @@ import hcmute.edu.vn.caodinhsyvy_19110143.shoesshop.entity.UserEntity;
 public class RegisterActivity extends AppCompatActivity {
 
     private Context context;
-    public TextView txtLogin;
-    public Button btnRegister;
+
+    // frame layout to contain account card, info card, header card views
     public FrameLayout frameHeaderContainer, frmAccountLayContainer, frmInfoLayContainer;
-    public HeaderCard headerCard;
+
+    // objects to map to ui
     public EditText edtTxtFirstName, edtTxtLastName, edtTxtPhone,
             edtTxtEmail, edtTxtUsername, edtTxtPassword, edtTxtConfirmPassword;
-    public AccountCard accountCard;
-    public InformationCard informationCard;
+    public TextView txtLogin;
+    public Button btnRegister;
 
-    //mapping all elements on activity_register
+
+    //Function to map objects in code to associated views in UI
     private void mapping() {
         this.context = this;
         txtLogin = findViewById(R.id.cardAccount_txtLogin);
@@ -44,9 +43,6 @@ public class RegisterActivity extends AppCompatActivity {
         frameHeaderContainer = findViewById(R.id.registerAct_headerContainer);
         frmAccountLayContainer = findViewById(R.id.registerAct_frmAccountLayContainer);
         frmInfoLayContainer = findViewById(R.id.registerAct_frmInfoLayContainer);
-        headerCard = new HeaderCard(context);
-        accountCard = new AccountCard(context);
-        informationCard = new InformationCard(context);
         edtTxtFirstName = findViewById(R.id.cardRegister_edtTxtFirstName);
         edtTxtLastName = findViewById(R.id.cardRegister_edtTxtLastName);
         edtTxtPhone = findViewById(R.id.cardRegister_edtTxtPhone);
@@ -62,9 +58,12 @@ public class RegisterActivity extends AppCompatActivity {
         setContentView(R.layout.activity_register);
         mapping();
         AppConstant.waitingAnimation(context, 800);
-        initSetupLayout();
+
+        //Add account card, info card and header card views before beginning activity
+        AppConstant.initSetupLayout(context, frmAccountLayContainer, frmInfoLayContainer, frameHeaderContainer);
 
         txtLogin.requestFocus();
+
         //set event onclick for registerAct_btnRegister
         btnRegister.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -76,20 +75,7 @@ public class RegisterActivity extends AppCompatActivity {
         });
     }
 
-    private void initSetupLayout() {
-        //add accountCard into frmAccountLayContainer when activity_register
-        frmAccountLayContainer.removeAllViews();
-        frmAccountLayContainer.addView(accountCard.getView());
-
-        //add informationCard into frmInfoLayContainer when activity_register
-        frmInfoLayContainer.removeAllViews();
-        frmInfoLayContainer.addView(informationCard.getView());
-
-        //add headerCard into frameHeaderContainer when activity_register
-        frameHeaderContainer.removeAllViews();
-        frameHeaderContainer.addView(headerCard.getView());
-    }
-
+    // send info to server through api
     private void register() {
         ProgressDialog progressDialog = ProgressDialog.show(this, "Noriva",
                 "Loading...", true);
@@ -115,6 +101,7 @@ public class RegisterActivity extends AppCompatActivity {
         userEntity.setPassword(edtTxtPassword.getText().toString());
         userEntity.setConfirmPassword(edtTxtConfirmPassword.getText().toString());
 
+        // send it to server
         new Thread() {
 
             @Override

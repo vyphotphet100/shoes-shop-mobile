@@ -21,9 +21,11 @@ import hcmute.edu.vn.caodinhsyvy_19110143.shoesshop.constant.AppConstant;
 import hcmute.edu.vn.caodinhsyvy_19110143.shoesshop.entity.OrderItemEntity;
 import hcmute.edu.vn.caodinhsyvy_19110143.shoesshop.page_entity.ShoppingCartPageEntity;
 
+// Crane package: to communicate with server through API
 public class ShoppingCartPageCrane {
     String subUrl = "page/shopping-cart";
 
+    // get data from server for Shopping Cart Activity
     public ShoppingCartPageEntity getDataShoppingCartPage() {
         RestTemplate restTemplate = new RestTemplate();
 
@@ -39,43 +41,7 @@ public class ShoppingCartPageCrane {
 
     }
 
-    public Boolean updateQuantity(Integer orderItemId, Integer quantity) {
-        RestTemplate restTemplate = new RestTemplate();
-        restTemplate.getMessageConverters().add(new MappingJackson2HttpMessageConverter());
-
-        OrderItemEntity orderItemEntity = new OrderItemEntity();
-        orderItemEntity.setId(orderItemId);
-        orderItemEntity.setQuantityBought(quantity);
-
-        HttpHeaders headers = new HttpHeaders();
-        if (AppConstant.loggedInUserEntity != null)
-            headers.put("Authorization", Collections.singletonList("Token " + AppConstant.loggedInUserEntity.getValueInAddedData("token").toString()));
-        HttpEntity<OrderItemEntity> entity = new HttpEntity<OrderItemEntity>(orderItemEntity, headers);
-        ResponseEntity<OrderItemEntity> resp =
-                restTemplate.exchange(AppConstant.BASE_URL + "/customer/paying/shopping-cart/update-quantity",
-                        HttpMethod.PUT, entity, OrderItemEntity.class);
-        OrderItemEntity resEntity = resp.getBody();
-        if (resEntity.getHttpStatus() == HttpStatus.OK)
-            return true;
-
-        return false;
-    }
-
-    public OrderItemEntity getOrderItemById(Integer id) {
-        RestTemplate restTemplate = new RestTemplate();
-
-        restTemplate.getMessageConverters().add(new MappingJackson2HttpMessageConverter());
-        HttpHeaders headers = new HttpHeaders();
-        if (AppConstant.loggedInUserEntity != null)
-            headers.put("Authorization", Collections.singletonList("Token " + AppConstant.loggedInUserEntity.getValueInAddedData("token").toString()));
-        HttpEntity<String> entity = new HttpEntity<String>(headers);
-        ResponseEntity<OrderItemEntity> resp =
-                restTemplate.exchange(AppConstant.BASE_URL + "/customer/paying/shopping-cart/get-order-item?id={id}",
-                        HttpMethod.GET, entity, OrderItemEntity.class, id);
-        return resp.getBody();
-
-    }
-
+    // send DELETE method request to server to delete order item in shopping cart
     public Boolean deleteOrderItemById(Integer id) {
         RestTemplate restTemplate = new RestTemplate();
         restTemplate.getMessageConverters().add(new MappingJackson2HttpMessageConverter());
@@ -94,6 +60,7 @@ public class ShoppingCartPageCrane {
         return false;
     }
 
+    // send info of chosen order items to server when user clicks Check Out button
     public Boolean checkOut(HashMap<String, Integer> orderItemIdsNeededUpdateQuantity) {
         RestTemplate restTemplate = new RestTemplate();
         restTemplate.getMessageConverters().add(new MappingJackson2HttpMessageConverter());
@@ -115,6 +82,7 @@ public class ShoppingCartPageCrane {
         return false;
     }
 
+    // send productCode to server to add that product to cart
     public OrderItemEntity addToCart(Context context, String productCode, Integer quantity) {
         OrderItemEntity errorEntity = new OrderItemEntity();
         errorEntity.setHttpStatus(HttpStatus.EXPECTATION_FAILED);

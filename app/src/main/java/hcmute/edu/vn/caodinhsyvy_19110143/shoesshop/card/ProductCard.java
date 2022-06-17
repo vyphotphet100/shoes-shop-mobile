@@ -5,33 +5,29 @@ import android.content.Context;
 import android.content.Intent;
 import android.view.View;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
-
-import org.springframework.http.HttpStatus;
 
 import hcmute.edu.vn.caodinhsyvy_19110143.shoesshop.ProductDetailActivity;
 import hcmute.edu.vn.caodinhsyvy_19110143.shoesshop.R;
 import hcmute.edu.vn.caodinhsyvy_19110143.shoesshop.crane.page.ShoppingCartPageCrane;
 import hcmute.edu.vn.caodinhsyvy_19110143.shoesshop.entity.OrderItemEntity;
 import hcmute.edu.vn.caodinhsyvy_19110143.shoesshop.entity.ProductEntity;
-import hcmute.edu.vn.caodinhsyvy_19110143.shoesshop.page_entity.ShoppingCartPageEntity;
 
 public class ProductCard extends BaseCard {
-    // declare the necessary variables used in the product card
-    private int layout = R.layout.card_product;
+    private int layout = R.layout.card_product; // main layout
     private View view;
     private Context context;
 
+    // objects to map to ui of card
     public ImageView img, imgSeeDetail;
     public TextView txtName, txtPrice, txtAddToCard;
     public ProductEntity productEntity;
     public Integer quantity = 1;
 
-    //Function to map object in code to text view, image view
+    //Function to map objects in code to associated views in UI
     @Override
     protected void mapping() {
         img = view.findViewById(R.id.cardProduct_img);
@@ -41,14 +37,17 @@ public class ProductCard extends BaseCard {
         imgSeeDetail = view.findViewById(R.id.cardProduct_imgSeeDetail);
     }
 
+    // return to view of this layout
     @Override
     public View getView() {
         return this.view;
     }
 
+    // set events for objects
     @Override
     protected void setListenerEvent() {
-        txtAddToCard.setOnClickListener(new View.OnClickListener() { //when txt Add To Card clicked
+        //when txt Add To Card clicked
+        txtAddToCard.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 ProgressDialog progressDialog = ProgressDialog.show(context, "Noriva",
@@ -73,7 +72,8 @@ public class ProductCard extends BaseCard {
             }
         });
 
-        imgSeeDetail.setOnClickListener(new View.OnClickListener() { //when img See Detail clicked
+        //when img See Detail clicked
+        imgSeeDetail.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(context, ProductDetailActivity.class);
@@ -83,6 +83,7 @@ public class ProductCard extends BaseCard {
             }
         });
 
+        //when img clicked
         img.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

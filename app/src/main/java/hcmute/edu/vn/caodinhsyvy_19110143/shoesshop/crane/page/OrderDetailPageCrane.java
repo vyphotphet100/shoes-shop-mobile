@@ -12,9 +12,11 @@ import java.util.Collections;
 import hcmute.edu.vn.caodinhsyvy_19110143.shoesshop.constant.AppConstant;
 import hcmute.edu.vn.caodinhsyvy_19110143.shoesshop.page_entity.OrderDetailPageEntity;
 
+// Crane package: to communicate with server through API
 public class OrderDetailPageCrane {
     private final String subUrl = "page/order-detail";
 
+    // get data for Order Detail Activity from server
     public OrderDetailPageEntity getDataOrderDetail(Integer id) {
         String params = "?id=" + id.toString();
 

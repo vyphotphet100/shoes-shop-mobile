@@ -11,10 +11,12 @@ import hcmute.edu.vn.caodinhsyvy_19110143.shoesshop.entity.UserEntity;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class CheckOutPageEntity extends BasePageEntity implements Serializable {
+    // declare the necessary variables used / properties
     private UserEntity userEntity;
     private List<OrderItemEntity> readyOrderItems = new ArrayList<>();
     private Float total;
 
+    //get and set all value to all variables
     public UserEntity getUserEntity() {
         return userEntity;
     }

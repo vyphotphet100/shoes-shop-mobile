@@ -1,6 +1,5 @@
 package hcmute.edu.vn.caodinhsyvy_19110143.shoesshop.card;
 
-import android.content.Context;
 import android.content.Intent;
 import android.text.Editable;
 import android.text.TextWatcher;
@@ -10,8 +9,6 @@ import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
-
-import androidx.appcompat.app.AppCompatActivity;
 
 import com.squareup.picasso.Picasso;
 
@@ -23,18 +20,18 @@ import hcmute.edu.vn.caodinhsyvy_19110143.shoesshop.crane.page.ShoppingCartPageC
 import hcmute.edu.vn.caodinhsyvy_19110143.shoesshop.entity.OrderItemEntity;
 
 public class ProductInShoppingCartCard extends BaseCard {
-    // declare the necessary variables used in the product in shopping cart card
-    private int layout = R.layout.card_product_in_shopping_cart;
+    private int layout = R.layout.card_product_in_shopping_cart; // main layout
     private View view;
     private ShoppingCartActivity context;
 
+    // objects to map to ui of card
     public ImageView img, imgResetQuantity, imgDelete;
     public TextView txtProductName, txtBrand, txtUnitPrice, txtTotalCost, txtIncQty, txtDecQty;
     public EditText edtTxtQuantity;
     public CheckBox chBxPay;
     public OrderItemEntity orderItemEntity;
 
-    //Function to map object in code to text view , image view
+    //Function to map objects in code to associated views in UI
     @Override
     protected void mapping() {
         txtProductName = view.findViewById(R.id.cardProductInShoppingCart_txtProductName);
@@ -50,22 +47,25 @@ public class ProductInShoppingCartCard extends BaseCard {
         imgResetQuantity = view.findViewById(R.id.cardProductInShoppingCart_imgResetQuantity);
     }
 
+    // return to view of this layout
     @Override
     public View getView() {
         return this.view;
     }
 
+    // set events for objects
     @Override
     protected void setListenerEvent() {
-
-        imgResetQuantity.setOnClickListener(new View.OnClickListener() { //when img Reset Quantity clicked
+        //when img Reset Quantity clicked
+        imgResetQuantity.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 edtTxtQuantity.setText(orderItemEntity.getQuantityBought().toString());
             }
         });
 
-        edtTxtQuantity.addTextChangedListener(new TextWatcher() { //when edt Txt Quantity
+        //when edt Txt Quantity changed text
+        edtTxtQuantity.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {
 
@@ -86,6 +86,7 @@ public class ProductInShoppingCartCard extends BaseCard {
             }
         });
 
+        //when txtIncQty clicked
         txtIncQty.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -94,6 +95,7 @@ public class ProductInShoppingCartCard extends BaseCard {
             }
         });
 
+        //when txtDecQty clicked
         txtDecQty.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -103,6 +105,7 @@ public class ProductInShoppingCartCard extends BaseCard {
             }
         });
 
+        //when chBxPay changed checked
         chBxPay.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
@@ -110,6 +113,7 @@ public class ProductInShoppingCartCard extends BaseCard {
             }
         });
 
+        //when imgDelete clicked
         imgDelete.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -131,6 +135,7 @@ public class ProductInShoppingCartCard extends BaseCard {
             }
         });
 
+        //when img clicked
         img.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

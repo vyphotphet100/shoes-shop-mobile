@@ -14,9 +14,11 @@ import java.util.Collections;
 import hcmute.edu.vn.caodinhsyvy_19110143.shoesshop.constant.AppConstant;
 import hcmute.edu.vn.caodinhsyvy_19110143.shoesshop.entity.UserEntity;
 
+// Crane package: to communicate with server through API
 public class ChangePasswordPageCrane {
     private final String subUrl = "/customer/my-account/change-password";
 
+    // send user info about password to server to change
     public UserEntity changePassword(String oldPassword, String newPassword, String confirmPassword) {
         UserEntity userEntity = new UserEntity();
         userEntity.getListRequest().put("oldPassword", oldPassword);

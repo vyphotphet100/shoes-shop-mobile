@@ -1,7 +1,6 @@
 package hcmute.edu.vn.caodinhsyvy_19110143.shoesshop.card;
 
 import android.content.Context;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Color;
 import android.view.View;
@@ -16,20 +15,19 @@ import hcmute.edu.vn.caodinhsyvy_19110143.shoesshop.LoginActivity;
 import hcmute.edu.vn.caodinhsyvy_19110143.shoesshop.MyAccountActivity;
 import hcmute.edu.vn.caodinhsyvy_19110143.shoesshop.ProductListActivity;
 import hcmute.edu.vn.caodinhsyvy_19110143.shoesshop.R;
-import hcmute.edu.vn.caodinhsyvy_19110143.shoesshop.RegisterActivity;
 import hcmute.edu.vn.caodinhsyvy_19110143.shoesshop.ShoppingCartActivity;
 import hcmute.edu.vn.caodinhsyvy_19110143.shoesshop.constant.AppConstant;
 
 public class HeaderCard extends BaseCard {
-    // declare the necessary variables used in the header card
-    private int layout = R.layout.card_header;
+    private int layout = R.layout.card_header; // main layout
     private View view;
     private Context context;
 
+    // objects to map to ui of card
     public ImageView imgSearch, imgAccount, imgShoppingCart, imgLogo;
     public TextView txtWomenShoes, txtMenShoes, txtSportsWear;
 
-    //Function to map object in code to text view and image view
+    //Function to map objects in code to associated views in UI
     @Override
     protected void mapping() {
         imgSearch = view.findViewById(R.id.headerCard_imgSearch);
@@ -41,15 +39,17 @@ public class HeaderCard extends BaseCard {
         txtSportsWear = view.findViewById(R.id.headerCard_txtSportsWear);
     }
 
+    // return to view of this layout
     @Override
     public View getView() {
         return this.view;
     }
 
+    // set events for objects
     @Override
     protected void setListenerEvent() {
+        // when img Account clicked
         imgAccount.setOnClickListener(new View.OnClickListener() {
-            // when img Account clicked
             @Override
             public void onClick(View v) {
                 if (AppConstant.loggedInUserEntity == null) { // if log in user entity is null
@@ -71,6 +71,7 @@ public class HeaderCard extends BaseCard {
             }
         });
 
+        // when imgSearch clicked
         imgSearch.setOnClickListener(new View.OnClickListener() { //when img Search clicked
             @Override
             public void onClick(View v) {
@@ -97,6 +98,7 @@ public class HeaderCard extends BaseCard {
             }
         });
 
+        // when imgLogo clicked
         imgLogo.setOnClickListener(new View.OnClickListener() { //when img Logo clicked
             @Override
             public void onClick(View v) {
@@ -109,6 +111,7 @@ public class HeaderCard extends BaseCard {
             }
         });
 
+        // when imgShoppingCart clicked
         imgShoppingCart.setOnClickListener(new View.OnClickListener() { //when img shopping cart clicked
             @Override
             public void onClick(View v) {
@@ -119,6 +122,7 @@ public class HeaderCard extends BaseCard {
             }
         });
 
+        // when txtWomenShoes clicked
         txtWomenShoes.setOnClickListener(new View.OnClickListener() { //when txt womenshoes clicked
             @Override
             public void onClick(View v) {
@@ -130,6 +134,7 @@ public class HeaderCard extends BaseCard {
             }
         });
 
+        // when txtMenShoes clicked
         txtMenShoes.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -141,6 +146,7 @@ public class HeaderCard extends BaseCard {
             }
         });
 
+        // when txtSportsWear clicked
         txtSportsWear.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

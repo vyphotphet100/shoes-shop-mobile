@@ -9,13 +9,11 @@ import android.os.Bundle;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;
-import android.widget.HorizontalScrollView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.constraintlayout.widget.ConstraintLayout;
-import androidx.core.widget.NestedScrollView;
 
 import com.squareup.picasso.Picasso;
 
@@ -28,19 +26,20 @@ import hcmute.edu.vn.caodinhsyvy_19110143.shoesshop.page_entity.HomePageEntity;
 
 public class HomeActivity extends AppCompatActivity {
 
-    public static Boolean checkActivity = false;
     private Context context;
-    public NestedScrollView srv;
-    public ConstraintLayout container;
-    public LinearLayout itemContainer, cate1Container, cate2Container;
+
+    // linear layout to contain categorized product card views
+    public LinearLayout cate1Container, cate2Container;
+
+    // to contain header card view
     public FrameLayout frameHeaderContainer;
     public HeaderCard headerCard;
+
+    // objects to map to ui
     public ConstraintLayout nikeBannerConsLayout;
     public ConstraintLayout adidasBannerConsLayout;
     public ConstraintLayout pumaBannerConsLayout;
     public ConstraintLayout converseBannerConsLayout;
-    public HorizontalScrollView banner;
-    public FrameLayout frm;
     public TextView txtBrand1, txtBrand2,
             txtBrand3, txtBrand4,
             txtBrand5, txtBrand6,
@@ -48,20 +47,15 @@ public class HomeActivity extends AppCompatActivity {
             txtCategory1, txtCategory2,
             txtBrand1ShopNow, txtBrand2ShopNow, txtBrand3ShopNow, txtBrand4ShopNow;
 
-    //Function to map object in code to view in UI
+    //Function to map objects in code to associated views in UI
     private void mapping() {
         this.context = this;
-        srv = findViewById(R.id.homeAct_srv);
-        container = findViewById(R.id.homeAct_container);
-        itemContainer = findViewById(R.id.homeAct_itemContainer);
         cate1Container = findViewById(R.id.homeAct_cate1Container);
         cate2Container = findViewById(R.id.homeAct_cate2Container);
         nikeBannerConsLayout = findViewById(R.id.homeAct_nikeBannerConsLayout);
         adidasBannerConsLayout = findViewById(R.id.homeAct_adidasBannerConsLayout);
         pumaBannerConsLayout = findViewById(R.id.homeAct_pumaBannerConsLayout);
         converseBannerConsLayout = findViewById(R.id.homeAct_converseBannerConsLayout);
-        banner = findViewById(R.id.homeAct_hsvBannerContainer);
-        frm = findViewById(R.id.homeAct_frm);
         txtBrand1 = findViewById(R.id.homeAct_txtBrand1);
         txtBrand2 = findViewById(R.id.homeAct_txtBrand2);
         txtBrand3 = findViewById(R.id.homeAct_txtBrand3);
@@ -83,8 +77,8 @@ public class HomeActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);         // save instance state
-        setContentView(R.layout.activity_home);     // show activity home
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_home);
         mapping();
         initSetupLayout();
         loadInitData();
@@ -92,7 +86,7 @@ public class HomeActivity extends AppCompatActivity {
 
     }
 
-    //load data from api to activity home
+    //load data from api before beginning activity
     private void loadInitData() {
 
         ProgressDialog progressDialog = ProgressDialog.show(this, "Noriva",
@@ -124,6 +118,7 @@ public class HomeActivity extends AppCompatActivity {
                         cate1Container.removeAllViews();
                         cate2Container.removeAllViews();
 
+                        // load product to category 1
                         for (ProductEntity productEntity : homePageEntity.getCate1Products()) {
                             ProductCard productCard = new ProductCard(context, productEntity);
                             productCard.txtName.setText(productEntity.getTitle());
@@ -136,6 +131,7 @@ public class HomeActivity extends AppCompatActivity {
                             cate1Container.addView(productCard.getView());
                         }
 
+                        // load product to category 2
                         for (ProductEntity productEntity : homePageEntity.getCate2Products()) {
                             ProductCard productCard = new ProductCard(context, productEntity);
                             productCard.txtName.setText(productEntity.getTitle());
@@ -155,13 +151,16 @@ public class HomeActivity extends AppCompatActivity {
         }.start();
     }
 
-    //remove all view and add view header card
+    //add header card view
     private void initSetupLayout() {
         frameHeaderContainer.removeAllViews();
         frameHeaderContainer.addView(headerCard.getView());
     }
 
+    // set events for objects
     private void setEvent() {
+
+        // 'Show now' of brand1 clicked
         txtBrand1ShopNow.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -173,6 +172,7 @@ public class HomeActivity extends AppCompatActivity {
             }
         });
 
+        // 'Show now' of brand2 clicked
         txtBrand2ShopNow.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -184,6 +184,7 @@ public class HomeActivity extends AppCompatActivity {
             }
         });
 
+        // 'Show now' of brand3 clicked
         txtBrand3ShopNow.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -195,6 +196,7 @@ public class HomeActivity extends AppCompatActivity {
             }
         });
 
+        // 'Show now' of brand4 clicked
         txtBrand4ShopNow.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -206,6 +208,7 @@ public class HomeActivity extends AppCompatActivity {
             }
         });
 
+        // brand5 clicked
         txtBrand5.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -217,6 +220,7 @@ public class HomeActivity extends AppCompatActivity {
             }
         });
 
+        // brand6 clicked
         txtBrand6.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -228,6 +232,7 @@ public class HomeActivity extends AppCompatActivity {
             }
         });
 
+        // brand7 clicked
         txtBrand7.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

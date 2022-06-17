@@ -13,9 +13,11 @@ import hcmute.edu.vn.caodinhsyvy_19110143.shoesshop.constant.AppConstant;
 import hcmute.edu.vn.caodinhsyvy_19110143.shoesshop.page_entity.HomePageEntity;
 import hcmute.edu.vn.caodinhsyvy_19110143.shoesshop.page_entity.OrderHistoryPageEntity;
 
+// Crane package: to communicate with server through API
 public class OrderHistoryPageCrane {
     private final String subUrl = "page/order-history";
 
+    // get data for Order History Activity from server
     public OrderHistoryPageEntity getDataOrderHistory() {
         RestTemplate restTemplate = new RestTemplate();
 

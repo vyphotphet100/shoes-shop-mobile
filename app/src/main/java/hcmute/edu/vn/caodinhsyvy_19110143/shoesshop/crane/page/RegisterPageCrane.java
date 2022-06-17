@@ -11,9 +11,11 @@ import org.springframework.web.client.RestTemplate;
 import hcmute.edu.vn.caodinhsyvy_19110143.shoesshop.constant.AppConstant;
 import hcmute.edu.vn.caodinhsyvy_19110143.shoesshop.entity.UserEntity;
 
+// Crane package: to communicate with server through API
 public class RegisterPageCrane {
     private final String subUrl = "page/register";
 
+    // send user info to server to register
     public UserEntity register(UserEntity userEntity) {
         RestTemplate restTemplate = new RestTemplate();
 

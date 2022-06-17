@@ -24,16 +24,23 @@ import hcmute.edu.vn.caodinhsyvy_19110143.shoesshop.page_entity.CheckOutPageEnti
 import hcmute.edu.vn.caodinhsyvy_19110143.shoesshop.page_entity.ReviewPaymentPageEntity;
 
 public class CheckOutActivity extends AppCompatActivity {
-    // declare the necessary variables used in the form
+
     private Context context;
-    public EditText edtTxtFirstName, edtTxtLastName, edtTxtPhone, edtTxtAddress;
-    public TextView txtTotal, txtPay, txtEdit;
-    public TableLayout tbLayOrderItemContainer;
+
+    // frame layout to contain header card view
     public FrameLayout frameHeaderContainer;
     public HeaderCard headerCard;
+
+    // table layout to contain order item card view
+    public TableLayout tbLayOrderItemContainer;
+
+    // objects to map to ui
+    public EditText edtTxtFirstName, edtTxtLastName, edtTxtPhone, edtTxtAddress;
+    public TextView txtTotal, txtPay, txtEdit;
     private RadioButton rBtnPaypal;
 
-    //Function to map object in code to view in UI
+
+    //Function to map objects in code to associated views in UI
     private void mapping() {
         edtTxtFirstName = findViewById(R.id.checkOutAct_edtTxtFirstName);
         edtTxtLastName = findViewById(R.id.checkOutAct_edtTxtLastName);
@@ -50,24 +57,29 @@ public class CheckOutActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);         // save instance state
-        setContentView(R.layout.activity_check_out);    // show activity check out
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_check_out);
         this.context = this;
         mapping();
+
+        // Check if use did not log in
         if (!AppConstant.checkLoggedIn(context))
             return;
 
         AppConstant.waitingAnimation(context, 600);
         setHeader();
+        loadInitData();
 
-        loadInitData();     //load data from api to activity check out
-
-        //when text Pay clicked
+        //when Pay is clicked
         txtPay.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
+                // color animation
                 txtPay.setBackgroundColor(Color.parseColor("#FFFFFF"));
                 txtPay.setTextColor(Color.parseColor("#000000"));
+
+                // Send data to server
                 new Thread() {
                     ProgressDialog progressDialog = ProgressDialog.show(context, "Noriva",
                             "Loading...", true);
@@ -108,11 +120,15 @@ public class CheckOutActivity extends AppCompatActivity {
             }
         });
 
+        // when Edit is clicked
         txtEdit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                // color animation
                 txtEdit.setBackgroundColor(Color.parseColor("#FFFFFF"));
                 txtEdit.setTextColor(Color.parseColor("#000000"));
+
+                // start shopping cart activity
                 Intent intent = new Intent(context, ShoppingCartActivity.class);
                 startActivity(intent);
                 finish();
@@ -120,7 +136,7 @@ public class CheckOutActivity extends AppCompatActivity {
         });
     }
 
-    //load data from api to activity check out
+    //load data from api and set it to UI before beginning activity
     private void loadInitData() {
         ProgressDialog progressDialog = ProgressDialog.show(this, "Noriva",
                 "Loading...", true);
@@ -157,7 +173,7 @@ public class CheckOutActivity extends AppCompatActivity {
         }.start();
     }
 
-    //remove all view and add view header card
+    //add header card view
     private void setHeader() {
         frameHeaderContainer.removeAllViews();
         frameHeaderContainer.addView(headerCard.getView());

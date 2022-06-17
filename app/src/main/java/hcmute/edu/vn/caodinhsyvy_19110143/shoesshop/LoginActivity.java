@@ -9,31 +9,29 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.FrameLayout;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import org.springframework.http.HttpStatus;
 
-import hcmute.edu.vn.caodinhsyvy_19110143.shoesshop.card.AccountCard;
-import hcmute.edu.vn.caodinhsyvy_19110143.shoesshop.card.HeaderCard;
-import hcmute.edu.vn.caodinhsyvy_19110143.shoesshop.card.InformationCard;
 import hcmute.edu.vn.caodinhsyvy_19110143.shoesshop.constant.AppConstant;
 import hcmute.edu.vn.caodinhsyvy_19110143.shoesshop.crane.page.LoginPageCrane;
 import hcmute.edu.vn.caodinhsyvy_19110143.shoesshop.entity.UserEntity;
 
 public class LoginActivity extends AppCompatActivity {
-    // declare the necessary variables used in the form
+
     private Context context;
+
+    // frame layout to contain account card, info card, header card views
+    public FrameLayout frmAccountLayContainer, frmInfoLayContainer, frameHeaderContainer;
+
+    // objects to map to ui
     public Button btnLogin;
     public EditText edtTxtUsername, edtTxtPassword;
-    public FrameLayout frmAccountLayContainer, frmInfoLayContainer, frameHeaderContainer;
-    public HeaderCard headerCard;
-    public AccountCard accountCard;
-    public InformationCard informationCard;
 
-    //Function to map object in code to view in UI
+
+    //Function to map objects in code to associated views in UI
     private void mapping() {
         btnLogin = findViewById(R.id.loginAct_btnLogin);
         edtTxtUsername = findViewById(R.id.cardLogin_edtTxtUsername);
@@ -41,39 +39,40 @@ public class LoginActivity extends AppCompatActivity {
         frmAccountLayContainer = findViewById(R.id.loginAct_frmAccountLayContainer);
         frmInfoLayContainer = findViewById(R.id.loginAct_frmInfoLayContainer);
         frameHeaderContainer = findViewById(R.id.loginAct_headerContainer);
-
-        //Create 3 new card: headerCard, AccountCard, InformationCard
-        headerCard = new HeaderCard(context);
-        accountCard = new AccountCard(context);
-        informationCard = new InformationCard(context);
     }
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);     // save instance state
-        setContentView(R.layout.activity_login);    // show activity login
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_login);
         this.context = this;
-        AppConstant.waitingAnimation(context, 800); //create loading animation that lasts 800ms
-        mapping();  //Function to map object in code to view in UI
-        initSetupLayout(); //remove all view and then add 3 new view : headerCard, AccountCard, InformationCard
+        AppConstant.waitingAnimation(context, 800);
+        mapping();
 
-        btnLogin.setOnClickListener(new View.OnClickListener() { //when button login clicked
+        //Add account card, info card and header card views before beginning activity
+        AppConstant.initSetupLayout(context, frmAccountLayContainer, frmInfoLayContainer, frameHeaderContainer);
+
+        // Login clicked
+        btnLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
+                // color animation
                 btnLogin.setBackgroundColor(Color.parseColor("#FFFFFF"));
                 btnLogin.setTextColor(Color.parseColor("#000000"));
-                ProgressDialog progressDialog = ProgressDialog.show(context, "Noriva",
-                        "Loading...", true);    // create new progressdialog and show
 
+                ProgressDialog progressDialog = ProgressDialog.show(context, "Noriva",
+                        "Loading...", true);
+
+                // send username and password to server through API
                 new Thread() {
                     @Override
                     public void run() {
-                        LoginPageCrane loginPageCrane = new LoginPageCrane(); // create new login page crane
+                        LoginPageCrane loginPageCrane = new LoginPageCrane();
                         UserEntity userEntity =
                                 loginPageCrane.login(edtTxtUsername.getText().toString(),
                                         edtTxtPassword.getText().toString());
-                                //user entity have login with 2 variables: username and password
 
                         runOnUiThread(new Runnable() {
                             @Override
@@ -99,18 +98,6 @@ public class LoginActivity extends AppCompatActivity {
             }
         });
 
-    }
-
-    //Remove All view and add 3 view , there are: accountCard, informationCard, headerCard
-    private void initSetupLayout() {
-        frmAccountLayContainer.removeAllViews();
-        frmAccountLayContainer.addView(accountCard.getView());
-
-        frmInfoLayContainer.removeAllViews();
-        frmInfoLayContainer.addView(informationCard.getView());
-
-        frameHeaderContainer.removeAllViews();
-        frameHeaderContainer.addView(headerCard.getView());
     }
 
 }

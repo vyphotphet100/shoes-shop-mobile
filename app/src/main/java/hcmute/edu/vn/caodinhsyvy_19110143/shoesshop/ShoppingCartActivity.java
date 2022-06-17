@@ -3,11 +3,9 @@ package hcmute.edu.vn.caodinhsyvy_19110143.shoesshop;
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
-import android.content.res.Resources;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.FrameLayout;
 import android.widget.HorizontalScrollView;
 import android.widget.TableLayout;
@@ -16,39 +14,36 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.squareup.picasso.Picasso;
-
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
-import hcmute.edu.vn.caodinhsyvy_19110143.shoesshop.card.AccountAfterLoginCard;
-import hcmute.edu.vn.caodinhsyvy_19110143.shoesshop.card.AccountCard;
 import hcmute.edu.vn.caodinhsyvy_19110143.shoesshop.card.HeaderCard;
-import hcmute.edu.vn.caodinhsyvy_19110143.shoesshop.card.InformationCard;
-import hcmute.edu.vn.caodinhsyvy_19110143.shoesshop.card.ProductCard;
 import hcmute.edu.vn.caodinhsyvy_19110143.shoesshop.card.ProductInShoppingCartCard;
 import hcmute.edu.vn.caodinhsyvy_19110143.shoesshop.constant.AppConstant;
-import hcmute.edu.vn.caodinhsyvy_19110143.shoesshop.crane.page.HomePageCrane;
 import hcmute.edu.vn.caodinhsyvy_19110143.shoesshop.crane.page.ShoppingCartPageCrane;
 import hcmute.edu.vn.caodinhsyvy_19110143.shoesshop.entity.OrderItemEntity;
-import hcmute.edu.vn.caodinhsyvy_19110143.shoesshop.entity.ProductEntity;
-import hcmute.edu.vn.caodinhsyvy_19110143.shoesshop.page_entity.HomePageEntity;
 import hcmute.edu.vn.caodinhsyvy_19110143.shoesshop.page_entity.ShoppingCartPageEntity;
 
 public class ShoppingCartActivity extends AppCompatActivity {
 
     private Context context;
+
+    // to contain header card view
     public FrameLayout frameHeaderContainer;
     public HeaderCard headerCard;
+
+    // objects to map to ui
     public HorizontalScrollView hsv;
     public TableLayout tbLayOrderItemContainer;
     public TextView txtTotal, txtCheckOut, txtContinueShopping;
+
+    // to handle data from api
     public List<OrderItemEntity> orderItemEntities = new ArrayList<>();
     public List<ProductInShoppingCartCard> productInShoppingCartCards = new ArrayList<>();
     public ShoppingCartPageCrane shoppingCartPageCrane;
 
-    //mapping all elements on activity_shopping_cart
+    //Function to map objects in code to associated views in UI
     private void mapping() {
         this.context = this;
         frameHeaderContainer = findViewById(R.id.shoppingCartAct_headerContainer);
@@ -73,6 +68,8 @@ public class ShoppingCartActivity extends AppCompatActivity {
         initSetupLayout();
         loadInitData();
         AppConstant.waitingAnimation(context, 600);
+
+        // set horizontal scroll view to 0, 0
         new Thread() {
             @Override
             public void run() {
@@ -86,6 +83,7 @@ public class ShoppingCartActivity extends AppCompatActivity {
                 hsv.setScrollY(0);
             }
         }.start();
+
         setEvent();
     }
 
@@ -95,6 +93,7 @@ public class ShoppingCartActivity extends AppCompatActivity {
         frameHeaderContainer.addView(headerCard.getView());
     }
 
+    //load data from api before beginning activity
     private void loadInitData() {
 
         ProgressDialog progressDialog = ProgressDialog.show(this, "Noriva",
@@ -127,7 +126,9 @@ public class ShoppingCartActivity extends AppCompatActivity {
         }.start();
     }
 
+    // set events to objects
     private void setEvent() {
+
         //set event click for txtCheckOut
         txtCheckOut.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -184,6 +185,7 @@ public class ShoppingCartActivity extends AppCompatActivity {
             }
         });
 
+        //set event click for txtContinueShopping
         txtContinueShopping.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -196,7 +198,7 @@ public class ShoppingCartActivity extends AppCompatActivity {
         });
     }
 
-    //apdate cost after add product into cart
+    //update cost after add product into cart
     public void updateTotalCost() {
         Float total = 0f;
         for (ProductInShoppingCartCard productInShoppingCartCard : productInShoppingCartCards) {
@@ -208,7 +210,7 @@ public class ShoppingCartActivity extends AppCompatActivity {
         txtTotal.setText("$" + total);
     }
 
-    //delete product from cart
+    //delete product from shopping cart
     public void deleteOrderItem(Integer id) {
         int i = 0;
         for (; i < orderItemEntities.size(); i++) {

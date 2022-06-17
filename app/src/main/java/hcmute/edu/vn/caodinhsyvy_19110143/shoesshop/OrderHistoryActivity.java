@@ -8,23 +8,24 @@ import android.widget.TableLayout;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import hcmute.edu.vn.caodinhsyvy_19110143.shoesshop.card.ConfirmOrderItemCard;
 import hcmute.edu.vn.caodinhsyvy_19110143.shoesshop.card.HeaderCard;
 import hcmute.edu.vn.caodinhsyvy_19110143.shoesshop.card.OrderHistoryItemCard;
-import hcmute.edu.vn.caodinhsyvy_19110143.shoesshop.constant.AppConstant;
 import hcmute.edu.vn.caodinhsyvy_19110143.shoesshop.crane.page.OrderHistoryPageCrane;
 import hcmute.edu.vn.caodinhsyvy_19110143.shoesshop.entity.OrderItemEntity;
 import hcmute.edu.vn.caodinhsyvy_19110143.shoesshop.page_entity.OrderHistoryPageEntity;
 
 public class OrderHistoryActivity extends AppCompatActivity {
-    // declare the necessary variables used in the form
+
     private Context context;
 
+    // to contain order item card views
     public TableLayout tbLayOrderItemContainer;
+
+    // to contain header card view
     public FrameLayout frameHeaderContainer;
     public HeaderCard headerCard;
 
-    //Function to map object in code to view in UI
+    //Function to map objects in code to associated views in UI
     private void mapping() {
         tbLayOrderItemContainer = findViewById(R.id.orderHistoryAct_tbLayOrderItemContainer);
         frameHeaderContainer = findViewById(R.id.orderHistoryAct_headerContainer);
@@ -33,16 +34,16 @@ public class OrderHistoryActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);             // save instance state
-        setContentView(R.layout.activity_order_history);    // show activity order history
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_order_history);
         this.context = this;
         mapping();
         initSetupLayout();
 
-        loadInitData();//load data from api to activity order history
+        loadInitData();
     }
 
-    //load data from api to activity order history
+    //load data from api before beginning activity
     private void loadInitData() {
 
         ProgressDialog progressDialog = ProgressDialog.show(this, "Noriva",
@@ -55,7 +56,7 @@ public class OrderHistoryActivity extends AppCompatActivity {
                 OrderHistoryPageCrane orderHistoryPageCrane = new OrderHistoryPageCrane();
                 OrderHistoryPageEntity orderHistoryPageEntity = orderHistoryPageCrane.getDataOrderHistory();
 
-                // set to UI
+                // set response data to UI
                 runOnUiThread(new Runnable() {
                     @Override
                     public void run() {
@@ -75,7 +76,7 @@ public class OrderHistoryActivity extends AppCompatActivity {
         }.start();
     }
 
-    //remove all view and add view header card
+    //add header card view
     private void initSetupLayout() {
         frameHeaderContainer.removeAllViews();
         frameHeaderContainer.addView(headerCard.getView());

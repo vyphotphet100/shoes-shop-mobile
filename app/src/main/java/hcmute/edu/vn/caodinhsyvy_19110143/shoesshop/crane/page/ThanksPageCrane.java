@@ -13,9 +13,11 @@ import java.util.Collections;
 import hcmute.edu.vn.caodinhsyvy_19110143.shoesshop.constant.AppConstant;
 import hcmute.edu.vn.caodinhsyvy_19110143.shoesshop.page_entity.ThanksPageEntity;
 
+// Crane package: to communicate with server through API
 public class ThanksPageCrane {
     private final String subUrl = "page/thanks";
 
+    // get data from server for Thanks Activity
     public ThanksPageEntity getDataThanksPage(String paymentId, String PayerID) {
 
         StringBuilder params = new StringBuilder("?");

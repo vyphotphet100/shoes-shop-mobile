@@ -12,9 +12,11 @@ import org.springframework.web.client.RestTemplate;
 import hcmute.edu.vn.caodinhsyvy_19110143.shoesshop.constant.AppConstant;
 import hcmute.edu.vn.caodinhsyvy_19110143.shoesshop.entity.UserEntity;
 
+// Crane package: to communicate with server through API
 public class LoginPageCrane {
     private final String subUrl = "login";
 
+    // send username and password to server to login
     public UserEntity login(String username, String password) {
         UserEntity userEntity = new UserEntity();
         userEntity.setUsername(username);

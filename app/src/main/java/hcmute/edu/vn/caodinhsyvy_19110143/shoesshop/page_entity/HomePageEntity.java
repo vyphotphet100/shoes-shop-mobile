@@ -12,11 +12,14 @@ import hcmute.edu.vn.caodinhsyvy_19110143.shoesshop.entity.ProductEntity;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class HomePageEntity extends BasePageEntity implements Serializable {
+
+    // declare the necessary variables used / properties
     private List<CategoryEntity> categoryEntities = new ArrayList<>();
     private List<BrandEntity> brandEntities = new ArrayList<>();
     private List<ProductEntity> cate1Products = new ArrayList<>();
     private List<ProductEntity> cate2Products = new ArrayList<>();
 
+    //get and set all value to all variables
     public List<CategoryEntity> getCategoryEntities() {
         return categoryEntities;
     }

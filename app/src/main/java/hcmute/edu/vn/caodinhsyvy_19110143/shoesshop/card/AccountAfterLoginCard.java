@@ -12,28 +12,32 @@ import hcmute.edu.vn.caodinhsyvy_19110143.shoesshop.OrderHistoryActivity;
 import hcmute.edu.vn.caodinhsyvy_19110143.shoesshop.R;
 
 public class AccountAfterLoginCard extends BaseCard{
-    // declare the necessary variables used in the account after login card
-    private int layout = R.layout.card_account_after_login;
+    private int layout = R.layout.card_account_after_login; // main card layout
     private View view;
     private Context context;
 
+    // objects to map to ui of card
     public TextView txtMyAccount, txtOrderHistory;
 
-    //Function to map object in code to text view
+    //Function to map objects in code to associated views in UI
     @Override
     protected void mapping() {
         txtMyAccount = view.findViewById(R.id.cardAccountAfterLogin_txtMyAccount);
         txtOrderHistory = view.findViewById(R.id.cardAccountAfterLogin_txtOrderHistory);
     }
 
+    // return to view of this layout
     @Override
     public View getView() {
         return this.view;
     }
 
+    // set events for objects
     @Override
     protected void setListenerEvent() {
-        txtMyAccount.setOnClickListener(new View.OnClickListener() { // when txt My account clicked
+
+        // when txt My account clicked
+        txtMyAccount.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 if (!(context instanceof MyAccountActivity)) {
@@ -44,7 +48,8 @@ public class AccountAfterLoginCard extends BaseCard{
             }
         });
 
-        txtOrderHistory.setOnClickListener(new View.OnClickListener() {  // when txt order history clicked
+        // when txt order history clicked
+        txtOrderHistory.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 if (!(context instanceof OrderHistoryActivity)) {

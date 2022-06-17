@@ -13,10 +13,12 @@ import hcmute.edu.vn.caodinhsyvy_19110143.shoesshop.constant.AppConstant;
 import hcmute.edu.vn.caodinhsyvy_19110143.shoesshop.page_entity.ProductDetailPageEntity;
 import hcmute.edu.vn.caodinhsyvy_19110143.shoesshop.page_entity.ProductPageEntity;
 
+// Crane package: to communicate with server through API
 public class ProductDetailPageCrane {
     private final String subUrl = "page/product-detail";
 
-    public ProductDetailPageEntity getDataPageDetail(String code) {
+    // get data for Product Detail Activity from server
+    public ProductDetailPageEntity getDataProductDetail(String code) {
         String params = "?code=" + code;
 
         RestTemplate restTemplate = new RestTemplate();

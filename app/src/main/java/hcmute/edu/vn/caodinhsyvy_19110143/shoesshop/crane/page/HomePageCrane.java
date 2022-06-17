@@ -12,9 +12,11 @@ import java.util.Collections;
 import hcmute.edu.vn.caodinhsyvy_19110143.shoesshop.constant.AppConstant;
 import hcmute.edu.vn.caodinhsyvy_19110143.shoesshop.page_entity.HomePageEntity;
 
+// Crane package: to communicate with server through API
 public class HomePageCrane {
     private final String subUrl = "page/home";
 
+    // get data for Home Activity from server
     public HomePageEntity getDataHomePage() {
         RestTemplate restTemplate = new RestTemplate();
 

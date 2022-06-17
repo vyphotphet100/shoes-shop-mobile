@@ -3,10 +3,15 @@ package hcmute.edu.vn.caodinhsyvy_19110143.shoesshop.constant;
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
+import android.widget.FrameLayout;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import hcmute.edu.vn.caodinhsyvy_19110143.shoesshop.LoginActivity;
+import hcmute.edu.vn.caodinhsyvy_19110143.shoesshop.card.AccountAfterLoginCard;
+import hcmute.edu.vn.caodinhsyvy_19110143.shoesshop.card.AccountCard;
+import hcmute.edu.vn.caodinhsyvy_19110143.shoesshop.card.HeaderCard;
+import hcmute.edu.vn.caodinhsyvy_19110143.shoesshop.card.InformationCard;
 import hcmute.edu.vn.caodinhsyvy_19110143.shoesshop.entity.UserEntity;
 
 public class AppConstant {
@@ -82,6 +87,28 @@ public class AppConstant {
         }
 
         return true;
+    }
+
+    //Add account card, info card and header card views before beginning activity
+    public static void initSetupLayout(Context context, FrameLayout frmAccountLayContainer,
+                                       FrameLayout frmInfoLayContainer, FrameLayout frameHeaderContainer) {
+        HeaderCard headerCard = new HeaderCard(context);
+        AccountCard accountCard = new AccountCard(context);
+        AccountAfterLoginCard accountAfterLoginCard = new AccountAfterLoginCard(context);
+        InformationCard informationCard = new InformationCard(context);
+
+
+        frmAccountLayContainer.removeAllViews();
+        if (AppConstant.loggedInUserEntity == null) // user did not log in
+            frmAccountLayContainer.addView(accountCard.getView());
+        else // user logged in -> add 'account after login card' view
+            frmAccountLayContainer.addView(accountAfterLoginCard.getView());
+
+        frmInfoLayContainer.removeAllViews();
+        frmInfoLayContainer.addView(informationCard.getView());
+
+        frameHeaderContainer.removeAllViews();
+        frameHeaderContainer.addView(headerCard.getView());
     }
 
 }

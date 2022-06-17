@@ -10,30 +10,25 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import hcmute.edu.vn.caodinhsyvy_19110143.shoesshop.card.AccountAfterLoginCard;
-import hcmute.edu.vn.caodinhsyvy_19110143.shoesshop.card.AccountCard;
-import hcmute.edu.vn.caodinhsyvy_19110143.shoesshop.card.HeaderCard;
-import hcmute.edu.vn.caodinhsyvy_19110143.shoesshop.card.InformationCard;
 import hcmute.edu.vn.caodinhsyvy_19110143.shoesshop.constant.AppConstant;
 
 public class MyAccountActivity extends AppCompatActivity {
-    // declare the necessary variables used in the form
+
     private Context context;
+
+    // frame layout to contain account card, info card, header card views
     public FrameLayout frmAccountLayContainer, frmInfoLayContainer, frameHeaderContainer;
-    public HeaderCard headerCard;
-    public AccountAfterLoginCard accountCard;
-    public InformationCard informationCard;
+
+    // objects to map to ui
     public TextView txtViewOrderHistory, txtEditAccountInfo, txtChangePassword, txtLogout;
 
-    //Function to map object in code to view in UI
+
+    //Function to map objects in code to associated views in UI
     private void mapping() {
         this.context = this;
         frmAccountLayContainer = findViewById(R.id.myAccountAct_frmAccountLayContainer);
         frmInfoLayContainer = findViewById(R.id.myAccountAct_frmInfoLayContainer);
         frameHeaderContainer = findViewById(R.id.myAccountAct_headerContainer);
-        headerCard = new HeaderCard(context);
-        accountCard = new AccountAfterLoginCard(context);
-        informationCard = new InformationCard(context);
         txtViewOrderHistory = findViewById(R.id.myAccountAct_txtViewOrderHistory);
         txtEditAccountInfo = findViewById(R.id.myAccountAct_txtEditAccountInfo);
         txtChangePassword = findViewById(R.id.myAccountAct_txtChangePassword);
@@ -43,29 +38,22 @@ public class MyAccountActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);         // save instance state
-        setContentView(R.layout.activity_my_account);   // show activity my account
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_my_account);
         mapping();
         AppConstant.waitingAnimation(context, 800);
-        initSetupLayout();
+
+        //Add account card, info card and header card views before beginning activity
+        AppConstant.initSetupLayout(context, frmAccountLayContainer, frmInfoLayContainer, frameHeaderContainer);
+
         setEvent();
 
     }
 
-
-    //remove all view and add view account card, information card, header card
-    private void initSetupLayout() {
-        frmAccountLayContainer.removeAllViews();
-        frmAccountLayContainer.addView(accountCard.getView());
-
-        frmInfoLayContainer.removeAllViews();
-        frmInfoLayContainer.addView(informationCard.getView());
-
-        frameHeaderContainer.removeAllViews();
-        frameHeaderContainer.addView(headerCard.getView());
-    }
-
+    // set events for objects
     private void setEvent() {
+
+        // 'View Order History' clicked
         txtViewOrderHistory.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -77,6 +65,7 @@ public class MyAccountActivity extends AppCompatActivity {
             }
         });
 
+        // 'Edit Account Information' clicked
         txtEditAccountInfo.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -86,6 +75,7 @@ public class MyAccountActivity extends AppCompatActivity {
             }
         });
 
+        // 'Change password' clicked
         txtChangePassword.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -95,6 +85,7 @@ public class MyAccountActivity extends AppCompatActivity {
             }
         });
 
+        // 'Logout' clicked
         txtLogout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
