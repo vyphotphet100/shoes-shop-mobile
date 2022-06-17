@@ -1,5 +1,6 @@
 package hcmute.edu.vn.caodinhsyvy_19110143.shoesshop;
 
+import android.app.ProgressDialog;
 import android.content.Context;
 import android.os.Bundle;
 import android.webkit.WebView;
@@ -37,7 +38,9 @@ public class ProductListActivity extends AppCompatActivity {
         AppConstant.waitingAnimation(context, 800);
         initSetupLayout();
 
-
+        final ProgressDialog[] progressDialog = {ProgressDialog.show(context, "Noriva",
+                "Loading...", true)};
+//        progressDialog[0].dismiss();
         webView.getSettings().setJavaScriptEnabled(true);
         webView.loadUrl(AppConstant.BASE_URL + "/customer/m-product/product-list?limit=12&" + params);
         webView.setWebViewClient(new WebViewClient() {
