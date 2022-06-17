@@ -40,6 +40,7 @@ import hcmute.edu.vn.caodinhsyvy_19110143.shoesshop.page_entity.ProductPageEntit
 import hcmute.edu.vn.caodinhsyvy_19110143.shoesshop.page_entity.ReviewPaymentPageEntity;
 
 public class HomeActivity extends AppCompatActivity {
+
     public static Boolean checkActivity = false;
     private Context context;
     public NestedScrollView srv;
@@ -95,7 +96,7 @@ public class HomeActivity extends AppCompatActivity {
         setContentView(R.layout.activity_home);     // show activity home
         mapping();
         initSetupLayout();
-        loadInitData(); //load data from api to activity home
+        loadInitData();
         setEvent();
 
         txtBrand1ShopNow.setOnClickListener(new View.OnClickListener() {
