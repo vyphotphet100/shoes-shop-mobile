@@ -38,12 +38,12 @@ public class ProductListActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_product_list);
         mapping();
-        AppConstant.waitingAnimation(context, 800);
+//        AppConstant.waitingAnimation(context, 800);
         initSetupLayout();
 
         final ProgressDialog[] progressDialog = {ProgressDialog.show(context, "Noriva",
                 "Loading...", true)};
-        progressDialog[0].dismiss();
+//        progressDialog[0].dismiss();
 
         webView.getSettings().setJavaScriptEnabled(true);
         webView.setWebViewClient(new WebViewClient() {
