@@ -8,11 +8,12 @@ import java.util.List;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class CategoryEntity extends BaseEntity<CategoryEntity> implements Serializable {
-
+    // declare the necessary variables used / properties of category entity
     private String code;
     private String name;
     private List<ProductEntity> products = new ArrayList<>();
 
+    //get and set all value to all variables
     @Override
     public String getCode() {
         return code;

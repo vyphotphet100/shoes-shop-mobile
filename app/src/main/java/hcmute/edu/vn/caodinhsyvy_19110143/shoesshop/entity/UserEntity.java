@@ -9,6 +9,7 @@ import java.util.List;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class UserEntity extends BaseEntity<UserEntity> implements Serializable {
+    // declare the necessary variables used / properties of user entity
     private Integer id;
     private String firstName;
     private String lastName;
@@ -30,6 +31,7 @@ public class UserEntity extends BaseEntity<UserEntity> implements Serializable {
     private String confirmPassword;
     private List<Object> authorities;
 
+    //get and set all value to all variables
     @Override
     public Integer getId() {
         return id;

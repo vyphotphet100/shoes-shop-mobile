@@ -21,6 +21,7 @@ import hcmute.edu.vn.caodinhsyvy_19110143.shoesshop.entity.ProductEntity;
 import hcmute.edu.vn.caodinhsyvy_19110143.shoesshop.page_entity.ShoppingCartPageEntity;
 
 public class ProductCard extends BaseCard {
+    // declare the necessary variables used in the product card
     private int layout = R.layout.card_product;
     private View view;
     private Context context;
@@ -30,6 +31,7 @@ public class ProductCard extends BaseCard {
     public ProductEntity productEntity;
     public Integer quantity = 1;
 
+    //Function to map object in code to text view, image view
     @Override
     protected void mapping() {
         img = view.findViewById(R.id.cardProduct_img);
@@ -46,7 +48,7 @@ public class ProductCard extends BaseCard {
 
     @Override
     protected void setListenerEvent() {
-        txtAddToCard.setOnClickListener(new View.OnClickListener() {
+        txtAddToCard.setOnClickListener(new View.OnClickListener() { //when txt Add To Card clicked
             @Override
             public void onClick(View v) {
                 ProgressDialog progressDialog = ProgressDialog.show(context, "Noriva",
@@ -71,12 +73,12 @@ public class ProductCard extends BaseCard {
             }
         });
 
-        imgSeeDetail.setOnClickListener(new View.OnClickListener() {
+        imgSeeDetail.setOnClickListener(new View.OnClickListener() { //when img See Detail clicked
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(context, ProductDetailActivity.class);
                 intent.putExtra("code", productEntity.getCode());
-                context.startActivity(intent);
+                context.startActivity(intent); //start product detail activity
                 ((AppCompatActivity)context).finish();
             }
         });
@@ -90,6 +92,7 @@ public class ProductCard extends BaseCard {
 
     }
 
+    //create product card
     public ProductCard(Context context, ProductEntity productEntity) {
         this.context = context;
         view = View.inflate(this.context, layout, null);

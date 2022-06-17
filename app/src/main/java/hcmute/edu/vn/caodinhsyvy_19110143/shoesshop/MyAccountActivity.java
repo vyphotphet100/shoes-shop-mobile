@@ -16,7 +16,7 @@ import hcmute.edu.vn.caodinhsyvy_19110143.shoesshop.card.InformationCard;
 import hcmute.edu.vn.caodinhsyvy_19110143.shoesshop.constant.AppConstant;
 
 public class MyAccountActivity extends AppCompatActivity {
-
+    // declare the necessary variables used in the form
     private Context context;
     public FrameLayout frmAccountLayContainer, frmInfoLayContainer, frameHeaderContainer;
     public HeaderCard headerCard;
@@ -24,6 +24,7 @@ public class MyAccountActivity extends AppCompatActivity {
     public InformationCard informationCard;
     public TextView txtViewOrderHistory;
 
+    //Function to map object in code to view in UI
     private void mapping() {
         this.context = this;
         frmAccountLayContainer = findViewById(R.id.myAccountAct_frmAccountLayContainer);
@@ -38,8 +39,8 @@ public class MyAccountActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_my_account);
+        super.onCreate(savedInstanceState);         // save instance state
+        setContentView(R.layout.activity_my_account);   // show activity my account
         mapping();
         AppConstant.waitingAnimation(context, 800);
         initSetupLayout();
@@ -47,6 +48,8 @@ public class MyAccountActivity extends AppCompatActivity {
 
     }
 
+
+    //remove all view and add view account card, information card, header card
     private void initSetupLayout() {
         frmAccountLayContainer.removeAllViews();
         frmAccountLayContainer.addView(accountCard.getView());

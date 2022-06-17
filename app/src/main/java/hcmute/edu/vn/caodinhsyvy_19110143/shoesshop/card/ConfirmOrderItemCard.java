@@ -8,12 +8,14 @@ import hcmute.edu.vn.caodinhsyvy_19110143.shoesshop.R;
 import hcmute.edu.vn.caodinhsyvy_19110143.shoesshop.entity.OrderItemEntity;
 
 public class ConfirmOrderItemCard extends BaseCard{
+    // declare the necessary variables used in the confirm order item card
     private int layout = R.layout.card_confirm_order_item;
     private View view;
     private Context context;
 
     public TextView txtProductName, txtCategory, txtBrand, txtQuantity, txtUnitPrice, txtTotalCost;
 
+    //Function to map object in code to text view
     @Override
     protected void mapping() {
         txtProductName = view.findViewById(R.id.cardConfirmOrderItem_txtProductName);
@@ -34,6 +36,7 @@ public class ConfirmOrderItemCard extends BaseCard{
 
     }
 
+    // function confirm order item card
     public ConfirmOrderItemCard(Context context, OrderItemEntity orderItemEntity) {
         this.context = context;
         view = View.inflate(this.context, layout, null);

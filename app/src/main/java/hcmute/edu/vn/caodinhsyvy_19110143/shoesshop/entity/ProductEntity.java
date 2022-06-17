@@ -8,6 +8,7 @@ import java.util.List;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class ProductEntity extends BaseEntity<ProductEntity> implements Serializable {
+    // declare the necessary variables used / properties of product entity
     private String code;
     private String title;
     private String description;
@@ -23,6 +24,7 @@ public class ProductEntity extends BaseEntity<ProductEntity> implements Serializ
     private BrandEntity brand;
     private List<OrderItemEntity> orderItems = new ArrayList<>();
 
+    //get and set all value to all variables
     @Override
     public String getCode() {
         return code;

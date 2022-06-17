@@ -17,6 +17,7 @@ public class AppConstant {
 
     public static UserEntity loggedInUserEntity;
 
+    // function waiting animation with : context and time duration
     public static void waitingAnimation(Context context, Integer duration) {
         ProgressDialog progressDialog = ProgressDialog.show(context, "Noriva",
                 "Loading...", true);
@@ -41,6 +42,7 @@ public class AppConstant {
         }.start();
     }
 
+    //Function check login user entity
     public static Boolean checkLoggedIn(Context context) {
         if (AppConstant.loggedInUserEntity == null) {
             final ProgressDialog[] progressDialog = {null};

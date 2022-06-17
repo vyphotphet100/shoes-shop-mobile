@@ -6,7 +6,7 @@ import java.io.Serializable;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class OrderItemEntity extends BaseEntity<OrderItemEntity> implements Serializable {
-
+    // declare the necessary variables used / properties of order item entity
     private Integer id;
     private Integer quantityBought;
     private Float totalCost;
@@ -14,6 +14,7 @@ public class OrderItemEntity extends BaseEntity<OrderItemEntity> implements Seri
     private ProductEntity product;
     private PaymentEntity payment;
 
+    //get and set all value to all variables
     @Override
     public Integer getId() {
         return id;

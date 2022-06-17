@@ -13,6 +13,7 @@ import java.util.HashMap;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 public abstract class BaseEntity<D> implements Cloneable, Serializable {
+    // declare the necessary variables used / properties of base entity
     private String createdBy;
 
     private Date createdDate;
@@ -47,6 +48,7 @@ public abstract class BaseEntity<D> implements Cloneable, Serializable {
         return hashMap;
     }
 
+    //get value key of hashmap in added data
     public Object getValueInAddedData(String key) {
         HashMap<String, Object> hashMap = this.retrieveAddedDataAsHashMap();
         return hashMap.get(key);
@@ -82,7 +84,7 @@ public abstract class BaseEntity<D> implements Cloneable, Serializable {
         return (BaseEntity)super.clone();
     }
 
-
+    //get and set all value to all variables
     public String getCreatedBy() {
         return createdBy;
     }

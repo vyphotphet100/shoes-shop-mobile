@@ -13,7 +13,7 @@ import hcmute.edu.vn.caodinhsyvy_19110143.shoesshop.card.InformationCard;
 import hcmute.edu.vn.caodinhsyvy_19110143.shoesshop.constant.AppConstant;
 
 public class ContactUsActivity extends AppCompatActivity {
-
+    // declare the necessary variables used in the form
     private Context context;
     public FrameLayout frmAccountLayContainer, frmInfoLayContainer, frameHeaderContainer;
     public HeaderCard headerCard;
@@ -23,13 +23,14 @@ public class ContactUsActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_contact_us);
+        super.onCreate(savedInstanceState);     // save instance state
+        setContentView(R.layout.activity_contact_us);       //show activity contact us
         mapping();
         AppConstant.waitingAnimation(context, 800);
         initSetupLayout();
     }
 
+    //Function to map object in code to view in UI
     private void mapping() {
         this.context = this;
         frmAccountLayContainer = findViewById(R.id.contactUsAct_frmAccountLayContainer);
@@ -41,6 +42,8 @@ public class ContactUsActivity extends AppCompatActivity {
         informationCard = new InformationCard(context);
     }
 
+    //remove all view and add view header card
+    //if login succesfully , add view account after login card. Else add view account card
     private void initSetupLayout() {
         frmAccountLayContainer.removeAllViews();
         if (AppConstant.loggedInUserEntity == null)

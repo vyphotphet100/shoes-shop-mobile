@@ -17,13 +17,14 @@ import hcmute.edu.vn.caodinhsyvy_19110143.shoesshop.entity.OrderItemEntity;
 import hcmute.edu.vn.caodinhsyvy_19110143.shoesshop.page_entity.OrderHistoryPageEntity;
 
 public class OrderHistoryActivity extends AppCompatActivity {
-
+    // declare the necessary variables used in the form
     private Context context;
 
     public TableLayout tbLayOrderItemContainer;
     public FrameLayout frameHeaderContainer;
     public HeaderCard headerCard;
 
+    //Function to map object in code to view in UI
     private void mapping() {
         tbLayOrderItemContainer = findViewById(R.id.orderHistoryAct_tbLayOrderItemContainer);
         frameHeaderContainer = findViewById(R.id.orderHistoryAct_headerContainer);
@@ -32,15 +33,16 @@ public class OrderHistoryActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_order_history);
+        super.onCreate(savedInstanceState);             // save instance state
+        setContentView(R.layout.activity_order_history);    // show activity order history
         this.context = this;
         mapping();
         initSetupLayout();
 
-        loadInitData();
+        loadInitData();//load data from api to activity order history
     }
 
+    //load data from api to activity order history
     private void loadInitData() {
 
         ProgressDialog progressDialog = ProgressDialog.show(this, "Noriva",
@@ -73,6 +75,7 @@ public class OrderHistoryActivity extends AppCompatActivity {
         }.start();
     }
 
+    //remove all view and add view header card
     private void initSetupLayout() {
         frameHeaderContainer.removeAllViews();
         frameHeaderContainer.addView(headerCard.getView());

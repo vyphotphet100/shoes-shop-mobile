@@ -40,7 +40,7 @@ import hcmute.edu.vn.caodinhsyvy_19110143.shoesshop.page_entity.ProductPageEntit
 import hcmute.edu.vn.caodinhsyvy_19110143.shoesshop.page_entity.ReviewPaymentPageEntity;
 
 public class HomeActivity extends AppCompatActivity {
-
+    // declare the necessary variables used in the form
     private Context context;
     public NestedScrollView srv;
     public ConstraintLayout container;
@@ -59,6 +59,7 @@ public class HomeActivity extends AppCompatActivity {
             txtBrand7,
             txtCategory1, txtCategory2, txtBrand1ShopNow;
 
+    //Function to map object in code to view in UI
     private void mapping() {
         this.context = this;
         srv = findViewById(R.id.homeAct_srv);
@@ -90,11 +91,11 @@ public class HomeActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_home);
+        super.onCreate(savedInstanceState);         // save instance state
+        setContentView(R.layout.activity_home);     // show activity home
         mapping();
         initSetupLayout();
-        loadInitData();
+        loadInitData(); //load data from api to activity home
 
         txtBrand1ShopNow.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -106,6 +107,7 @@ public class HomeActivity extends AppCompatActivity {
         });
     }
 
+    //load data from api to activity home
     private void loadInitData() {
 
         ProgressDialog progressDialog = ProgressDialog.show(this, "Noriva",
@@ -122,6 +124,7 @@ public class HomeActivity extends AppCompatActivity {
                 runOnUiThread(new Runnable() {
                     @Override
                     public void run() {
+                        // get brand entities to show in text Brand
                         txtBrand1.setText(homePageEntity.getBrandEntities().get(0).getName());
                         txtBrand2.setText(homePageEntity.getBrandEntities().get(1).getName());
                         txtBrand3.setText(homePageEntity.getBrandEntities().get(2).getName());
@@ -167,6 +170,7 @@ public class HomeActivity extends AppCompatActivity {
         }.start();
     }
 
+    //remove all view and add view header card
     private void initSetupLayout() {
         frameHeaderContainer.removeAllViews();
         frameHeaderContainer.addView(headerCard.getView());
