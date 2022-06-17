@@ -47,7 +47,7 @@ public class ShoppingCartActivity extends AppCompatActivity {
     public List<ProductInShoppingCartCard> productInShoppingCartCards = new ArrayList<>();
     public ShoppingCartPageCrane shoppingCartPageCrane;
 
-
+    //mapping all elements on activity_shopping_cart
     private void mapping() {
         this.context = this;
         frameHeaderContainer = findViewById(R.id.shoppingCartAct_headerContainer);
@@ -64,7 +64,7 @@ public class ShoppingCartActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_shopping_cart);
         mapping();
-
+        //check if customer logged in or not
         if (!AppConstant.checkLoggedIn(context))
             return;
 
@@ -87,6 +87,7 @@ public class ShoppingCartActivity extends AppCompatActivity {
         setEvent();
     }
 
+    //add headerCard into frameHeaderContainer when activity_shopping_cart loaded
     private void initSetupLayout() {
         frameHeaderContainer.removeAllViews();
         frameHeaderContainer.addView(headerCard.getView());
@@ -125,6 +126,7 @@ public class ShoppingCartActivity extends AppCompatActivity {
     }
 
     private void setEvent() {
+        //set event click for txtCheckOut
         txtCheckOut.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -143,6 +145,7 @@ public class ShoppingCartActivity extends AppCompatActivity {
                             }
                         }
 
+                        //check if orderItemIdsNeededUpdateQuantity is empty
                         if (orderItemIdsNeededUpdateQuantity.isEmpty()) {
                             runOnUiThread(new Runnable() {
                                 @Override
@@ -178,6 +181,7 @@ public class ShoppingCartActivity extends AppCompatActivity {
         });
     }
 
+    //apdate cost after add product into cart
     public void updateTotalCost() {
         Float total = 0f;
         for (ProductInShoppingCartCard productInShoppingCartCard : productInShoppingCartCards) {
@@ -189,6 +193,7 @@ public class ShoppingCartActivity extends AppCompatActivity {
         txtTotal.setText("$" + total);
     }
 
+    //delete product from cart
     public void deleteOrderItem(Integer id) {
         int i = 0;
         for (; i < orderItemEntities.size(); i++) {
@@ -202,8 +207,4 @@ public class ShoppingCartActivity extends AppCompatActivity {
         tbLayOrderItemContainer.removeViewAt(i + 1);
 
     }
-
-
-
-
 }

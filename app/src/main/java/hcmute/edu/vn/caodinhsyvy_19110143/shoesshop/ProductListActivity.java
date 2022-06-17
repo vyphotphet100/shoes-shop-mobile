@@ -20,6 +20,7 @@ public class ProductListActivity extends AppCompatActivity {
     public WebView webView;
     public String params;
 
+    //mapping all elements on activity_product_list
     private void mapping() {
         this.context = this;
         frameHeaderContainer = findViewById(R.id.productListAct_headerContainer);
@@ -35,6 +36,7 @@ public class ProductListActivity extends AppCompatActivity {
         mapping();
         AppConstant.waitingAnimation(context, 800);
         initSetupLayout();
+
 
         webView.getSettings().setJavaScriptEnabled(true);
         webView.loadUrl(AppConstant.BASE_URL + "/customer/m-product/product-list?limit=12&" + params);
@@ -83,6 +85,7 @@ public class ProductListActivity extends AppCompatActivity {
 
     }
 
+    //add headerCard into frameHeaderContainer when activity_product_list loaded
     private void initSetupLayout() {
         frameHeaderContainer.removeAllViews();
         frameHeaderContainer.addView(headerCard.getView());

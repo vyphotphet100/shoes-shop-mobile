@@ -17,6 +17,7 @@ public class ThanksActivity extends AppCompatActivity {
     public String paymentId;
     public String PayerID;
 
+    //mapping all elements on activity_thanks
     private void mapping() {
         frameLayHeaderContainer = findViewById(R.id.thanksAct_headerContainer);
         headerCard = new HeaderCard(this);
@@ -56,6 +57,7 @@ public class ThanksActivity extends AppCompatActivity {
         }.start();
     }
 
+    //add headerCard into frameLayHeaderContainer when activity_thanks loaded
     private void setHeader() {
         frameLayHeaderContainer.removeAllViews();
         frameLayHeaderContainer.addView(headerCard.getView());
