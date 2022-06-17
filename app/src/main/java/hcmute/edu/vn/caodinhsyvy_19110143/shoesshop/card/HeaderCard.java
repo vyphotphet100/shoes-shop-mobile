@@ -54,8 +54,9 @@ public class HeaderCard extends BaseCard {
                 if (AppConstant.loggedInUserEntity == null) { // if log in user entity is null
                     if (!(context instanceof LoginActivity)) {
                         Intent intent = new Intent(context, LoginActivity.class);
-                        context.startActivity(intent); // start login activity
-                        ((AppCompatActivity)context).finish();
+                        context.startActivity(intent);
+                        if (!(context instanceof HomeActivity))
+                            ((AppCompatActivity) context).finish();
                     }
                 }
                 else {
@@ -92,8 +93,9 @@ public class HeaderCard extends BaseCard {
             public void onClick(View v) {
                 if (!(context instanceof HomeActivity)) {
                     Intent intent = new Intent(context, HomeActivity.class);
-                    context.startActivity(intent);  // start home activity
-                    ((AppCompatActivity)context).finish();
+                    context.startActivity(intent);
+                    if (!(context instanceof HomeActivity))
+                        ((AppCompatActivity) context).finish();
                 }
             }
         });
@@ -102,8 +104,9 @@ public class HeaderCard extends BaseCard {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(context, ShoppingCartActivity.class);
-                context.startActivity(intent); // start shopping cart activity
-                ((AppCompatActivity)context).finish();
+                context.startActivity(intent);
+                if (!(context instanceof HomeActivity))
+                    ((AppCompatActivity) context).finish();
             }
         });
 
@@ -112,8 +115,31 @@ public class HeaderCard extends BaseCard {
             public void onClick(View v) {
                 Intent intent = new Intent(context, ProductListActivity.class);
                 intent.putExtra("params", "categoryCode=CATEGORY1");
-                context.startActivity(intent); // start  Product List activity
-                ((AppCompatActivity)context).finish();
+                context.startActivity(intent);
+                if (!(context instanceof HomeActivity))
+                    ((AppCompatActivity) context).finish();
+            }
+        });
+
+        txtMenShoes.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(context, ProductListActivity.class);
+                intent.putExtra("params", "categoryCode=CATEGORY2");
+                context.startActivity(intent);
+                if (!(context instanceof HomeActivity))
+                    ((AppCompatActivity) context).finish();
+            }
+        });
+
+        txtSportsWear.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(context, ProductListActivity.class);
+                intent.putExtra("params", "categoryCode=CATEGORY3");
+                context.startActivity(intent);
+                if (!(context instanceof HomeActivity))
+                    ((AppCompatActivity) context).finish();
             }
         });
 
