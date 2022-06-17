@@ -1,16 +1,20 @@
 package hcmute.edu.vn.caodinhsyvy_19110143.shoesshop;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.app.ProgressDialog;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Toast;
 
+import androidx.appcompat.app.AppCompatActivity;
+
 import org.springframework.http.HttpStatus;
 
+import hcmute.edu.vn.caodinhsyvy_19110143.shoesshop.card.AccountAfterLoginCard;
+import hcmute.edu.vn.caodinhsyvy_19110143.shoesshop.card.HeaderCard;
+import hcmute.edu.vn.caodinhsyvy_19110143.shoesshop.card.InformationCard;
 import hcmute.edu.vn.caodinhsyvy_19110143.shoesshop.constant.AppConstant;
+import hcmute.edu.vn.caodinhsyvy_19110143.shoesshop.crane.page.ChangePasswordPageCrane;
 import hcmute.edu.vn.caodinhsyvy_19110143.shoesshop.entity.UserEntity;
 
 public class ChangePasswordActivity extends AppCompatActivity {
