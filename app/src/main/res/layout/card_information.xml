@@ -25,7 +25,9 @@
             android:paddingTop="5dp"
             android:paddingLeft="10dp"
             android:textColor="@color/black"
-            android:layout_marginBottom="8dp"
+            android:paddingBottom="8dp"
+            android:clickable="true"
+            android:background="?android:attr/selectableItemBackground"
             android:text="About Us"/>
     </androidx.cardview.widget.CardView>
 
@@ -40,7 +42,9 @@
             android:paddingTop="5dp"
             android:paddingLeft="10dp"
             android:textColor="@color/black"
-            android:layout_marginBottom="8dp"
+            android:paddingBottom="8dp"
+            android:clickable="true"
+            android:background="?android:attr/selectableItemBackground"
             android:text="Privacy Policy"/>
     </androidx.cardview.widget.CardView>
 
@@ -55,7 +59,9 @@
             android:paddingTop="5dp"
             android:paddingLeft="10dp"
             android:textColor="@color/black"
-            android:layout_marginBottom="8dp"
+            android:paddingBottom="8dp"
+            android:clickable="true"
+            android:background="?android:attr/selectableItemBackground"
             android:text="Terms &amp; Conditions"/>
     </androidx.cardview.widget.CardView>
 
@@ -70,7 +76,9 @@
             android:paddingTop="5dp"
             android:paddingLeft="10dp"
             android:textColor="@color/black"
-            android:layout_marginBottom="8dp"
+            android:paddingBottom="8dp"
+            android:clickable="true"
+            android:background="?android:attr/selectableItemBackground"
             android:text="Contact Us"/>
     </androidx.cardview.widget.CardView>
 

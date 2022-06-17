@@ -31,16 +31,23 @@
             android:hint="Type here to search!"
             android:background="@color/white"/>
 
-        <TextView
-            android:id="@+id/cardSearch_txtSearch"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Search"
-            android:gravity="center"
-            android:padding="10dp"
-            android:textColor="@color/white"
+        <FrameLayout
             android:background="@color/black"
-            android:backgroundTint="@color/black"/>
+            android:padding="2dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+            <TextView
+                android:id="@+id/cardSearch_txtSearch"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Search"
+                android:gravity="center"
+                android:padding="10dp"
+                android:textColor="@color/white"
+                android:background="@color/black"
+                android:backgroundTint="@color/black"/>
+
+        </FrameLayout>
 
     </LinearLayout>
 

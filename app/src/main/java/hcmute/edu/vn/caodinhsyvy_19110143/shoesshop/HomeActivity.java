@@ -4,12 +4,12 @@ import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.content.res.Resources;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;
 import android.widget.HorizontalScrollView;
-import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
@@ -19,25 +19,12 @@ import androidx.core.widget.NestedScrollView;
 
 import com.squareup.picasso.Picasso;
 
-import org.springframework.http.HttpStatus;
-
-import java.util.List;
-
-import hcmute.edu.vn.caodinhsyvy_19110143.shoesshop.card.AccountCard;
 import hcmute.edu.vn.caodinhsyvy_19110143.shoesshop.card.HeaderCard;
-import hcmute.edu.vn.caodinhsyvy_19110143.shoesshop.card.InformationCard;
 import hcmute.edu.vn.caodinhsyvy_19110143.shoesshop.card.ProductCard;
 import hcmute.edu.vn.caodinhsyvy_19110143.shoesshop.constant.AppConstant;
-import hcmute.edu.vn.caodinhsyvy_19110143.shoesshop.crane.page.CheckOutPageCrane;
 import hcmute.edu.vn.caodinhsyvy_19110143.shoesshop.crane.page.HomePageCrane;
-import hcmute.edu.vn.caodinhsyvy_19110143.shoesshop.crane.page.LoginPageCrane;
-import hcmute.edu.vn.caodinhsyvy_19110143.shoesshop.crane.page.ProductPageCrane;
-import hcmute.edu.vn.caodinhsyvy_19110143.shoesshop.crane.page.ReviewPaymentPageCrane;
 import hcmute.edu.vn.caodinhsyvy_19110143.shoesshop.entity.ProductEntity;
-import hcmute.edu.vn.caodinhsyvy_19110143.shoesshop.entity.UserEntity;
 import hcmute.edu.vn.caodinhsyvy_19110143.shoesshop.page_entity.HomePageEntity;
-import hcmute.edu.vn.caodinhsyvy_19110143.shoesshop.page_entity.ProductPageEntity;
-import hcmute.edu.vn.caodinhsyvy_19110143.shoesshop.page_entity.ReviewPaymentPageEntity;
 
 public class HomeActivity extends AppCompatActivity {
 
@@ -58,7 +45,8 @@ public class HomeActivity extends AppCompatActivity {
             txtBrand3, txtBrand4,
             txtBrand5, txtBrand6,
             txtBrand7,
-            txtCategory1, txtCategory2, txtBrand1ShopNow;
+            txtCategory1, txtCategory2,
+            txtBrand1ShopNow, txtBrand2ShopNow, txtBrand3ShopNow, txtBrand4ShopNow;
 
     //Function to map object in code to view in UI
     private void mapping() {
@@ -84,6 +72,9 @@ public class HomeActivity extends AppCompatActivity {
         txtCategory1 = findViewById(R.id.homeAct_txtCategory1);
         txtCategory2 = findViewById(R.id.homeAct_txtCategory2);
         txtBrand1ShopNow = findViewById(R.id.homeAct_txtBrand1ShopNow);
+        txtBrand2ShopNow = findViewById(R.id.homeAct_txtBrand2ShopNow);
+        txtBrand3ShopNow = findViewById(R.id.homeAct_txtBrand3ShopNow);
+        txtBrand4ShopNow = findViewById(R.id.homeAct_txtBrand4ShopNow);
 
         frameHeaderContainer = findViewById(R.id.homeAct_headerContainer);
         headerCard = new HeaderCard(context);
@@ -99,14 +90,6 @@ public class HomeActivity extends AppCompatActivity {
         loadInitData();
         setEvent();
 
-        txtBrand1ShopNow.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(context, ProductDetailActivity.class);
-                intent.putExtra("code", "aqrrj");
-                startActivity(intent);
-            }
-        });
     }
 
     //load data from api to activity home
@@ -176,6 +159,85 @@ public class HomeActivity extends AppCompatActivity {
     private void initSetupLayout() {
         frameHeaderContainer.removeAllViews();
         frameHeaderContainer.addView(headerCard.getView());
+    }
+
+    private void setEvent() {
+        txtBrand1ShopNow.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                txtBrand1ShopNow.setBackgroundColor(Color.parseColor("#FFFFFF"));
+                txtBrand1ShopNow.setTextColor(Color.parseColor("#000000"));
+                Intent intent = new Intent(context, ProductListActivity.class);
+                intent.putExtra("params", "brandCode=BRAND1");
+                context.startActivity(intent);
+            }
+        });
+
+        txtBrand2ShopNow.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                txtBrand2ShopNow.setBackgroundColor(Color.parseColor("#FFFFFF"));
+                txtBrand2ShopNow.setTextColor(Color.parseColor("#000000"));
+                Intent intent = new Intent(context, ProductListActivity.class);
+                intent.putExtra("params", "brandCode=BRAND2");
+                context.startActivity(intent);
+            }
+        });
+
+        txtBrand3ShopNow.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                txtBrand3ShopNow.setBackgroundColor(Color.parseColor("#FFFFFF"));
+                txtBrand3ShopNow.setTextColor(Color.parseColor("#000000"));
+                Intent intent = new Intent(context, ProductListActivity.class);
+                intent.putExtra("params", "brandCode=BRAND3");
+                context.startActivity(intent);
+            }
+        });
+
+        txtBrand4ShopNow.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                txtBrand4ShopNow.setBackgroundColor(Color.parseColor("#FFFFFF"));
+                txtBrand4ShopNow.setTextColor(Color.parseColor("#000000"));
+                Intent intent = new Intent(context, ProductListActivity.class);
+                intent.putExtra("params", "brandCode=BRAND4");
+                context.startActivity(intent);
+            }
+        });
+
+        txtBrand5.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                txtBrand5.setBackgroundColor(Color.parseColor("#FFFFFF"));
+                txtBrand5.setTextColor(Color.parseColor("#000000"));
+                Intent intent = new Intent(context, ProductListActivity.class);
+                intent.putExtra("params", "brandCode=BRAND5");
+                context.startActivity(intent);
+            }
+        });
+
+        txtBrand6.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                txtBrand6.setBackgroundColor(Color.parseColor("#FFFFFF"));
+                txtBrand6.setTextColor(Color.parseColor("#000000"));
+                Intent intent = new Intent(context, ProductListActivity.class);
+                intent.putExtra("params", "brandCode=BRAND6");
+                context.startActivity(intent);
+            }
+        });
+
+        txtBrand7.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                txtBrand7.setBackgroundColor(Color.parseColor("#FFFFFF"));
+                txtBrand7.setTextColor(Color.parseColor("#000000"));
+                Intent intent = new Intent(context, ProductListActivity.class);
+                intent.putExtra("params", "brandCode=BRAND7");
+                context.startActivity(intent);
+            }
+        });
     }
 
 

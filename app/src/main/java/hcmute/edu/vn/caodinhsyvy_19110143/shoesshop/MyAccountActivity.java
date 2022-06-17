@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.FrameLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -22,7 +23,7 @@ public class MyAccountActivity extends AppCompatActivity {
     public HeaderCard headerCard;
     public AccountAfterLoginCard accountCard;
     public InformationCard informationCard;
-    public TextView txtViewOrderHistory;
+    public TextView txtViewOrderHistory, txtEditAccountInfo, txtChangePassword, txtLogout;
 
     //Function to map object in code to view in UI
     private void mapping() {
@@ -34,6 +35,9 @@ public class MyAccountActivity extends AppCompatActivity {
         accountCard = new AccountAfterLoginCard(context);
         informationCard = new InformationCard(context);
         txtViewOrderHistory = findViewById(R.id.myAccountAct_txtViewOrderHistory);
+        txtEditAccountInfo = findViewById(R.id.myAccountAct_txtEditAccountInfo);
+        txtChangePassword = findViewById(R.id.myAccountAct_txtChangePassword);
+        txtLogout = findViewById(R.id.myAccountAct_txtLogout);
     }
 
 
@@ -68,8 +72,37 @@ public class MyAccountActivity extends AppCompatActivity {
                 if (!(context instanceof OrderHistoryActivity)) {
                     Intent intent = new Intent(context, OrderHistoryActivity.class);
                     context.startActivity(intent);
-                    ((AppCompatActivity)context).finish();
+                    ((AppCompatActivity) context).finish();
                 }
+            }
+        });
+
+        txtEditAccountInfo.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(context, EditAccountActivity.class);
+                startActivity(intent);
+//                ((AppCompatActivity)context).finish();
+            }
+        });
+
+        txtChangePassword.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(context, ChangePasswordActivity.class);
+                startActivity(intent);
+//                ((AppCompatActivity)context).finish();
+            }
+        });
+
+        txtLogout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                AppConstant.loggedInUserEntity = null;
+                Toast.makeText(context, "Log out successfully!", Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent(context, LoginActivity.class);
+                startActivity(intent);
+                ((AppCompatActivity) context).finish();
             }
         });
     }

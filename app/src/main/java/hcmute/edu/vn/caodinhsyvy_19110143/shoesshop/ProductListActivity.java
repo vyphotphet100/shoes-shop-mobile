@@ -27,7 +27,11 @@ public class ProductListActivity extends AppCompatActivity {
         frameHeaderContainer = findViewById(R.id.productListAct_headerContainer);
         headerCard = new HeaderCard(context);
         webView = findViewById(R.id.productListAct_webView);
-        params = getIntent().getExtras().getString("params");
+        try {
+            params = getIntent().getExtras().getString("params");
+        } catch (Exception ex) {
+            params = null;
+        }
     }
 
     @Override
@@ -35,7 +39,7 @@ public class ProductListActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_product_list);
         mapping();
-        AppConstant.waitingAnimation(context, 800);
+//        AppConstant.waitingAnimation(context, 800);
         initSetupLayout();
 
         final ProgressDialog[] progressDialog = {ProgressDialog.show(context, "Noriva",
@@ -43,11 +47,19 @@ public class ProductListActivity extends AppCompatActivity {
 //        progressDialog[0].dismiss();
 
         webView.getSettings().setJavaScriptEnabled(true);
-        webView.loadUrl(AppConstant.BASE_URL + "/customer/m-product/product-list?limit=12&" + params);
         webView.setWebViewClient(new WebViewClient() {
+
+            @Override
+            public void onPageFinished(WebView view, String url) {
+                super.onPageFinished(view, url);
+                if (progressDialog[0] != null)
+                    progressDialog[0].dismiss();
+            }
+
             @Override
             public boolean shouldOverrideUrlLoading(WebView view, String url) {
-                AppConstant.waitingAnimation(context, 500);
+                progressDialog[0] = ProgressDialog.show(context, "Noriva",
+                        "Loading...", true);
                 if (!url.contains("shoesshop-app://"))
                     return super.shouldOverrideUrlLoading(view, url);
 
@@ -86,6 +98,10 @@ public class ProductListActivity extends AppCompatActivity {
                 return true;
             }
         });
+        if (params != null)
+            webView.loadUrl(AppConstant.BASE_URL + "/customer/m-product/product-list?limit=12&" + params);
+        else
+            webView.loadUrl(AppConstant.BASE_URL + "/customer/m-product/product-list?limit=12");
 
     }
 

@@ -25,7 +25,9 @@
             android:paddingTop="5dp"
             android:textColor="@color/black"
             android:paddingLeft="10dp"
-            android:layout_marginBottom="8dp"
+            android:paddingBottom="8dp"
+            android:clickable="true"
+            android:background="?android:attr/selectableItemBackground"
             android:text="My Account"/>
     </androidx.cardview.widget.CardView>
 
@@ -40,7 +42,9 @@
             android:paddingTop="5dp"
             android:paddingLeft="10dp"
             android:textColor="@color/black"
-            android:layout_marginBottom="8dp"
+            android:clickable="true"
+            android:background="?android:attr/selectableItemBackground"
+            android:paddingBottom="8dp"
             android:text="Order History"/>
     </androidx.cardview.widget.CardView>
 

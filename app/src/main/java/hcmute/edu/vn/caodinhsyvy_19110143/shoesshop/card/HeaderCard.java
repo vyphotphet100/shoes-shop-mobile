@@ -3,6 +3,7 @@ package hcmute.edu.vn.caodinhsyvy_19110143.shoesshop.card;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.graphics.Color;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -58,12 +59,12 @@ public class HeaderCard extends BaseCard {
                         if (!(context instanceof HomeActivity))
                             ((AppCompatActivity) context).finish();
                     }
-                }
-                else {
+                } else {
                     if (!(context instanceof MyAccountActivity)) {
                         Intent intent = new Intent(context, MyAccountActivity.class);
                         context.startActivity(intent);
-                        ((AppCompatActivity)context).finish();
+                        if (!(context instanceof HomeActivity))
+                            ((AppCompatActivity) context).finish();
                     }
                 }
 
@@ -76,12 +77,20 @@ public class HeaderCard extends BaseCard {
                 AlertDialog.Builder b = new AlertDialog.Builder(context);
                 View cardSearch = View.inflate(context, R.layout.card_search, null);
                 TextView txtSearch = cardSearch.findViewById(R.id.cardSearch_txtSearch);
+                TextView edtTxtSearch = cardSearch.findViewById(R.id.cardSearch_edtTxtSearch);
                 b.setView(cardSearch);
                 AlertDialog al = b.create();
                 al.show();
                 txtSearch.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
+                        txtSearch.setBackgroundColor(Color.parseColor("#FFFFFF"));
+                        txtSearch.setTextColor(Color.parseColor("#000000"));
+                        Intent intent = new Intent(context, ProductListActivity.class);
+                        intent.putExtra("params", "keyword=" + edtTxtSearch.getText().toString());
+                        context.startActivity(intent);
+                        if (!(context instanceof HomeActivity))
+                            ((AppCompatActivity) context).finish();
                         al.dismiss();
                     }
                 });

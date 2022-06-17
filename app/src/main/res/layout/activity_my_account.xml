@@ -87,13 +87,15 @@
                         android:layout_marginTop="10dp">
 
                         <TextView
-                            android:id="@+id/cardAccount_txtLogin"
+                            android:id="@+id/myAccountAct_txtEditAccountInfo"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:layout_marginBottom="8dp"
+                            android:paddingBottom="8dp"
                             android:paddingLeft="10dp"
                             android:paddingTop="5dp"
                             android:focusable="true"
+                            android:clickable="true"
+                            android:background="?android:attr/selectableItemBackground"
                             android:text="Edit your account information"
                             android:textColor="@color/black" />
                     </androidx.cardview.widget.CardView>
@@ -104,12 +106,14 @@
                         android:layout_marginTop="10dp">
 
                         <TextView
-                            android:id="@+id/cardAccount_txtRegister"
+                            android:id="@+id/myAccountAct_txtChangePassword"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:paddingTop="5dp"
-                            android:layout_marginBottom="8dp"
+                            android:paddingBottom="8dp"
                             android:paddingLeft="10dp"
+                            android:clickable="true"
+                            android:background="?android:attr/selectableItemBackground"
                             android:text="Change your password"
                             android:textColor="@color/black" />
                     </androidx.cardview.widget.CardView>
@@ -120,13 +124,15 @@
                         android:layout_marginTop="10dp">
 
                         <TextView
-                            android:id="@+id/cardAccount_txtLogout"
+                            android:id="@+id/myAccountAct_txtLogout"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:layout_marginBottom="8dp"
+                            android:paddingBottom="8dp"
                             android:paddingLeft="10dp"
                             android:paddingTop="5dp"
                             android:text="Log out"
+                            android:clickable="true"
+                            android:background="?android:attr/selectableItemBackground"
                             android:textColor="@color/black" />
                     </androidx.cardview.widget.CardView>
 
@@ -169,10 +175,12 @@
                             android:id="@+id/myAccountAct_txtViewOrderHistory"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:layout_marginBottom="8dp"
+                            android:paddingBottom="8dp"
                             android:paddingLeft="10dp"
                             android:paddingTop="5dp"
                             android:focusable="true"
+                            android:clickable="true"
+                            android:background="?android:attr/selectableItemBackground"
                             android:text="View your order history"
                             android:textColor="@color/black" />
                     </androidx.cardview.widget.CardView>

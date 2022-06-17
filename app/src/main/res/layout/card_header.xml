@@ -20,6 +20,8 @@
         android:layout_marginTop="15dp"
         android:layout_marginBottom="15dp"
         android:scaleType="fitCenter"
+        android:clickable="true"
+        android:background="?android:attr/selectableItemBackground"
         android:src="@drawable/img_logo" />
 
     <LinearLayout
@@ -38,6 +40,8 @@
             android:paddingBottom="10dp"
             android:text="Women's Shoes"
             android:textAlignment="textEnd"
+            android:clickable="true"
+            android:background="?android:attr/selectableItemBackground"
             android:textColor="@color/black" />
 
         <TextView
@@ -49,6 +53,8 @@
             android:paddingTop="10dp"
             android:paddingBottom="10dp"
             android:text="Men's Shoes"
+            android:clickable="true"
+            android:background="?android:attr/selectableItemBackground"
             android:textColor="@color/black" />
     </LinearLayout>
 
@@ -65,6 +71,8 @@
             android:paddingBottom="10dp"
             android:text="Sportswear Collection"
             android:textAlignment="center"
+            android:clickable="true"
+            android:background="?android:attr/selectableItemBackground"
             android:textColor="@color/black" />
     </LinearLayout>
 
@@ -77,6 +85,8 @@
             android:layout_width="55dp"
             android:layout_height="55dp"
             android:padding="7dp"
+            android:clickable="true"
+            android:background="?android:attr/selectableItemBackground"
             android:src="@drawable/ic_search"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toLeftOf="@id/headerCard_imgAccount"
@@ -87,6 +97,8 @@
             android:layout_width="55dp"
             android:layout_height="55dp"
             android:padding="7dp"
+            android:clickable="true"
+            android:background="?android:attr/selectableItemBackground"
             android:src="@drawable/ic_account"
             app:layout_constraintLeft_toRightOf="@id/headerCard_imgSearch"
             app:layout_constraintRight_toLeftOf="@id/headerCard_imgShoppingCart"
@@ -97,6 +109,8 @@
             android:layout_width="55dp"
             android:layout_height="55dp"
             android:padding="7dp"
+            android:clickable="true"
+            android:background="?android:attr/selectableItemBackground"
             android:src="@drawable/ic_shopping_card"
             app:layout_constraintLeft_toRightOf="@id/headerCard_imgAccount"
             app:layout_constraintRight_toRightOf="parent"

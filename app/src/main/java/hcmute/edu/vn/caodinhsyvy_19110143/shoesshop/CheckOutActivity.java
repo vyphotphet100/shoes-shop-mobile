@@ -3,6 +3,7 @@ package hcmute.edu.vn.caodinhsyvy_19110143.shoesshop;
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
@@ -65,6 +66,8 @@ public class CheckOutActivity extends AppCompatActivity {
         txtPay.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                txtPay.setBackgroundColor(Color.parseColor("#FFFFFF"));
+                txtPay.setTextColor(Color.parseColor("#000000"));
                 new Thread() {
                     ProgressDialog progressDialog = ProgressDialog.show(context, "Noriva",
                             "Loading...", true);
@@ -108,6 +111,8 @@ public class CheckOutActivity extends AppCompatActivity {
         txtEdit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                txtEdit.setBackgroundColor(Color.parseColor("#FFFFFF"));
+                txtEdit.setTextColor(Color.parseColor("#000000"));
                 Intent intent = new Intent(context, ShoppingCartActivity.class);
                 startActivity(intent);
                 finish();

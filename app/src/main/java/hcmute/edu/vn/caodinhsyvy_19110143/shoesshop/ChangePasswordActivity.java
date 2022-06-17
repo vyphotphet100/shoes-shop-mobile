@@ -23,6 +23,29 @@ import hcmute.edu.vn.caodinhsyvy_19110143.shoesshop.entity.UserEntity;
 
 public class ChangePasswordActivity extends AppCompatActivity {
 
+    private Context context;
+    public FrameLayout frmAccountLayContainer, frmInfoLayContainer, frameHeaderContainer;
+    public HeaderCard headerCard;
+    public AccountAfterLoginCard accountAfterLoginCard;
+    public InformationCard informationCard;
+    public EditText edtTxtOldPassword, edtTxtNewPassword, edtTxtPasswordConfirm;
+    public Button btnSaveChange, btnBack;
+
+    private void mapping() {
+        this.context = this;
+        frmAccountLayContainer = findViewById(R.id.changePasswordAct_frmAccountLayContainer);
+        frmInfoLayContainer = findViewById(R.id.changePasswordAct_frmInfoLayContainer);
+        frameHeaderContainer = findViewById(R.id.changePasswordAct_headerContainer);
+        headerCard = new HeaderCard(context);
+        accountAfterLoginCard = new AccountAfterLoginCard(context);
+        informationCard = new InformationCard(context);
+        edtTxtOldPassword = findViewById(R.id.changePasswordAct_edtTxtOldPassword);
+        edtTxtNewPassword = findViewById(R.id.changePasswordAct_edtTxtNewPassword);
+        edtTxtPasswordConfirm = findViewById(R.id.changePasswordAct_edtTxtPasswordConfirm);
+        btnSaveChange = findViewById(R.id.changePasswordAct_btnSaveChange);
+        btnBack = findViewById(R.id.changePasswordAct_btnBack);
+    }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

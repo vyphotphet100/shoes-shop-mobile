@@ -86,17 +86,24 @@
                 <include layout="@layout/card_register"/>
 
             </FrameLayout>
-            <Button
-                android:id="@+id/registerAct_btnRegister"
-                android:layout_width="100dp"
-                android:layout_height="wrap_content"
+            <FrameLayout
                 android:layout_marginLeft="20dp"
                 android:layout_marginTop="20dp"
                 android:layout_marginBottom="20dp"
-                android:textSize="14dp"
-                android:text="REGISTER"
-                android:textColor="@color/white"
-                android:background="@color/black"/>
+                android:padding="2dp"
+                android:background="@color/black"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+                <Button
+                    android:id="@+id/registerAct_btnRegister"
+                    android:layout_width="100dp"
+                    android:layout_height="wrap_content"
+                    android:textSize="14dp"
+                    android:text="REGISTER"
+                    android:textColor="@color/white"
+                    android:background="@color/black"/>
+
+            </FrameLayout>
 
             <include layout="@layout/card_footer"/>
 
