@@ -41,6 +41,7 @@ public class ProductListActivity extends AppCompatActivity {
         final ProgressDialog[] progressDialog = {ProgressDialog.show(context, "Noriva",
                 "Loading...", true)};
 //        progressDialog[0].dismiss();
+
         webView.getSettings().setJavaScriptEnabled(true);
         webView.loadUrl(AppConstant.BASE_URL + "/customer/m-product/product-list?limit=12&" + params);
         webView.setWebViewClient(new WebViewClient() {
