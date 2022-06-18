@@ -85,6 +85,7 @@ public class ProductListActivity extends AppCompatActivity {
                     ProductCard productCard = new ProductCard(context, new ProductEntity());
                     productCard.productEntity.setCode(productCode.toString());
                     productCard.txtAddToCard.callOnClick();
+                    progressDialog[0].dismiss();
                 }
 
                 // open product detail activity
