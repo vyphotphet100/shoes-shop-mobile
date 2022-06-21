@@ -19,7 +19,7 @@ public class AccountAfterLoginCard extends BaseCard{
     // objects to map to ui of card
     public TextView txtMyAccount, txtOrderHistory;
 
-    //Function to map objects in code to associated views in UI
+    //Function to map objects in code to associated views in UI - test2
     @Override
     protected void mapping() {
         txtMyAccount = view.findViewById(R.id.cardAccountAfterLogin_txtMyAccount);
