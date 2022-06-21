@@ -16,7 +16,7 @@ public class AccountAfterLoginCard extends BaseCard{
     private View view;
     private Context context;
 
-    // objects to map to ui of card - test
+    // objects to map to ui of card
     public TextView txtMyAccount, txtOrderHistory;
 
     //Function to map objects in code to associated views in UI
